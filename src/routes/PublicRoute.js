@@ -2,7 +2,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PublicRoute = ({
   restricted = false,
-  redirectTo = '/dashboard/calculator',
+  redirectTo = '/calculator',
   ...routeProps
 }) => {
   const isAuthentificated = true; //! Для проверки
