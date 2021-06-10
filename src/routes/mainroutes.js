@@ -12,7 +12,7 @@ const mainRoutes = [
     restricted: true,
   },
   {
-    name: 'Login',
+    name: 'вход',
     path: '/login',
     exact: true,
     component: lazy(() =>
@@ -22,7 +22,7 @@ const mainRoutes = [
     restricted: true,
   },
   {
-    name: 'registration',
+    name: 'регистрация',
     path: '/registration',
     exact: true,
     component: lazy(() =>
@@ -34,11 +34,21 @@ const mainRoutes = [
     restricted: true,
   },
   {
-    name: 'dashboard',
-    path: '/dashboard',
-    exact: false,
+    name: 'дневник',
+    path: '/diary',
+    exact: true,
     component: lazy(() =>
-      import('../pages/test/dashpage' /*webpackChunkName: "sprints-page" */),
+      import('../pages/test/diary' /*webpackChunkName: "diary-page" */),
+    ),
+    private: true,
+    restricted: false,
+  },
+  {
+    name: 'калькулятор',
+    path: '/calculator',
+    exact: true,
+    component: lazy(() =>
+      import('../pages/test/calc' /*webpackChunkName: "calculator-page" */),
     ),
     private: true,
     restricted: false,
