@@ -1,10 +1,13 @@
 import React from 'react';
+import Header from '../Header/Header';
+import Main from '../Main/Main';
 import Modal from '../Modal/Modal';
 
 const App = () => {
   return (
     <div>
-      <h2>App</h2>
+      <Header />
+      <Main />
       <Modal />
     </div>
   );
