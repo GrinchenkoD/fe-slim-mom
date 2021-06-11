@@ -1,0 +1,117 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 110;
+  font-family: Verdana;
+  font-weight: 700;
+}
+
+.calories__title {
+  margin-top: 40px;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 1.44;
+  color: #212121;
+  text-align: left;
+}
+
+.calories__number {
+  width: -webkit-fill-available;
+  margin-top: 40px;
+  margin-bottom: 0;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: 0.04em;
+  color: #264061;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.calories__text {
+  font-size: 16px;
+  line-height: 19.45px;
+  padding-left: 10px;
+}
+
+.calories__list_title {
+  margin-top: 20px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #212121;
+}
+
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 0 0 20px;
+}
+.calories__list_item {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+}
+.calories__list_item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.startDietBtn {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 176px;
+  height: 44px;
+  border-radius: 30px;
+  padding: 13px 26px;
+  background: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+/* !  ------------------TABLET ver.------------------ */
+@media screen and (min-width: 768px) {
+  .calories__title {
+    width: 509px;
+    margin: 0 auto;
+    margin-top: 64px;
+    margin-bottom: 0;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  .calories__number {
+    width: 330px;
+    margin: 0 auto;
+    margin-top: 22px;
+  }
+
+  .calories__list_title {
+    width: 330px;
+    margin: 0 auto;
+    margin-top: 12px;
+    margin-bottom: 22px;
+  }
+  ol {
+    padding: 0 0 0 152px;
+  }
+}
+
+/* ! ------------------DESKTOP ver.------------------ */
+@media screen and (min-width: 1280px) {
+  ol {
+    padding: 0 0 0 200px;
+  }
+}
