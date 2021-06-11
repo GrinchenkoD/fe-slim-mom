@@ -42,7 +42,6 @@ const getLogin = user => dispatch => {
   axios
     .post('/auth/login', user)
     .then(({ data }) => {
-      console.log(data);
       dispatch(logInSuccess(data));
       token.set(data.token);
     })
