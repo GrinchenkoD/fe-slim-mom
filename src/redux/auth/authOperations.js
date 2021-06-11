@@ -39,6 +39,7 @@ const getRegister = user => dispatch => {
 
 const getLogin = user => dispatch => {
   dispatch(logInRequest());
+  console.log('СКИДЫЩЬ!!');
   axios
     .post('/login', user)
     .then(({ data }) => {
@@ -70,4 +71,4 @@ const getLogout = () => dispatch => {
     .catch(error => dispatch(logOutError(error)));
 };
 
-export default { getRegister, getLogin, getUserData, getLogout };
+export { getRegister, getLogin, getUserData, getLogout };
