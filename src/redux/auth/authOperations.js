@@ -60,8 +60,13 @@ const getUserData = () => (dispatch, getState) => {
     .then(({ data }) => dispatch(getCurrentUserSuccess(data)))
     .catch(error => dispatch(getCurrentUserError(error.message)));
 };
-const getLogout = () => dispatch => {
+const getLogout = () => async (dispatch, getState) => {
   dispatch(logOutRequest());
+  const {
+    auth: { token: accessToken },
+  } = getState();
+
+  token.set(accessToken);
   axios
     .post('/auth/logout')
     .then(() => {

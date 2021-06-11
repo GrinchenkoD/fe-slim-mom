@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDevice } from '../../hooks/useDevice';
+// import { useDevice } from '../../hooks/useDevice';
 import styles from './AuthThumb.module.css';
 // import bananaTablet from "../../images/auth/banana-tablet.png"
 // import strawberryTablet from "../../images/auth/strawberry-tablet.png"
@@ -11,7 +11,7 @@ import styles from './AuthThumb.module.css';
 
 
 const AuthThumb = ({ children }) => {
-    const { isDesctopDevice, isTabletDevice } = useDevice();
+    // const { isDesctopDevice, isTabletDevice } = useDevice();
     
     return (
         <div className={styles.thumb} >
