@@ -19,7 +19,9 @@ const mainRoutes = [
     path: '/login',
     exact: true,
     component: lazy(() =>
-      import('../pages/test/logpage' /*webpackChunkName: "login-page" */),
+      import(
+        '../pages/LoginPage/LoginPage' /*webpackChunkName: "login-page" */
+      ),
     ),
     private: false,
     restricted: true,
@@ -30,7 +32,7 @@ const mainRoutes = [
     exact: true,
     component: lazy(() =>
       import(
-        '../pages/test/regpage' /*webpackChunkName: "registration-page" */
+        '../pages/RegisterPage/RegisterPage' /*webpackChunkName: "registration-page" */
       ),
     ),
     private: false,

@@ -6,7 +6,7 @@
   padding: 1rem 0px 0px 0px;
   height: 55px;
   color: rgb(255, 0, 55);
-  margin: 0 auto;
+  margin: 0 auto 24px;
 }
 .label {
   position: absolute;
@@ -20,6 +20,9 @@
 
   transition: 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+/* .formControlInput:not(:last-child) {
+  margin-bottom: 25px;
+} */
 
 .formControlInput:focus ~ .label {
   color: #9b9faa;

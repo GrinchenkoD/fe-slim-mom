@@ -4,14 +4,14 @@ import authActions from './authActions';
 
 const userInitialState = {};
 const user = createReducer(userInitialState, {
-  [authActions.logInSuccess]: (_, { payload }) => payload.userData,
+  // [authActions.logInSuccess]: (_, { payload }) => payload.userData,//!нам не возвращают Юзердата
   [authActions.logOutSuccess]: () => userInitialState,
   [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
 });
 
 const tokenInitialState = null;
 const token = createReducer(tokenInitialState, {
-  [authActions.logInSuccess]: (_, { payload }) => payload.accessToken,
+  [authActions.logInSuccess]: (_, { payload }) => payload.token,
   [authActions.logOutSuccess]: () => tokenInitialState,
 });
 

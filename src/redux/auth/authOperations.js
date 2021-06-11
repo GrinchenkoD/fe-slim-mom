@@ -16,7 +16,7 @@ const {
   getCurrentUserError,
 } = actions;
 
-axios.defaults.baseURL = 'Подставить урлу на которой будет бекенд';
+axios.defaults.baseURL = 'https://slim-mom.herokuapp.com/';
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -29,24 +29,24 @@ const token = {
 const getRegister = user => dispatch => {
   dispatch(registerRequest());
   axios
-    .post(`/signup`, user)
+    .post(`/auth/registration`, user)
     .then(({ data }) => {
       dispatch(registerSuccess(data));
       token.set(data.token);
     })
-    .catch(error => dispatch(registerError(error)));
+    .catch(error => dispatch(registerError(error.message)));
 };
 
 const getLogin = user => dispatch => {
   dispatch(logInRequest());
-  console.log('СКИДЫЩЬ!!');
   axios
-    .post('/login', user)
+    .post('/auth/login', user)
     .then(({ data }) => {
+      console.log(data);
       dispatch(logInSuccess(data));
       token.set(data.token);
     })
-    .catch(error => dispatch(logInError(error)));
+    .catch(error => dispatch(logInError(error.message)));
 };
 const getUserData = () => (dispatch, getState) => {
   const persistedToken = getState().auth.token;
@@ -58,17 +58,17 @@ const getUserData = () => (dispatch, getState) => {
   axios
     .get('/current')
     .then(({ data }) => dispatch(getCurrentUserSuccess(data)))
-    .catch(error => dispatch(getCurrentUserError(error)));
+    .catch(error => dispatch(getCurrentUserError(error.message)));
 };
 const getLogout = () => dispatch => {
   dispatch(logOutRequest());
   axios
-    .post('/logout')
+    .post('/auth/logout')
     .then(() => {
       token.unset();
       dispatch(logOutSuccess());
     })
-    .catch(error => dispatch(logOutError(error)));
+    .catch(error => dispatch(logOutError(error.message)));
 };
 
 export { getRegister, getLogin, getUserData, getLogout };

@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import auth from './auth/authActions'
+import auth from './auth/authActions';
 
 const intialState = null;
 const errorReducer = createReducer(intialState, {

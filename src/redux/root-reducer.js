@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducer';
 import errorReducer from './error';
-import loadingReducer from './isLoading';
+import loadingReducer from './loading/isLoading';
 
 // ! CONFIG PERSIST HERE
 // const authPersistConfig = {
@@ -19,7 +19,7 @@ const authPersistConfig = {
 };
 const reducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  error:errorReducer,
+  error: errorReducer,
   isLoading: loadingReducer,
 });
 

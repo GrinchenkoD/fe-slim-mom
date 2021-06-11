@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import auth from './auth/authActions';
+import auth from '../auth/authActions';
 
 const intialState = false;
 
@@ -13,6 +13,6 @@ const loadingReducer = createReducer(intialState, {
   [auth.logOutRequest]: (_, __) => true,
   [auth.logOutRequest]: (_, __) => false,
   [auth.logOutError]: (_, __) => false,
-})
+});
 
 export default loadingReducer;
