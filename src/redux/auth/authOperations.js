@@ -42,7 +42,6 @@ const getLogin = user => dispatch => {
   axios
     .post('/auth/login', user)
     .then(({ data }) => {
-      console.log(data);
       dispatch(logInSuccess(data));
       token.set(data.token);
     })
@@ -60,8 +59,13 @@ const getUserData = () => (dispatch, getState) => {
     .then(({ data }) => dispatch(getCurrentUserSuccess(data)))
     .catch(error => dispatch(getCurrentUserError(error.message)));
 };
-const getLogout = () => dispatch => {
+const getLogout = () => async (dispatch, getState) => {
   dispatch(logOutRequest());
+  const {
+    auth: { token: accessToken },
+  } = getState();
+
+  token.set(accessToken);
   axios
     .post('/auth/logout')
     .then(() => {
