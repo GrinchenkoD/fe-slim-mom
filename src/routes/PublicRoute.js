@@ -5,7 +5,7 @@ const PublicRoute = ({
   redirectTo = '/calculator',
   ...routeProps
 }) => {
-  const isAuthentificated = true; //! Для проверки
+  const isAuthentificated = false; //! Для проверки
 
   const shouldRedirect = !isAuthentificated && restricted;
   return (

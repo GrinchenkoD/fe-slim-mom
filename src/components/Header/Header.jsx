@@ -13,7 +13,7 @@ const Header = () => {
   const { isMobileDevice, isTabletDevice, isDesctopDevice } = useDevice();
 
   const [burgerShown, setBurgerShown] = useState(false);
-  const isLogged = true;
+  const isLogged = false;
 
   const openBurgerMenu = () => {
     setBurgerShown(!burgerShown);
