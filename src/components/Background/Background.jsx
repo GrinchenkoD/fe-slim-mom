@@ -18,6 +18,7 @@ const Background = () => {
       {(isTabletDevice && (
         <div>
           <img className={styles.vector} src={VectorTab} alt='' />
+
           <img className={styles.banana} src={BananaTab} alt='' />
           <img className={styles.strawberry} src={StrawberryTab} alt='' />
           <img className={styles.leafs} src={LeafsTab} alt='' />
