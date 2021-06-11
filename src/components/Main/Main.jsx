@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import mainRoutes from '../../routes/mainroutes';
 import PrivateRoute from "../../routes/PrivateRoute"
 import PublicRoute from "../../routes/PublicRoute"
@@ -18,6 +18,7 @@ const Main = () => {
               <PublicRoute {...route} key={route.path} />
             ),
           )}
+          <Redirect to="/" />
         </Switch>
       </Suspense>
     )

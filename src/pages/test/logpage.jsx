@@ -1,11 +1,15 @@
 import React from 'react'
+import AuthThumb from '../../AuthThumb/AuthThumb'
+import LoginForm from '../../components/LoginForm/LoginForm'
+
 
 const logpage = () => {
     return (
-        <div>
-            <h1>LOGINPAGE</h1>
-        </div>
+        <AuthThumb>
+            <h3 style={{ color: "#FC842D" }}>Вход</h3>
+            <LoginForm />
+        </AuthThumb>
     )
-}
+};
 
 export default logpage

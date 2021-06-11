@@ -2,20 +2,20 @@ import axios from 'axios';
 import actions from './authActions';
 
 const {
-    registerRequest,
-    registerSuccess,
-    registerError,
-    logInRequest,
-    logInSuccess,
-    logInError,
-    logOutRequest,
-    logOutSuccess,
-    logOutError,
-    getCurrentUserRequest,
-    getCurrentUserSuccess,
-    getCurrentUserError,
-  } = actions;
-  
+  registerRequest,
+  registerSuccess,
+  registerError,
+  logInRequest,
+  logInSuccess,
+  logInError,
+  logOutRequest,
+  logOutSuccess,
+  logOutError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
+} = actions;
+
 axios.defaults.baseURL = 'Подставить урлу на которой будет бекенд';
 const token = {
   set(token) {
@@ -38,14 +38,14 @@ const getRegister = user => dispatch => {
 };
 
 const getLogin = user => dispatch => {
-  dispatch(loginRequest());
+  dispatch(logInRequest());
   axios
     .post('/login', user)
     .then(({ data }) => {
-      dispatch(loginSuccess(data));
+      dispatch(logInSuccess(data));
       token.set(data.token);
     })
-    .catch(error => dispatch(loginError(error)));
+    .catch(error => dispatch(logInError(error)));
 };
 const getUserData = () => (dispatch, getState) => {
   const persistedToken = getState().auth.token;
@@ -60,14 +60,14 @@ const getUserData = () => (dispatch, getState) => {
     .catch(error => dispatch(getCurrentUserError(error)));
 };
 const getLogout = () => dispatch => {
-  dispatch(logoutRequest());
+  dispatch(logOutRequest());
   axios
     .post('/logout')
     .then(() => {
       token.unset();
-      dispatch(logoutSuccess());
+      dispatch(logOutSuccess());
     })
-    .catch(error => dispatch(logoutError(error)));
+    .catch(error => dispatch(logOutError(error)));
 };
 
 export default { getRegister, getLogin, getUserData, getLogout };

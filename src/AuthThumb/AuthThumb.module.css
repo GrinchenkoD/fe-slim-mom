@@ -1,0 +1,20 @@
+@media screen and (min-width: 768px) {
+  .thumb {
+    min-height: 100vh;
+    height: 100%;
+    background-image: url(../images/auth/banana-tablet.png),
+      url(../images/auth/strawberry-tablet.png),
+      url(../images/auth/leaves-tablet.png),
+      url(../images/auth/vector-tablet.png);
+    background-repeat: no-repeat;
+    background-position: bottom 0px right 0px, bottom 200px right 0px,
+      bottom 279px right 12px, bottom right;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .thumb {
+    background-image: url(../images/auth/fruits-desktop.png),
+      url(../images/auth/vector-desktop.png);
+    background-position: bottom right, bottom right;
+  }
+}
