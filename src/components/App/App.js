@@ -10,7 +10,7 @@ const App = () => {
     <div>
       <Header />
       <Main />
-      <Modal />
+      {/* <Modal /> */}
     </div>
   );
 };
