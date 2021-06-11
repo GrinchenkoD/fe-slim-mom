@@ -6,7 +6,10 @@ const mainRoutes = [
     path: '/',
     exact: true,
     component: lazy(() =>
-      import('../pages/test/home' /*webpackChunkName: "home-page" */),
+      import(
+        '../pages/HomePage/HomePage'
+        /*webpackChunkName: "home-page" */
+      ),
     ),
     private: false,
     restricted: true,
