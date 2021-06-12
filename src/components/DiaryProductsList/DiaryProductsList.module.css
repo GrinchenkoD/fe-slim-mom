@@ -1,0 +1,27 @@
+@value blueColor from '../../index.module.css';
+@value bgGreyColor from '../../index.module.css';
+
+.listProducts {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.listProducts::-webkit-scrollbar {
+  width: 6px;
+  background: bgGreyColor;
+  height: 240px;
+}
+.listProducts::-webkit-scrollbar-thumb {
+  background: blueColor;
+  height: 40px;
+}
+@media screen and (min-width: 768px) {
+    .listProducts{
+        width: 600px;
+        margin-left: 92px;
+    }
+}
+@media screen and (min-width: 1280px) {
+    .listProducts{
+        margin-left: 115px;
+    }
+}

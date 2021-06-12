@@ -1,0 +1,58 @@
+@value greyColor from '../../../index.module.css';
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-left: 15px;
+}
+.prodName {
+  display: block;
+  border-bottom: 1px solid #e0e0e0;
+  width: 120px;
+  padding-bottom: 10px;
+}
+.prodWeight {
+  composes: prodName;
+  width: 50px;
+  text-align: center;
+}
+.prodKCal {
+  composes: prodName;
+  width: 70px;
+  text-align: center;
+}
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+}
+.icon {
+  width: 10px;
+  height: 10px;
+  fill: greyColor;
+}
+
+@media screen and (min-width: 768px) {
+    .item {
+        width: 550px;
+        padding-left: 0;
+    }
+  .prodName {
+    width: 240px;
+    padding-bottom: 20px;
+    
+  }
+  .prodWeight, .prodKCal{
+    width: 105px;
+    text-align: end;
+  }
+  .btn{
+    margin-right: 0;
+  }
+  .icon{
+    width: 12px;
+    height: 12px;
+  }
+}
