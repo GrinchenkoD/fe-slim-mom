@@ -4,7 +4,7 @@ import authActions from './authActions';
 
 const userInitialState = {};
 const user = createReducer(userInitialState, {
-  // [authActions.logInSuccess]: (_, { payload }) => payload.userData,//!нам не возвращают Юзердата
+  [authActions.logInSuccess]: (_, { payload }) => payload.login,
   [authActions.logOutSuccess]: () => userInitialState,
   [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
 });
