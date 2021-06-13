@@ -2,21 +2,21 @@ import axios from 'axios';
 import actions from './authActions';
 
 const {
-    registerRequest,
-    registerSuccess,
-    registerError,
-    logInRequest,
-    logInSuccess,
-    logInError,
-    logOutRequest,
-    logOutSuccess,
-    logOutError,
-    getCurrentUserRequest,
-    getCurrentUserSuccess,
-    getCurrentUserError,
-  } = actions;
-  
-axios.defaults.baseURL = 'Подставить урлу на которой будет бекенд';
+  registerRequest,
+  registerSuccess,
+  registerError,
+  logInRequest,
+  logInSuccess,
+  logInError,
+  logOutRequest,
+  logOutSuccess,
+  logOutError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
+} = actions;
+
+axios.defaults.baseURL = 'https://slim-mom.herokuapp.com/';
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -29,23 +29,23 @@ const token = {
 const getRegister = user => dispatch => {
   dispatch(registerRequest());
   axios
-    .post(`/signup`, user)
+    .post(`/auth/registration`, user)
     .then(({ data }) => {
       dispatch(registerSuccess(data));
       token.set(data.token);
     })
-    .catch(error => dispatch(registerError(error)));
+    .catch(error => dispatch(registerError(error.message)));
 };
 
 const getLogin = user => dispatch => {
-  dispatch(loginRequest());
+  dispatch(logInRequest());
   axios
-    .post('/login', user)
+    .post('/auth/login', user)
     .then(({ data }) => {
-      dispatch(loginSuccess(data));
+      dispatch(logInSuccess(data));
       token.set(data.token);
     })
-    .catch(error => dispatch(loginError(error)));
+    .catch(error => dispatch(logInError(error.message)));
 };
 const getUserData = () => (dispatch, getState) => {
   const persistedToken = getState().auth.token;
@@ -57,17 +57,22 @@ const getUserData = () => (dispatch, getState) => {
   axios
     .get('/current')
     .then(({ data }) => dispatch(getCurrentUserSuccess(data)))
-    .catch(error => dispatch(getCurrentUserError(error)));
+    .catch(error => dispatch(getCurrentUserError(error.message)));
 };
-const getLogout = () => dispatch => {
-  dispatch(logoutRequest());
+const getLogout = () => async (dispatch, getState) => {
+  dispatch(logOutRequest());
+  const {
+    auth: { token: accessToken },
+  } = getState();
+
+  token.set(accessToken);
   axios
-    .post('/logout')
+    .post('/auth/logout')
     .then(() => {
       token.unset();
-      dispatch(logoutSuccess());
+      dispatch(logOutSuccess());
     })
-    .catch(error => dispatch(logoutError(error)));
+    .catch(error => dispatch(logOutError(error.message)));
 };
 
-export default { getRegister, getLogin, getUserData, getLogout };
+export { getRegister, getLogin, getUserData, getLogout };
