@@ -19,7 +19,7 @@
 }
 @media screen and (min-width: 768px) {
   .container {
-    margin-top: 157px;
+    margin-top: 0px;
     padding: 0 10px;
   }
   .title {
@@ -36,9 +36,9 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .container {
+  /* .container {
     margin-top: 95px;
-  }
+  } */
   .title {
     margin-bottom: 60px;
   }

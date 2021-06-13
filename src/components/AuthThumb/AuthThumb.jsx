@@ -14,7 +14,7 @@ const AuthThumb = ({ children }) => {
     // const { isDesctopDevice, isTabletDevice } = useDevice();
     
     return (
-        <div className={styles.thumb} >
+        <main className={styles.thumb} >
             {/* {(isTabletDevice && (
                 <div>
                     <img className={styles.vector} src={vectorTablet} alt='' />
@@ -31,7 +31,7 @@ const AuthThumb = ({ children }) => {
                     </div>
                 ))} */}
             {children}
-        </div>
+        </main>
     );
 };
 
