@@ -48,7 +48,9 @@ const mainRoutes = [
     path: '/calculator',
     exact: true,
     component: lazy(() =>
-      import('../pages/test/calc' /*webpackChunkName: "calculator-page" */),
+      import(
+        '../components/TestModal/Calculator' /*webpackChunkName: "calculator-page" */
+      ),
     ),
     private: true,
     restricted: false,
