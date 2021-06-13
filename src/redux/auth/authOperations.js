@@ -29,7 +29,7 @@ const token = {
 const getRegister = user => dispatch => {
   dispatch(registerRequest());
   axios
-    .post(`/signup`, user)
+    .post(`/auth/registration`, user)
     .then(({ data }) => {
       dispatch(registerSuccess(data));
       token.set(data.token);
@@ -40,7 +40,7 @@ const getRegister = user => dispatch => {
 const getLogin = user => dispatch => {
   dispatch(loginRequest());
   axios
-    .post('/login', user)
+    .post('/auth/login', user)
     .then(({ data }) => {
       dispatch(loginSuccess(data));
       token.set(data.token);
