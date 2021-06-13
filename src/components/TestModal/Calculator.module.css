@@ -1,0 +1,19 @@
+.startDietBtn {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 176px;
+  height: 44px;
+  border-radius: 30px;
+  padding: 13px 26px;
+  background: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border: none;
+  outline: none;
+
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+
+  margin-left: 20px;
+}
