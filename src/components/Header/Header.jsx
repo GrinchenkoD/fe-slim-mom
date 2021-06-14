@@ -17,7 +17,6 @@ const Header = () => {
 
   const [burgerShown, setBurgerShown] = useState(false);
   const isLogged = useSelector(authSelectors.isAuthenticated);
-  // const isLogged = true;
 
   const openBurgerMenu = () => {
     setBurgerShown(!burgerShown);
