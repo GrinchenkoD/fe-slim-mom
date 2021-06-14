@@ -72,7 +72,12 @@ const getLogout = () => async (dispatch, getState) => {
       token.unset();
       dispatch(logOutSuccess());
     })
-    .catch(error => dispatch(logOutError(error.message)));
+    .catch(error => {
+      if (error.response?.status === 401 || error.response?.status === 404) {
+        token.unset();
+      }
+      dispatch(logOutError(error.message));
+    });
 };
 
 export { getRegister, getLogin, getUserData, getLogout };
