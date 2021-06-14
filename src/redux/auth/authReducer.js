@@ -2,12 +2,28 @@ import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import authActions from './authActions';
 
-const userInitialState = {};
-const user = createReducer(userInitialState, {
+const userInitialState = '';
+const nickname = createReducer(userInitialState, {
   [authActions.logInSuccess]: (_, { payload }) => payload.login,
   [authActions.logOutSuccess]: () => userInitialState,
   [authActions.logOutError]: () => tokenInitialState,
   [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
+});
+
+const dailyCaloriesInitialState = 0;
+
+const dailyCalories = createReducer(dailyCaloriesInitialState, {
+  [authActions.logInSuccess]: (_, { payload }) => payload.login, //! Получить при логине
+  [authActions.logOutSuccess]: () => dailyCaloriesInitialState,
+  [authActions.logOutError]: () => dailyCaloriesInitialState,
+});
+
+const categoriesInitialState = [];
+
+const forbidenCategories = createReducer(categoriesInitialState, {
+  [authActions.logInSuccess]: (_, { payload }) => payload.login, //! Получить при логине
+  [authActions.logOutSuccess]: () => categoriesInitialState,
+  [authActions.logOutError]: () => categoriesInitialState,
 });
 
 const tokenInitialState = null;
@@ -23,6 +39,12 @@ const isAuthenticated = createReducer(false, {
   [authActions.getCurrentUserSuccess]: () => true,
   [authActions.getCurrentUserError]: () => false,
   [authActions.logOutError]: () => false,
+});
+
+const user = combineReducers({
+  nickname,
+  dailyCalories,
+  forbidenCategories,
 });
 
 export default combineReducers({

@@ -10,6 +10,7 @@ const errorReducer = createReducer(intialState, {
   [auth.getCurrentUserError]: (_, { payload }) => payload,
   [products.addPoductError]: (_, { payload }) => payload,
   [products.searchPoductError]: (_, { payload }) => payload,
+  [products.deleteProductError]: (_, { payload }) => payload,
 });
 
 export default errorReducer;

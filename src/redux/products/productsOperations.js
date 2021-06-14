@@ -8,7 +8,19 @@ const {
   addPoductRequest,
   addPoductSuccess,
   addPoductError,
+  deleteProductRequest,
+  deleteProductSuccess,
+  deleteProductError,
 } = actions;
+
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
 const searchProducts = searchQuerry => dispatch => {
   dispatch(searchPoductRequest());
@@ -32,7 +44,23 @@ const addUserProduct = productData => dispatch => {
     .catch(error => dispatch(addPoductError(error)));
 };
 
+const deleteUserProduct = productData => async (dispatch, getState) => {
+  const { id } = productData;
+  const {
+    auth: { token: accessToken },
+  } = getState();
+  token.set(accessToken);
+  dispatch(deleteProductRequest());
+  try {
+    await axios.delete('/products/delete', productData);
+    dispatch(deleteProductSuccess(id));
+  } catch (error) {
+    dispatch(deleteProductError(error.message));
+  }
+};
+
 export default {
   searchProducts,
   addUserProduct,
+  deleteUserProduct,
 };

@@ -16,10 +16,13 @@ const loadingReducer = createReducer(intialState, {
   [auth.logOutError]: (_, __) => false,
   [products.searchPoductRequest]: (_, __) => true,
   [products.addPoductRequest]: (_, __) => true,
+  [products.deleteProductRequest]: (_, __) => true,
   [products.addPoductError]: (_, __) => false,
   [products.addPoductSuccess]: (_, __) => false,
   [products.searchPoductError]: (_, __) => false,
   [products.searchPoductSuccess]: (_, __) => false,
+  [products.deleteProductSuccess]: (_, __) => false,
+  [products.deleteProductError]: (_, __) => false,
 });
 
 export default loadingReducer;
