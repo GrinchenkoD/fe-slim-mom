@@ -9,15 +9,13 @@ import UserPanel from './UserPanel';
 import { useDevice } from '../../hooks/useDevice';
 import { authSelectors } from '../../redux/auth/authselectors';
 
-
-
 import styles from './Header.module.css';
 
 const Header = () => {
   const { isMobileDevice, isTabletDevice, isDesctopDevice } = useDevice();
 
   const [burgerShown, setBurgerShown] = useState(false);
-const isLogged =useSelector(authSelectors.isAuthenticated)
+  const isLogged = useSelector(authSelectors.isAuthenticated);
   // const isLogged = false;
 
   const openBurgerMenu = () => {

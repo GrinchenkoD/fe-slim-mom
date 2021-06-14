@@ -6,15 +6,15 @@ import styles from './Header.module.css';
 
 const UserPanel = () => {
   const dispatch = useDispatch();
-   const onLogOut = () => {
+  const onLogOut = () => {
     dispatch(getLogout());
   };
   return (
     <div className={styles.userPanel}>
       <span className={styles.nic}>Nic</span>
-      <button className={styles.logout} onClick={onLogOut}>
+      <Link to='/' className={styles.logout} onClick={onLogOut}>
         Выйти
-      </button>
+      </Link>
     </div>
   );
 };

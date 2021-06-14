@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   min-height: 80px;
-  padding: 18px 0 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -35,6 +34,7 @@
 }
 
 .authLink {
+  font-weight: 700;
   font-size: 14px;
   color: #9b9faa;
 }
@@ -55,12 +55,13 @@
   }
 }
 /* ======================BURGER button========================== */
-
 .burgerButton {
-  height: 20px;
-  font-size: 30px;
-  background-color: #fff;
   border: none;
+  background-color: #ffffff;
+}
+.burgerIcon {
+  width: 18px;
+  height: 12px;
 }
 
 @media screen and (min-width: 1280px) {
@@ -114,14 +115,16 @@
 }
 
 .nic {
+  font-family: Gotham Pro;
+  font-weight: bold;
   display: inline-block;
   height: 30px;
   padding-right: 15px;
-
   border-right: 2px solid #e0e0e0;
 }
 
 .logout {
+  font-family: Gotham Pro;
   margin-left: 15px;
   color: #9b9faa;
   border: none;
@@ -203,4 +206,11 @@
 /* ===================logo====================== */
 .logoDesc {
   margin-bottom: -5px;
+}
+.logoTab {
+  margin-top: 16px;
+}
+
+.logoMob {
+  margin-top: 16px;
 }
