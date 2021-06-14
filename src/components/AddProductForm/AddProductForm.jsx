@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Select from 'react-select';
-
+import sprite from '../../icons/symbol-defs.svg';
+import styles from './AddProductForm.module.css'
+import useDebounce from '../../hooks/useDebounce'
 const AddProductForm = () => {
   const [searchQuerry, setSearchQuerry] = useState('');
   console.log(searchQuerry);
   const [selectedOption, setSelectedOption] = useState(null);
-
+  const debouncedSearchQuerry = useDebounce(searchQuerry, 500);
   const handleChange = selectedOption => {
     setSelectedOption(selectedOption);
     console.log(`Option selected:`, selectedOption);
   };
-  const [options,setOptions] = useState([
+  const [options, setOptions] = useState([
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' },
   ]);
-console.log(options);
+  console.log(options);
   useEffect(() => {
-              axios
-                .get(`products/${searchQuerry}`)
-                .then(({ data }) => data.products.map(product => ({value: product,name: product})))
-                .then(data=>setOptions(data));
-  }, [searchQuerry]);
+    if (debouncedSearchQuerry) {
+    axios
+      .get(`products/Пицца`)
+      .then(({ data }) =>
+        data.products.map(product => ({ value: product, name: product })),
+      )
+      .then(data => setOptions(data));
+    }
+  }, [debouncedSearchQuerry]);
 
   return (
     <div>
@@ -56,8 +62,12 @@ console.log(options);
           search
           placeholder="Your favorite drink"
         /> */}
-        <input type="text" />
-        <button type="submit">Submit</button>
+<input type="text"/>
+        <button className={styles.button} type="submit">
+        <svg className={styles.svg}>
+        <use href={sprite + '#icon-plus'}></use>
+      </svg>
+        </button>
       </form>
     </div>
   );
