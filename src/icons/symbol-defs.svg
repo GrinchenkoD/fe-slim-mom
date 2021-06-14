@@ -3,7 +3,7 @@
 <symbol id="icon-back-arrow" viewBox="0 0 53 32">
 <path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="7.1111" d="M49.778 5.333v10.667h-42.667M7.111 16l12.444-12.444M7.111 16l12.444 12.444"></path>
 </symbol>
-<symbol id="icon-menu" viewBox="0 0 32 32">
+<symbol id="icon-menu" viewBox="7 8 19 18">
 <path d="M4 24h24v-2.667h-24v2.667zM4 17.333h24v-2.667h-24v2.667zM4 8v2.667h24v-2.667h-24z"></path>
 </symbol>
 <symbol id="icon-plus" viewBox="0 0 32 32">
