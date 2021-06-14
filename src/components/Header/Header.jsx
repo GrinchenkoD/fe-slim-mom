@@ -8,7 +8,6 @@ import UserNav from './UserNav';
 import UserPanel from './UserPanel';
 import { useDevice } from '../../hooks/useDevice';
 import { authSelectors } from '../../redux/auth/authselectors';
-import sprite from '../../icons/symbol-defs.svg';
 
 import styles from './Header.module.css';
 
@@ -17,6 +16,7 @@ const Header = () => {
 
   const [burgerShown, setBurgerShown] = useState(false);
   const isLogged = useSelector(authSelectors.isAuthenticated);
+  // const isLogged = false;
 
   const openBurgerMenu = () => {
     setBurgerShown(!burgerShown);
@@ -32,14 +32,7 @@ const Header = () => {
             {!isLogged && <AuthNav />}
             {isLogged && (
               <button className={styles.burgerButton} onClick={openBurgerMenu}>
-                {/* {burgerShown ? 'x' : '='} */}
-                <svg className={styles.burgerIcon}>
-                  {burgerShown ? (
-                    <use href={sprite + '#icon-cross'} />
-                  ) : (
-                    <use href={sprite + '#icon-menu'} />
-                  )}
-                </svg>
+                {burgerShown ? 'x' : '='}
               </button>
             )}
             {isLogged && isDesctopDevice && <UserNav />}
