@@ -1,0 +1,66 @@
+.thumb {
+  padding-top: 40px;
+  height: 100vh;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .thumb {
+    height: calc(100vh - 82px);
+    /* top: -82px; */
+
+    background-image: url(../../images/auth/banana-tablet.png),
+      url(../../images/auth/strawberry-tablet.png),
+      url(../../images/auth/leaves-tablet.png),
+      url(../../images/auth/vector-tablet.png);
+    background-repeat: no-repeat;
+    background-position: bottom 0px right 0px, bottom 200px right 0px,
+      bottom 279px right 12px, bottom right;
+    padding-top: 157px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .thumb {
+    top: 0;
+    position: absolute;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    background-image: url(../../images/auth/fruits-desktop.png),
+      url(../../images/auth/vector-desktop.png);
+    background-position: bottom right, bottom right;
+    background-size: contain;
+    padding-top: 244px;
+  }
+}
+/* .thumb {
+  position: absolute;
+  min-width: 100vw;
+  min-height: calc(100vh - 200px);
+}
+.vector {
+  position: absolute;
+  right: 0;
+}
+.banana {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.strawberry {
+  position: absolute;
+}
+.leafs {
+  position: absolute;
+}
+.fruits {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0;
+}
+.vectorDesctop {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+} */
