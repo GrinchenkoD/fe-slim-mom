@@ -1,11 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
-<<<<<<< HEAD
-import auth from './auth/authActions';
-=======
 import auth from './auth/authActions'
 import products from './products/productsActions';
 
->>>>>>> baf24bd765da4e0ebb73f23685aee5c7601305df
 
 const intialState = null;
 const errorReducer = createReducer(intialState, {

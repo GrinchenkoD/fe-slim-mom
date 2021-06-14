@@ -16,7 +16,6 @@ const searchProducts = searchQuerry => dispatch => {
     .get(`products/${searchQuerry}`)
     .then(({ data }) => {
       dispatch(searchPoductSuccess(data));
-      token.set(data.token);
     })
     .catch(error => dispatch(searchPoductError(error)));
 };
@@ -27,7 +26,6 @@ const addUserProduct = productData => dispatch => {
     .post('/products/add', productData)
     .then(({ data }) => {
       dispatch(addPoductSuccess(data));
-      token.set(data.token);
     })
     .catch(error => dispatch(addPoductError(error)));
 };
