@@ -22,7 +22,7 @@ const AddProductForm = () => {
   useEffect(() => {
     if (debouncedSearchQuerry) {
     axios
-      .get(`products/Пицца`)
+      .get(`products/${debouncedSearchQuerry}`)
       .then(({ data }) =>
         data.products.map(product => ({ value: product, name: product })),
       )
