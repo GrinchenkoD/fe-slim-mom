@@ -15,6 +15,7 @@ const userDailyProducts = createReducer([], {
   [productsActions.deleteProductSuccess]: (state, { payload }) => [
     ...state.filter(product => product.id !== payload),
   ],
+  [productsActions.dayInfoSuccess]: (_, { payload }) => [...payload.products],
 });
 
 const pickedDate = createReducer('', {
@@ -22,8 +23,17 @@ const pickedDate = createReducer('', {
   [productsActions.removePickedDate]: (_, __) => '',
 });
 
+const caloriesReceived = createReducer(0, {
+  [productsActions.dayInfoSuccess]: (_, { payload }) =>
+    payload.caloriesReceived,
+  [productsActions.addPoductSuccess]: (_, { payload }) => payload.newCalories,
+  [productsActions.deleteProductSuccess]: (_, { payload }) =>
+    payload.newCalories,
+});
+
 export default combineReducers({
   productList,
   userDailyProducts,
   pickedDate,
+  caloriesReceived,
 });

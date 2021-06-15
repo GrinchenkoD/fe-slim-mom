@@ -26,17 +26,6 @@ const token = {
   },
 };
 
-const getRegister = user => dispatch => {
-  dispatch(registerRequest());
-  axios
-    .post(`/auth/registration`, user)
-    .then(({ data }) => {
-      dispatch(registerSuccess(data));
-      token.set(data.token);
-    })
-    .catch(error => dispatch(registerError(error.message)));
-};
-
 const getLogin = user => dispatch => {
   dispatch(logInRequest());
   axios
@@ -47,6 +36,21 @@ const getLogin = user => dispatch => {
     })
     .catch(error => dispatch(logInError(error.message)));
 };
+
+const getRegister = user => dispatch => {
+  dispatch(registerRequest());
+
+  const { login, password } = user;
+  axios
+    .post(`/auth/registration`, user)
+    .then(({ data }) => {
+      dispatch(registerSuccess(data));
+      // token.set(data.token);
+      dispatch(getLogin({ login, password }));
+    })
+    .catch(error => dispatch(registerError(error.message)));
+};
+
 const getUserData = () => (dispatch, getState) => {
   const persistedToken = getState().auth.token;
   if (!persistedToken) {

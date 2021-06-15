@@ -6,6 +6,7 @@ import errorReducer from './error';
 import loadingReducer from './loading/isLoading';
 import productsReducer from './products/productsReducer';
 import isModalOpen from './modal/modalReducer';
+import date from './date/dateReducer';
 
 // ! CONFIG PERSIST HERE
 // const authPersistConfig = {
@@ -25,6 +26,7 @@ const reducer = combineReducers({
   error: errorReducer,
   isLoading: loadingReducer,
   isModalOpen: isModalOpen,
+  date: date,
 });
 
 export default reducer;

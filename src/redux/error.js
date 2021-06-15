@@ -13,6 +13,7 @@ const errorReducer = createReducer(initialState, {
   [products.deleteProductError]: (_, { payload }) => payload,
   [products.dailyRatePrivateError]: (_, { payload }) => payload,
   [products.dailyRatePublicError]: (_, { payload }) => payload,
+  [products.dayInfoError]: (_, { payload }) => payload,
 
   [auth.registerSuccess]: (_, __) => initialState,
   [auth.logInSuccess]: (_, __) => initialState,
@@ -22,6 +23,7 @@ const errorReducer = createReducer(initialState, {
   [products.searchPoductSuccess]: (_, __) => initialState,
   [products.deleteProductSuccess]: (_, __) => initialState,
   [products.dailyRatePrivateSuccess]: (_, __) => initialState,
+  [products.dayInfoSuccess]: (_, __) => initialState,
   [products.dailyRatePublicSuccess]: (_, __) => initialState,
 });
 
