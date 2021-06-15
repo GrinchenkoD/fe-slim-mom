@@ -2,7 +2,7 @@
 
 @media screen and (min-width: 320px) {
   .container {
-    max-width: 480px;
+    max-width: 375px;
     padding: 0 15px;
     width: 100%;
     margin: 0 auto;

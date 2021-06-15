@@ -6,14 +6,14 @@ const AuthNav = () => {
   return (
     <div className={styles.authNavContainer}>
       <NavLink
-        to='/'
+        to='/login'
         className={styles.authLink}
         activeClassName={styles.authLinkActive}
       >
         ВХОД
       </NavLink>
       <NavLink
-        to='/:id'
+        to='/registration'
         className={styles.authLink}
         activeClassName={styles.authLinkActive}
       >

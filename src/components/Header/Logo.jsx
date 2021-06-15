@@ -9,13 +9,19 @@ import styles from './Header.module.css';
 
 const Logo = () => {
   const { isMobileDevice, isDesctopDevice, isTabletDevice } = useDevice();
-  const isLogged = true;
+  const isLogged = false;
 
   return (
     <Link to='/'>
-      {isMobileDevice && !isLogged && <img src={LogoMobile} alt='logo' />}
-      {isMobileDevice && isLogged && <img src={LogoTablet} alt='logo' />}
-      {isTabletDevice && <img src={LogoTablet} alt='logo' />}
+      {isMobileDevice && !isLogged && (
+        <img className={styles.logoMob} src={LogoMobile} alt='logo' />
+      )}
+      {isMobileDevice && isLogged && (
+        <img className={styles.logoMob} src={LogoTablet} alt='logo' />
+      )}
+      {isTabletDevice && (
+        <img className={styles.logoTab} src={LogoTablet} alt='logo' />
+      )}
       {isDesctopDevice && (
         <img className={styles.logoDesc} src={LogoDesctop} alt='logo' />
       )}

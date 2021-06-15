@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import Container from '../Container/Container';
 import Logo from './Logo';
+import { useSelector } from 'react-redux';
 import AuthNav from './AuthNav';
 import BurgerMenu from './BurgerMenu';
 import UserNav from './UserNav';
 import UserPanel from './UserPanel';
 import { useDevice } from '../../hooks/useDevice';
+import { authSelectors } from '../../redux/auth/authselectors';
 
 import styles from './Header.module.css';
 
@@ -13,7 +15,8 @@ const Header = () => {
   const { isMobileDevice, isTabletDevice, isDesctopDevice } = useDevice();
 
   const [burgerShown, setBurgerShown] = useState(false);
-  const isLogged = true;
+  const isLogged = useSelector(authSelectors.isAuthenticated);
+  // const isLogged = false;
 
   const openBurgerMenu = () => {
     setBurgerShown(!burgerShown);

@@ -41,3 +41,7 @@ body {
   color: blackColor;
   /* background-color: bgColor; */
 }
+
+button {
+  cursor: pointer;
+}
