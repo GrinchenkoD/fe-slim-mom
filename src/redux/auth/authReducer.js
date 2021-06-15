@@ -4,7 +4,7 @@ import authActions from './authActions';
 import productsActions from '../products/productsActions';
 
 const userInitialState = '';
-const nickname = createReducer(userInitialState, {
+const login = createReducer(userInitialState, {
   [authActions.logInSuccess]: (_, { payload }) => payload.login,
   [authActions.logOutSuccess]: () => userInitialState,
   [authActions.logOutError]: () => tokenInitialState,
@@ -14,7 +14,7 @@ const nickname = createReducer(userInitialState, {
 const dailyCaloriesInitialState = 0;
 
 const dailyCalories = createReducer(dailyCaloriesInitialState, {
-  [authActions.logInSuccess]: (_, { payload }) => payload.login, //! Получить при логине
+  [authActions.logInSuccess]: (_, { payload }) => payload.dailyCalories, //! Получить при логине
   [authActions.logOutSuccess]: () => dailyCaloriesInitialState,
   [authActions.logOutError]: () => dailyCaloriesInitialState,
   [productsActions.dailyRatePrivateSuccess]: (_, { payload }) =>
@@ -24,7 +24,7 @@ const dailyCalories = createReducer(dailyCaloriesInitialState, {
 const categoriesInitialState = [];
 
 const forbidenCategories = createReducer(categoriesInitialState, {
-  [authActions.logInSuccess]: (_, { payload }) => payload.login, //! Получить при логине
+  [authActions.logInSuccess]: (_, { payload }) => payload.forbidenCategories, //! Получить при логине
   [authActions.logOutSuccess]: () => categoriesInitialState,
   [authActions.logOutError]: () => categoriesInitialState,
   [productsActions.dailyRatePrivateSuccess]: (_, { payload }) =>
@@ -47,7 +47,7 @@ const isAuthenticated = createReducer(false, {
 });
 
 const user = combineReducers({
-  nickname,
+  login,
   dailyCalories,
   forbidenCategories,
 });

@@ -11,10 +11,10 @@ const UserPanel = () => {
   const onLogOut = () => {
     dispatch(getLogout());
   };
-  const nickname = useSelector(authSelectors.nickname)
+  const login = useSelector(authSelectors.login)
   return (
     <div className={styles.userPanel}>
-      <span className={styles.nic}>{ nickname}</span>
+      <span className={styles.nic}>{ login}</span>
       <Link to='/' className={styles.logout} onClick={onLogOut}>
         Выйти
       </Link>
