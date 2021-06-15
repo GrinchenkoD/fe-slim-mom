@@ -12,7 +12,6 @@ const App = () => {
   const token = useSelector(authSelectors.token);
   if (token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    console.log(token);
   }
   return (
     <div>
