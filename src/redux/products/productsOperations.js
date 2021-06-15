@@ -17,16 +17,19 @@ const {
   dailyRatePublicRequest,
   dailyRatePublicSuccess,
   dailyRatePublicError,
+  dayInfoRequest,
+  dayInfoSuccess,
+  dayInfoError,
 } = actions;
 
-const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
-};
+// const token = {
+//   set(token) {
+//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+//   },
+//   unset() {
+//     axios.defaults.headers.common.Authorization = '';
+//   },
+// };
 
 const searchProducts = searchQuerry => dispatch => {
   dispatch(searchPoductRequest());
@@ -85,10 +88,21 @@ const dailyRatePublic = values => dispatch => {
   }
 };
 
+const prouctsDayInfo = date => async dispatch => {
+  dispatch(dayInfoRequest());
+  try {
+    const { data } = await axios.get(`/products/day-info/${date}`);
+    dispatch(dayInfoSuccess(data)); //!!
+  } catch (error) {
+    dispatch(dayInfoError(error.message));
+  }
+};
+
 export default {
   searchProducts,
   addUserProduct,
   deleteUserProduct,
   dailyRatePrivate,
   dailyRatePublic,
+  prouctsDayInfo,
 };

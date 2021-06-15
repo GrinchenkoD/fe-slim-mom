@@ -23,6 +23,10 @@ const dailyRatePublicRequest = createAction('product/dailyRatePublicRequest');
 const dailyRatePublicSuccess = createAction('product/dailyRatePublicSuccess');
 const dailyRatePublicError = createAction('product/dailyRatePublicError');
 
+const dayInfoRequest = createAction('product/dayInfoRequest');
+const dayInfoSuccess = createAction('product/dayInfoSuccess');
+const dayInfoError = createAction('product/dayInfoError');
+
 export default {
   setPickedDate,
   removePickedDate,
@@ -41,4 +45,7 @@ export default {
   dailyRatePublicRequest,
   dailyRatePublicSuccess,
   dailyRatePublicError,
+  dayInfoRequest,
+  dayInfoSuccess,
+  dayInfoError,
 };
