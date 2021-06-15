@@ -28,7 +28,8 @@ const AddProductForm = () => {
     // { value: 'vanilla', label: 'Vanilla' },
   ]);
 
-  const postNewProduct = () => {
+  const postNewProduct = (e) => {
+    e.preventDefault();
     const newProduct = {
       title: selectedOption.value,
       weight,
@@ -47,14 +48,11 @@ const AddProductForm = () => {
     }
   }, [debouncedSearchQuerry]);
 
-  const test = (e) => {
-    e.preventDefault()
-    const body = { title: selectedOption.value, weight, date };
-  }
+
   return (
     <div className={styles.wrapper}>
       {isTabletAndDesktop && (
-        <form onSubmit={test} className={styles.form}>
+        <form onSubmit={postNewProduct} className={styles.form}>
           <Select
             value={selectedOption}
             onChange={handleChange}
