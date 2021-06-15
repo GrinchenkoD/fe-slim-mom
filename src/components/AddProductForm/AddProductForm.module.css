@@ -1,16 +1,93 @@
-.button{
-    border-radius: 50%;
-    padding: 18px;
-    background-color: #FC842D;
-    box-shadow: 0px 4px 10px #FC842D 50%;
-    border:none;    
+.button {
+  border-radius: 50%;
+  background-color: #fc842d;
+  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  border: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 .button:focus:hover {
-    outline: none;
+  outline: none;
+}
+@media screen and (max-width: 767px) {
+  .button {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
   }
+}
+.wrapper {
+  display: flex;
+}
+.svg {
+  width: 15px;
+  height: 15px;
+  fill: fff;
+}
+.form {
+  color: #9b9faa;
+}
+@media screen and (min-width: 768px) {
+  .form {
+    display: flex;
+    margin-top: 60px;
+  }
+}
+.weight {
+  text-align: right;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-right: 20px;
+  margin-left: 30px;
+  color: #9b9faa;
+}
+.weight:focus-visible {
+  outline: none;
+}
+.weight::-webkit-outer-spin-button,
+.weight::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.weight[type='number'] {
+  -moz-appearance: textfield; /* Firefox */
+}
 
-.svg{
-    width: 15px;
-    height: 15px;
-    fill: fff;
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #9B9FAA;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #9B9FAA;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #9B9FAA;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #9B9FAA;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: inherit;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

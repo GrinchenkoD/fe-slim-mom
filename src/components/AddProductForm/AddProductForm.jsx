@@ -1,40 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Select from 'react-select';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../icons/symbol-defs.svg';
 import styles from './AddProductForm.module.css';
 import useDebounce from '../../hooks/useDebounce';
 import operations from '../../redux/products/productsOperations';
-import {getPickedDate} from '../../redux/products/productsSelectors'
+import { getPickedDate } from '../../redux/products/productsSelectors';
+import { useDevice } from '../../hooks/useDevice';
+import customStyles from './selectStyles'
+
 const AddProductForm = () => {
+  const { isTabletAndDesktop, isMobileDevice } = useDevice();
+
   const [searchQuerry, setSearchQuerry] = useState('');
-  const [weight,setWeight]=useState(0);
-  console.log(searchQuerry);
+  const [weight, setWeight] = useState('');
   const [selectedOption, setSelectedOption] = useState(null);
   const debouncedSearchQuerry = useDebounce(searchQuerry, 500);
-  const dispatch=useDispatch()
-  const date=useSelector(getPickedDate);
+  const dispatch = useDispatch();
+  const date = useSelector(getPickedDate);
   const handleChange = selectedOption => {
     setSelectedOption(selectedOption);
-    console.log(`Option selected:`, selectedOption);
   };
   const [options, setOptions] = useState([
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    // { value: 'chocolate', label: 'Chocolate' },
+    // { value: 'strawberry', label: 'Strawberry' },
+    // { value: 'vanilla', label: 'Vanilla' },
   ]);
-  console.log(options);
 
-  const postNewProduct=()=>{
-      const newProduct={
-          title:selectedOption.value,
-          weight,
-          date,
-      }
-      dispatch(operations.addUserProduct(newProduct))
-
-  }
+  const postNewProduct = () => {
+    const newProduct = {
+      title: selectedOption.value,
+      weight,
+      date,
+    };
+    dispatch(operations.addUserProduct(newProduct));
+  };
   useEffect(() => {
     if (debouncedSearchQuerry) {
       axios
@@ -46,45 +47,45 @@ const AddProductForm = () => {
     }
   }, [debouncedSearchQuerry]);
 
+  const test = (e) => {
+    e.preventDefault()
+    const body = { title: selectedOption.value, weight, date };
+  }
   return (
-    <div>
-      <form>
-        <Select
-          value={selectedOption}
-          onChange={handleChange}
-          options={options}
-          inputValue={searchQuerry}
-          onInputChange={setSearchQuerry}
-        />
-        {/* <SelectSearch
-        debounce={500}
-        value={searchQuerry}
-          options={[]}
-          getOptions={query => {
-            return new Promise((resolve, reject) => {
-              axios
-                .get(`products/`)
-                .then(({ data }) => {
-                    resolve(
-                        data.map(product => ({
-                          value: product,
-                          name: product,
-                        }))
-                      )
-                })
-                .catch(reject);
-          })
-        }}
-          search
-          placeholder="Your favorite drink"
-        /> */}
-        <input name="weight" value={weight} onChange={({target})=>setWeight(target.value)} type="number" />
+    <div className={styles.wrapper}>
+      {isTabletAndDesktop && (
+        <form onSubmit={test} className={styles.form}>
+          <Select
+            value={selectedOption}
+            onChange={handleChange}
+            options={options}
+            inputValue={searchQuerry}
+            onInputChange={setSearchQuerry}
+            styles={customStyles}
+            placeholder="Введите название продукта"
+          />
+          <input
+            className={styles.weight}
+            name="weight"
+            value={weight}
+            onChange={({ target }) => setWeight(target.value)}
+            type="number"
+            placeholder="Граммы"
+          />
+          <button className={styles.button} type="submit">
+            <svg className={styles.svg}>
+              <use href={sprite + '#icon-plus'}></use>
+            </svg>
+          </button>
+        </form>
+      )}
+      {isMobileDevice && (
         <button className={styles.button} type="submit">
           <svg className={styles.svg}>
             <use href={sprite + '#icon-plus'}></use>
           </svg>
         </button>
-      </form>
+      )}
     </div>
   );
 };

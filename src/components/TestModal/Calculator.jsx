@@ -25,8 +25,9 @@ const Calculator = () => {
       >
         Похудеть
       </button>
-<CalendarInput/>
-<AddProductForm/>
+      <CalendarInput />
+      <AddProductForm />
+
       {/* <Button onClick={onOpenModal}>Похудеть</Button>  */}
       {/* ! not working if I use shared component 'Button'! */}
 
