@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import Button from '../../shared/button/Button'; // ! not working if I use shared component 'Button'!
 import Modal from '../Modal/Modal';
 import styles from './Calculator.module.css';
-
+import Summary from '../Summary/Summary'
 const Calculator = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -16,6 +16,7 @@ const Calculator = () => {
   return (
     <div>
       <h2>CALCULATOR</h2>
+      <Summary />
       <button
         type="button"
         className={styles.startDietBtn}
