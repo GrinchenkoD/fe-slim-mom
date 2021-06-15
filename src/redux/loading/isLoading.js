@@ -23,6 +23,14 @@ const loadingReducer = createReducer(intialState, {
   [products.searchPoductSuccess]: (_, __) => false,
   [products.deleteProductSuccess]: (_, __) => false,
   [products.deleteProductError]: (_, __) => false,
+
+  [products.dailyRatePrivateRequest]: (_, __) => true,
+  [products.dailyRatePrivateSuccess]: (_, __) => false,
+  [products.dailyRatePrivateError]: (_, __) => false,
+
+  [products.dailyRatePublicRequest]: (_, __) => true,
+  [products.dailyRatePublicSuccess]: (_, __) => false,
+  [products.dailyRatePublicError]: (_, __) => false,
 });
 
 export default loadingReducer;

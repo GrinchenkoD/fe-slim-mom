@@ -11,6 +11,12 @@ const {
   deleteProductRequest,
   deleteProductSuccess,
   deleteProductError,
+  dailyRatePrivateRequest,
+  dailyRatePrivateSuccess,
+  dailyRatePrivateError,
+  dailyRatePublicRequest,
+  dailyRatePublicSuccess,
+  dailyRatePublicError,
 } = actions;
 
 const token = {
@@ -52,10 +58,30 @@ const deleteUserProduct = productData => async (dispatch, getState) => {
   token.set(accessToken);
   dispatch(deleteProductRequest());
   try {
-    await axios.delete('/products/delete', productData);
+    await axios.patch('/products/delete', productData);
     dispatch(deleteProductSuccess(id));
   } catch (error) {
     dispatch(deleteProductError(error.message));
+  }
+};
+
+const dailyRatePrivate = values => dispatch => {
+  dispatch(dailyRatePrivateRequest());
+  try {
+    const { data } = await axios.post('/products/private/daily', values);
+    dispatch(dailyRatePrivateSuccess(data));
+  } catch (error) {
+    dispatch(dailyRatePrivateError(error.message));
+  }
+};
+const dailyRatePublic = values => dispatch => {
+  dispatch(dailyRatePublicRequest());
+  try {
+    const { data } = await axios.post('/products/public/daily', values);
+    // dispatch(dailyRatePublicSuccess(data)); //!хз чё делать при успешном
+    return data;
+  } catch (error) {
+    dispatch(dailyRatePublicError(error.message));
   }
 };
 
@@ -63,4 +89,6 @@ export default {
   searchProducts,
   addUserProduct,
   deleteUserProduct,
+  dailyRatePrivate,
+  dailyRatePublic,
 };

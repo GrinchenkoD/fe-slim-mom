@@ -15,6 +15,14 @@ const deleteProductRequest = createAction('product/deletePoductRequest');
 const deleteProductSuccess = createAction('product/deletePoductSuccess');
 const deleteProductError = createAction('product/deletePoductError');
 
+const dailyRatePrivateRequest = createAction('product/dailyRatePrivateRequest');
+const dailyRatePrivateSuccess = createAction('product/dailyRatePrivateSuccess');
+const dailyRatePrivateError = createAction('product/dailyRatePrivateError');
+
+const dailyRatePublicRequest = createAction('product/dailyRatePublicRequest');
+const dailyRatePublicSuccess = createAction('product/dailyRatePublicSuccess');
+const dailyRatePublicError = createAction('product/dailyRatePublicError');
+
 export default {
   setPickedDate,
   removePickedDate,
@@ -27,4 +35,10 @@ export default {
   deleteProductRequest,
   deleteProductSuccess,
   deleteProductError,
+  dailyRatePrivateRequest,
+  dailyRatePrivateSuccess,
+  dailyRatePrivateError,
+  dailyRatePublicRequest,
+  dailyRatePublicSuccess,
+  dailyRatePublicError,
 };

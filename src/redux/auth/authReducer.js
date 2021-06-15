@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import authActions from './authActions';
+import productsActions from '../products/productsActions';
 
 const userInitialState = '';
 const nickname = createReducer(userInitialState, {
@@ -16,6 +17,8 @@ const dailyCalories = createReducer(dailyCaloriesInitialState, {
   [authActions.logInSuccess]: (_, { payload }) => payload.login, //! Получить при логине
   [authActions.logOutSuccess]: () => dailyCaloriesInitialState,
   [authActions.logOutError]: () => dailyCaloriesInitialState,
+  [productsActions.dailyRatePrivateSuccess]: (_, { payload }) =>
+    payload.dailyCalories,
 });
 
 const categoriesInitialState = [];
@@ -24,6 +27,8 @@ const forbidenCategories = createReducer(categoriesInitialState, {
   [authActions.logInSuccess]: (_, { payload }) => payload.login, //! Получить при логине
   [authActions.logOutSuccess]: () => categoriesInitialState,
   [authActions.logOutError]: () => categoriesInitialState,
+  [productsActions.dailyRatePrivateSuccess]: (_, { payload }) =>
+    payload.forbidenCategories,
 });
 
 const tokenInitialState = null;
