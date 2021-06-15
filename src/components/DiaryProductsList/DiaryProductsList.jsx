@@ -9,11 +9,6 @@ const DiaryProductsList = () => {
     // <Container>
       <ul className={styles.listProducts}>
         <DiaryProductsListItem />
-        <DiaryProductsListItem />
-        <DiaryProductsListItem />
-        <DiaryProductsListItem />
-        <DiaryProductsListItem />
-        <DiaryProductsListItem />
       </ul>
     // </Container>
   );
