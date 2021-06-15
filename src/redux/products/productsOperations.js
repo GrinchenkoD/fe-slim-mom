@@ -22,14 +22,14 @@ const {
   dayInfoError,
 } = actions;
 
-// const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = '';
-//   },
-// };
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
 const searchProducts = searchQuerry => dispatch => {
   dispatch(searchPoductRequest());
@@ -68,7 +68,7 @@ const deleteUserProduct = productData => async (dispatch, getState) => {
   }
 };
 
-const dailyRatePrivate = values => dispatch => {
+const dailyRatePrivate = values => async dispatch => {
   dispatch(dailyRatePrivateRequest());
   try {
     const { data } = await axios.post('/products/private/daily', values);
@@ -77,7 +77,7 @@ const dailyRatePrivate = values => dispatch => {
     dispatch(dailyRatePrivateError(error.message));
   }
 };
-const dailyRatePublic = values => dispatch => {
+const dailyRatePublic = values => async dispatch => {
   dispatch(dailyRatePublicRequest());
   try {
     const { data } = await axios.post('/products/public/daily', values);
@@ -88,7 +88,15 @@ const dailyRatePublic = values => dispatch => {
   }
 };
 
-const prouctsDayInfo = date => async dispatch => {
+const prouctsDayInfo = date => async (dispatch, getState) => {
+  const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzVlODYyMjZjYWY2MDAxY2Q4MTI1ZCIsImxvZ2luIjoidGVzdDEyMyIsImlhdCI6MTYyMzc4MTE5NSwiZXhwIjoxNjIzNzg0Nzk1fQ.GCljPknYsTAtH3NO-ZVbPaPFYyvmGC7aLwfAYrizN74"
+
+  const {
+    auth: { token: accessToken },
+  } = getState();
+
+  token.set(testToken);
+
   dispatch(dayInfoRequest());
   try {
     const { data } = await axios.get(`/products/day-info/${date}`);
