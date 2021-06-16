@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import AddProductForm from '../AddProductForm/AddProductForm';
+import CalendarInput from '../CalendarInput/CalendarInput';
 // import Button from '../../shared/button/Button'; // ! not working if I use shared component 'Button'!
 import Modal from '../Modal/Modal';
 import styles from './Calculator.module.css';
@@ -23,6 +25,8 @@ const Calculator = () => {
       >
         Похудеть
       </button>
+      <CalendarInput />
+      <AddProductForm />
 
       {/* <Button onClick={onOpenModal}>Похудеть</Button>  */}
       {/* ! not working if I use shared component 'Button'! */}
