@@ -30,95 +30,95 @@ const Calculator = () => {
           <Form className={styles.form}>
             <Field
               className={styles.inputName}
-              name='height'
-              type='number'
-              placeholder='Рост *'
+              name="height"
+              type="number"
+              placeholder="Рост *"
             />
             <ErrorMessage
               className={styles.errorName}
-              component='span'
-              name='height'
+              component="span"
+              name="height"
             />
             <Field
               className={styles.inputName}
-              name='age'
-              type='number'
-              placeholder='Возраст *'
+              name="age"
+              type="number"
+              placeholder="Возраст *"
             />
             <ErrorMessage
               className={styles.errorName}
-              component='span'
-              name='age'
+              component="span"
+              name="age"
             />
             <Field
               className={styles.inputName}
-              name='weightNow'
-              type='number'
-              placeholder='Текущий вес *'
+              name="weightNow"
+              type="number"
+              placeholder="Текущий вес *"
             />
             <ErrorMessage
               className={styles.errorName}
-              component='span'
-              name='weightNow'
+              component="span"
+              name="weightNow"
             />
             <Field
               className={styles.inputName}
-              name='weightWant'
-              type='text'
-              placeholder='Желаемый вес *'
+              name="weightWant"
+              type="text"
+              placeholder="Желаемый вес *"
             />
             <ErrorMessage
               className={styles.errorName}
-              component='span'
-              name='weightWant'
+              component="span"
+              name="weightWant"
             />
-            <div className={styles.radioTitle} id='my-radio-group'>
+            <div className={styles.radioTitle} id="my-radio-group">
               Группа крови *
             </div>
             <div
-              role='group'
+              role="group"
               className={styles.wrapper}
-              aria-labelledby='my-radio-group'
+              aria-labelledby="my-radio-group"
             >
               <Field
-                id='1'
+                id="1"
                 className={styles.radioButton}
-                type='radio'
-                name='picked'
-                value='1'
+                type="radio"
+                name="picked"
+                value="1"
               />
-              <label htmlFor='1' className={styles.radioButtonLabel}>
+              <label htmlFor="1" className={styles.radioButtonLabel}>
                 1
               </label>
               <Field
-                id='2'
+                id="2"
                 className={styles.radioButton}
-                type='radio'
-                name='picked'
-                value='2'
+                type="radio"
+                name="picked"
+                value="2"
               />
 
-              <label htmlFor='2' className={styles.radioButtonLabel}>
+              <label htmlFor="2" className={styles.radioButtonLabel}>
                 2
               </label>
               <Field
-                id='3'
+                id="3"
                 className={styles.radioButton}
-                type='radio'
-                name='picked'
-                value='3'
+                type="radio"
+                name="picked"
+                value="3"
               />
-              <label htmlFor='3' className={styles.radioButtonLabel}>
+              <label htmlFor="3" className={styles.radioButtonLabel}>
                 3
               </label>
               <Field
-                id='4'
+                id="4"
                 className={styles.radioButton}
-                type='radio'
-                name='picked'
-                value='4'
+                type="radio"
+                name="picked"
+                value="4"
               />
-              <label htmlFor='4' className={styles.radioButtonLabel}>
+              <label htmlFor="4" className={styles.radioButtonLabel}>
                 4
               </label>
             </div>

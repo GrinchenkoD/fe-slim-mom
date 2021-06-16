@@ -4,7 +4,7 @@ import CalendarInput from '../CalendarInput/CalendarInput';
 // import Button from '../../shared/button/Button'; // ! not working if I use shared component 'Button'!
 import Modal from '../Modal/Modal';
 import styles from './Calculator.module.css';
-
+import Summary from '../Summary/Summary'
 const Calculator = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -27,6 +27,7 @@ const Calculator = () => {
       </button>
       <CalendarInput />
       <AddProductForm />
+      <Summary />
 
       {/* <Button onClick={onOpenModal}>Похудеть</Button>  */}
       {/* ! not working if I use shared component 'Button'! */}
