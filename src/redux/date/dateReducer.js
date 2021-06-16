@@ -1,4 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
+import productsActions from '../products/productsActions';
 
 const dateInitialState = () => {
   const date = new Date();
@@ -10,6 +11,8 @@ const dateInitialState = () => {
   return result;
 };
 const date = createReducer(dateInitialState(), {
+  [productsActions.setPickedDate]: (_, { payload }) => payload,
+
   //   [authActions.logInSuccess]: (_, { payload }) => payload.login,
   //   [authActions.logOutSuccess]: () => dateInitialState,
   //   [authActions.logOutError]: () => dateInitialState(),
