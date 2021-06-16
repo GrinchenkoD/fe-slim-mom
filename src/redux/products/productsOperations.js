@@ -53,10 +53,10 @@ const addUserProduct = productData => dispatch => {
 
 const deleteUserProduct = productData => async (dispatch, getState) => {
   const { id } = productData;
-  const {
-    auth: { token: accessToken },
-  } = getState();
-  token.set(accessToken);
+  // const {
+  //   auth: { token: accessToken },
+  // } = getState();
+  // token.set(accessToken);
   dispatch(deleteProductRequest());
   try {
     await axios.patch('/products/delete', productData);
@@ -66,7 +66,7 @@ const deleteUserProduct = productData => async (dispatch, getState) => {
   }
 };
 
-const dailyRatePrivate = values => dispatch => {
+const dailyRatePrivate = values => async dispatch => {
   dispatch(dailyRatePrivateRequest());
   try {
     const { data } = await axios.post('/products/private/daily', values);
@@ -75,7 +75,7 @@ const dailyRatePrivate = values => dispatch => {
     dispatch(dailyRatePrivateError(error.message));
   }
 };
-const dailyRatePublic = values => dispatch => {
+const dailyRatePublic = values => async dispatch => {
   dispatch(dailyRatePublicRequest());
   try {
     const { data } = await axios.post('/products/public/daily', values);

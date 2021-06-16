@@ -6,9 +6,9 @@ import sprite from '../../icons/symbol-defs.svg';
 import styles from './AddProductForm.module.css';
 import useDebounce from '../../hooks/useDebounce';
 import operations from '../../redux/products/productsOperations';
-import { getPickedDate } from '../../redux/products/productsSelectors';
+import getDate from '../../redux/date/dateSelector';
 import { useDevice } from '../../hooks/useDevice';
-import customStyles from './selectStyles'
+import customStyles from './selectStyles';
 
 const AddProductForm = () => {
   const { isTabletAndDesktop, isMobileDevice } = useDevice();
@@ -18,7 +18,7 @@ const AddProductForm = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const debouncedSearchQuerry = useDebounce(searchQuerry, 500);
   const dispatch = useDispatch();
-  const date = useSelector(getPickedDate);
+  const date = useSelector(getDate);
   const handleChange = selectedOption => {
     setSelectedOption(selectedOption);
   };
@@ -28,7 +28,7 @@ const AddProductForm = () => {
     // { value: 'vanilla', label: 'Vanilla' },
   ]);
 
-  const postNewProduct = (e) => {
+  const postNewProduct = e => {
     e.preventDefault();
     const newProduct = {
       title: selectedOption.value,
@@ -48,6 +48,14 @@ const AddProductForm = () => {
     }
   }, [debouncedSearchQuerry]);
 
+  const handleNumberValue = ({ target }) => {
+    const regexp = /^[0-9\b]+$/;
+    const { value } = target;
+
+    if (value === '' || regexp.test(value)) {
+      setWeight(value);
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -66,8 +74,9 @@ const AddProductForm = () => {
             className={styles.weight}
             name="weight"
             value={weight}
-            onChange={({ target }) => setWeight(target.value)}
-            type="number"
+            min="1"
+            onChange={handleNumberValue}
+            type="input"
             placeholder="Граммы"
           />
           <button className={styles.button} type="submit">
