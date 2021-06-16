@@ -5,6 +5,7 @@ import { authSelectors } from '../redux/auth/authselectors';
 
 const PrivateRoute = ({ redirectTo = '/', ...routeProps }) => {
   const isAuthentificated = useSelector(authSelectors.isAuthenticated);
+
   // const isAuthentificated = true; //! Для проверки
 
   return (
