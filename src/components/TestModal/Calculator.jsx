@@ -18,7 +18,6 @@ const Calculator = () => {
   return (
     <div>
       <h2>CALCULATOR</h2>
-      <Summary />
       <button
         type="button"
         className={styles.startDietBtn}
@@ -28,6 +27,7 @@ const Calculator = () => {
       </button>
       <CalendarInput />
       <AddProductForm />
+      <Summary />
 
       {/* <Button onClick={onOpenModal}>Похудеть</Button>  */}
       {/* ! not working if I use shared component 'Button'! */}
