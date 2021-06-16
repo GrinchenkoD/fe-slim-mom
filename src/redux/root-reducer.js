@@ -4,6 +4,9 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducer';
 import errorReducer from './error';
 import loadingReducer from './loading/isLoading';
+import productsReducer from './products/productsReducer';
+import isModalOpen from './modal/modalReducer';
+import date from './date/dateReducer';
 
 // ! CONFIG PERSIST HERE
 // const authPersistConfig = {
@@ -15,12 +18,15 @@ import loadingReducer from './loading/isLoading';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'isAuthenticated'],
+  whitelist: ['token', 'isAuthenticated', 'user'],
 };
 const reducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
-  error: errorReducer,
+  products:productsReducer,
+  error:errorReducer,
   isLoading: loadingReducer,
+  isModalOpen: isModalOpen,
+  date: date,
 });
 
 export default reducer;
