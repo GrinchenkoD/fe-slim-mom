@@ -89,10 +89,11 @@ const dailyRatePublic = values => async dispatch => {
 };
 
 const prouctsDayInfo = date => async (dispatch, getState) => {
-  // const {
-  //   auth: { token: accessToken },
-  // } = getState();
-  // token.set(accessToken);
+  const {
+    auth: { token: accessToken },
+  } = getState();
+  token.set(accessToken);
+  console.log('Запрос пошел');
   dispatch(dayInfoRequest());
   try {
     const { data } = await axios.get(`/products/day-info/${date}`);

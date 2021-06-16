@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
@@ -9,11 +9,20 @@ import { authSelectors } from '../../redux/auth/authselectors';
 import Calculator from '../Calculator/Calculator';
 
 const App = () => {
-  const token = useSelector(authSelectors.token);
-  console.log(token, 'token в app');
-  if (token) {
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem('persist:auth')).token;
+    console.log(token, '<<<<TOKEN В ЮЗЭФЕКТ');
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  }
+  }, []);
+
+  const token = JSON.parse(localStorage.getItem('persist:auth')).token;
+  // user = JSON.parse(user);
+  console.log(token, '<<<<TOKEN');
+  // const token = useSelector(authSelectors.token);
+  // console.log(token, 'token в app');
+  // if (token) {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  // }
   return (
     <div>
       <Header />
