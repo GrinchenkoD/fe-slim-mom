@@ -10,6 +10,7 @@ import Calculator from '../Calculator/Calculator';
 
 const App = () => {
   const token = useSelector(authSelectors.token);
+  console.log(token, 'token в app');
   if (token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }
