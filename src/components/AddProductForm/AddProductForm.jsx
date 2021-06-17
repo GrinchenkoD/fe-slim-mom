@@ -27,26 +27,30 @@ const AddProductForm = () => {
     // { value: 'strawberry', label: 'Strawberry' },
     // { value: 'vanilla', label: 'Vanilla' },
   ]);
+  
+    useEffect(() => {
+      if (debouncedSearchQuerry) {
+        axios
+          .get(`products/${debouncedSearchQuerry}`)
+          .then(({ data }) =>
+            data.products.map(product => ({ value: product, label: product })),
+          )
+          .then(data => setOptions(data));
+      }
+    }, [debouncedSearchQuerry]);
+
 
   const postNewProduct = e => {
     e.preventDefault();
-    const newProduct = {
-      title: selectedOption.value,
-      weight,
-      date,
-    };
-    dispatch(operations.addUserProduct(newProduct));
+    console.log(selectedOption);
+    // const newProduct = {
+    //   title: selectedOption.value,
+    //   weight,
+    //   date,
+    // };
+    // dispatch(operations.addUserProduct(newProduct));
   };
-  useEffect(() => {
-    if (debouncedSearchQuerry) {
-      axios
-        .get(`products/${debouncedSearchQuerry}`)
-        .then(({ data }) =>
-          data.products.map(product => ({ value: product, label: product })),
-        )
-        .then(data => setOptions(data));
-    }
-  }, [debouncedSearchQuerry]);
+
 
   const handleNumberValue = ({ target }) => {
     const regexp = /^[0-9\b]+$/;
@@ -62,6 +66,7 @@ const AddProductForm = () => {
       {isTabletAndDesktop && (
         <form onSubmit={postNewProduct} className={styles.form}>
           <Select
+            required
             value={selectedOption}
             onChange={handleChange}
             options={options}
@@ -71,10 +76,19 @@ const AddProductForm = () => {
             placeholder="Введите название продукта"
           />
           <input
+            className={styles.test}
+            type="text"
+            required
+            value={selectedOption}
+          />
+          <input
             className={styles.weight}
             name="weight"
             value={weight}
             min="1"
+            components={{
+              IndicatorSeparator: () => null,
+            }}
             onChange={handleNumberValue}
             type="input"
             placeholder="Граммы"

@@ -29,8 +29,16 @@
   height: 15px;
   fill: fff;
 }
+.test{
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
 .form {
   color: #9b9faa;
+  position: relative;
 }
 @media screen and (min-width: 768px) {
   .form {
