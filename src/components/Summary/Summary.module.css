@@ -8,7 +8,19 @@
   line-height: 1.21;
   color: #9b9faa;
 }
-
+p.summaryInfo::first-letter {
+  text-transform: capitalize;
+}
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+}
+p.summaryInfo {
+margin-top: 20px;
+}
+.summaryItem:not(:first-child) {
+  margin-top: 25px;
+}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .summaryWrapper {
     display: flex;
@@ -17,3 +29,14 @@
     outline: 1px solid orangered;
   }
 }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    .summaryCategories {
+      margin-top: 40px;
+    }
+  }
+    @media screen and (min-width: 1280px) {
+    .summaryCategories {
+      margin-top: 60px;
+    }
+  }

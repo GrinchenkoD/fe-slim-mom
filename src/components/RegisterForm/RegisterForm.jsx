@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {getRegister} from "../../redux/auth/authOperations"
 import Button from "../../shared/button/Button"
 import { Link } from 'react-router-dom';
-import { isLoading } from '../../redux/loading/loadingSelector';
+import isLoading  from '../../redux/loading/loadingSelector';
 
 const RegisterForm = () => {
       const dispatch = useDispatch();

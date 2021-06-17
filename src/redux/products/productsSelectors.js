@@ -1,13 +1,2 @@
-const getPickedDate = state => state.products.pickedDate;
-
-const getUserDailyProducts = state => state.products.userDailyProducts;
-
-const getDate = state => state.date;
-
-
-
-export {
-    getUserDailyProducts,
-    getDate,
-};
-
+export const getPickedDate = state => state.products.pickedDate;
+export const getCaloriesReceived= state => state?.products?.caloriesReceived

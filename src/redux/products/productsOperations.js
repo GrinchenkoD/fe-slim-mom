@@ -46,6 +46,7 @@ const addUserProduct = productData => dispatch => {
   axios
     .post('/products/add', productData)
     .then(({ data }) => {
+      console.log(data);
       dispatch(addPoductSuccess(data));
     })
     .catch(error => dispatch(addPoductError(error)));
@@ -53,21 +54,21 @@ const addUserProduct = productData => dispatch => {
 
 const deleteUserProduct = productData => async (dispatch, getState) => {
   const { id } = productData;
-  // const {
-  //   auth: { token: accessToken },
-  // } = getState();
-  // token.set(accessToken);
   dispatch(deleteProductRequest());
   try {
-   const {data} = await axios.patch('/products/delete', productData);
-    dispatch(deleteProductSuccess({id, data}));
+    const { data } = await axios.patch('/products/delete', productData);
+    dispatch(deleteProductSuccess({ id, data }));
   } catch (error) {
     dispatch(deleteProductError(error.message));
   }
 };
 
-const dailyRatePrivate = values => async dispatch => {
+const dailyRatePrivate = values => async (dispatch, getState) => {
   dispatch(dailyRatePrivateRequest());
+  const {
+    auth: { token: accessToken },
+  } = getState();
+  token.set(accessToken);
   try {
     const { data } = await axios.post('/products/private/daily', values);
     dispatch(dailyRatePrivateSuccess(data));
@@ -75,11 +76,12 @@ const dailyRatePrivate = values => async dispatch => {
     dispatch(dailyRatePrivateError(error.message));
   }
 };
+
 const dailyRatePublic = values => async dispatch => {
   dispatch(dailyRatePublicRequest());
   try {
     const { data } = await axios.post('/products/public/daily', values);
-    // dispatch(dailyRatePublicSuccess(data)); //!хз чё делать при успешном
+    dispatch(dailyRatePublicSuccess()); //!хз чё делать при успешном
     return data;
   } catch (error) {
     dispatch(dailyRatePublicError(error.message));
@@ -87,18 +89,15 @@ const dailyRatePublic = values => async dispatch => {
 };
 
 const prouctsDayInfo = date => async (dispatch, getState) => {
-  const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzVlODYyMjZjYWY2MDAxY2Q4MTI1ZCIsImxvZ2luIjoidGVzdDEyMyIsImlhdCI6MTYyMzk0MDA0OCwiZXhwIjoxNjIzOTUwODQ4fQ.eUFVzy2CKwjy0T2jycX20BFN6f2XIbifI9NLiyfHS5M"
-
-  const {
-    auth: { token: accessToken },
-  } = getState();
-
-  token.set(testToken);
-
+  // const {
+  //   auth: { token: accessToken },
+  // } = getState();
+  // token.set(accessToken);
+  console.log('Запрос пошел');
   dispatch(dayInfoRequest());
   try {
     const { data } = await axios.get(`/products/day-info/${date}`);
-    dispatch(dayInfoSuccess(data)); //!!
+    dispatch(dayInfoSuccess(data));
   } catch (error) {
     dispatch(dayInfoError(error.message));
   }

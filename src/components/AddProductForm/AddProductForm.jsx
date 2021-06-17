@@ -9,13 +9,16 @@ import operations from '../../redux/products/productsOperations';
 import getDate from '../../redux/date/dateSelector';
 import { useDevice } from '../../hooks/useDevice';
 import customStyles from './selectStyles';
+import isModalOpenSelector from '../../redux/modal/modalSelector';
+import modalActions from '../../redux/modal/modalActions';
+import Modal from '../Modal/Modal';
 
 const AddProductForm = () => {
   const { isTabletAndDesktop, isMobileDevice } = useDevice();
 
   const [searchQuerry, setSearchQuerry] = useState('');
   const [weight, setWeight] = useState('');
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState('');
   const debouncedSearchQuerry = useDebounce(searchQuerry, 500);
   const dispatch = useDispatch();
   const date = useSelector(getDate);
@@ -28,15 +31,7 @@ const AddProductForm = () => {
     // { value: 'vanilla', label: 'Vanilla' },
   ]);
 
-  const postNewProduct = e => {
-    e.preventDefault();
-    const newProduct = {
-      title: selectedOption.value,
-      weight,
-      date,
-    };
-    dispatch(operations.addUserProduct(newProduct));
-  };
+  const modalState = useSelector(isModalOpenSelector);
   useEffect(() => {
     if (debouncedSearchQuerry) {
       axios
@@ -47,6 +42,25 @@ const AddProductForm = () => {
         .then(data => setOptions(data));
     }
   }, [debouncedSearchQuerry]);
+
+  const postNewProduct = e => {
+    e.preventDefault();
+    // console.log(selectedOption);
+    const newProduct = {
+      title: selectedOption.value,
+      weight,
+      date,
+    };
+    dispatch(operations.addUserProduct(newProduct));
+  };
+
+  const onOpenModal = () => {
+    dispatch(modalActions.modalOpen());
+  };
+
+  const onCloseModal = () => {
+    dispatch(modalActions.modalClose());
+  };
 
   const handleNumberValue = ({ target }) => {
     const regexp = /^[0-9\b]+$/;
@@ -62,6 +76,7 @@ const AddProductForm = () => {
       {isTabletAndDesktop && (
         <form onSubmit={postNewProduct} className={styles.form}>
           <Select
+            required
             value={selectedOption}
             onChange={handleChange}
             options={options}
@@ -71,10 +86,19 @@ const AddProductForm = () => {
             placeholder="Введите название продукта"
           />
           <input
+            className={styles.test}
+            type="text"
+            required
+            value={selectedOption}
+            onChange={handleChange}
+          />
+          <input
+            required
             className={styles.weight}
             name="weight"
             value={weight}
             min="1"
+            autoComplete="off"
             onChange={handleNumberValue}
             type="input"
             placeholder="Граммы"
@@ -86,13 +110,52 @@ const AddProductForm = () => {
           </button>
         </form>
       )}
-      {isMobileDevice && (
-        <button className={styles.button} type="submit">
-          <svg className={styles.svg}>
-            <use href={sprite + '#icon-plus'}></use>
-          </svg>
-        </button>
-      )}
+      {/* {isMobileDevice && (
+        <>
+          {modalState && (
+            <Modal onClose={onCloseModal}>
+              <form onSubmit={postNewProduct} className={styles.form}>
+                <Select
+                  required
+                  value={selectedOption}
+                  onChange={handleChange}
+                  options={options}
+                  inputValue={searchQuerry}
+                  onInputChange={setSearchQuerry}
+                  styles={customStyles}
+                  placeholder="Введите название продукта"
+                />
+                <input
+                  className={styles.test}
+                  type="text"
+                  required
+                  value={selectedOption}
+                  onChange={handleChange}
+                />
+                <input
+                  required
+                  className={styles.weight}
+                  name="weight"
+                  value={weight}
+                  min="1"
+                  autoComplete="off"
+                  onChange={handleNumberValue}
+                  type="input"
+                  placeholder="Граммы"
+                />
+                <button className={styles.modalAddButton} type="submit">
+                  Отправить
+                </button>
+              </form>
+            </Modal>
+          )}
+          <button onClick={onOpenModal} className={styles.button} type="submit">
+            <svg className={styles.svg}>
+              <use href={sprite + '#icon-plus'}></use>
+            </svg>
+          </button>
+        </>
+      )} */}
     </div>
   );
 };

@@ -6,7 +6,8 @@
   padding: 1rem 0px 0px 0px;
   height: 55px;
   color: rgb(255, 0, 55);
-  margin: 0 auto 24px;
+  /* margin: 0 auto 24px; */
+  /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 }
 .label {
   position: absolute;

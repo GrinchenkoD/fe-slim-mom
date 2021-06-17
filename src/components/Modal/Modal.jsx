@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import DailyCalories from '../ModalDailyCalories/ModalDailyCalories';
 import styles from './Modal.module.css';
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, ...props }) => {
   //   const params = useParams();
 
   const handleKeyDown = useCallback(
@@ -38,9 +38,8 @@ const Modal = ({ onClose }) => {
   return createPortal(
     <div className={styles.overlay} onClick={handleBackDrop}>
       <div className={styles.modal}>
-        <DailyCalories />
+        <DailyCalories {...props} onClose={ onClose}/>
         {/* <DailyCalories params={params} /> */}
-
         <button
           type="button"
           className={styles.closeBtn}

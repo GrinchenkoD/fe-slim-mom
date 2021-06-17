@@ -1,1 +1,2 @@
-export const isLoading = state => state.isLoading;
+const isLoading = state => state.isLoading;
+export default isLoading;
