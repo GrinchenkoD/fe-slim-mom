@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 const calculatorSchema = Yup.object().shape({
-  height: Yup.number(),
+  height: Yup.number().required('Обязательное поле'),
   age: Yup.number().required('Обязательное поле'),
   currentWeight: Yup.number().required('Обязательное поле'),
   desiredWeight: Yup.number().required('Обязательное поле'),

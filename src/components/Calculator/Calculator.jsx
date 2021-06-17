@@ -7,6 +7,7 @@ import Background from '../Background/Background';
 
 import styles from './Calculator.module.css';
 import calculatorSchema from './CalculatorSchema';
+import FormControl from '../FormControl/FormControl';
 
 const Calculator = ({title, onSubmit}) => {
   return (
@@ -26,30 +27,31 @@ const Calculator = ({title, onSubmit}) => {
           }}
           validationSchema={calculatorSchema}
           onSubmit={onSubmit}
-          // onSubmit={(values, { resetForm }) => {
-          //   console.log(values);
-          //   resetForm();
-          // }}
+        // onSubmit={(values, { resetForm }) => {
+        //   console.log(values);
+        //   resetForm();
+        // }}
         >
           <Form className={styles.form}>
-            <Field
+            {/* <Field
               className={styles.inputName}
               name="height"
               type="number"
               placeholder="Рост *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
               name="height"
             />
+            
             <Field
               className={styles.inputName}
               name="age"
               type="number"
               placeholder="Возраст *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
               name="age"
@@ -59,8 +61,8 @@ const Calculator = ({title, onSubmit}) => {
               name="currentWeight"
               type="number"
               placeholder="Текущий вес *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
               name="currentWeight"
@@ -70,11 +72,39 @@ const Calculator = ({title, onSubmit}) => {
               name="desiredWeight"
               type="number"
               placeholder="Желаемый вес *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
               name="desiredWeight"
+            /> */}
+            <FormControl
+              label="Рост"
+              name="height"
+              type="number"
+              id="height"
+              placeholder="Рост"
+            />
+            <FormControl
+              label="Возраст"
+              name="age"
+              type="number"
+              id="age"
+              placeholder="Возраст"
+            />
+            <FormControl
+              label="Текущий вес"
+              name="currentWeight"
+              type="number"
+              id="currentWeight"
+              placeholder="Текущий вес"
+            />
+            <FormControl
+              label="Желаемый вес"
+              name="desiredWeight"
+              type="number"
+              id="desiredWeight"
+              placeholder="Желаемый вес"
             />
             <div className={styles.radioTitle} id="my-radio-group">
               Группа крови *
