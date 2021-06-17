@@ -4,23 +4,15 @@ import { Link } from 'react-router-dom';
 import LogoMobile from '../../images/logoMobile.png';
 import LogoTablet from '../../images/logoTablet.png';
 import LogoDesctop from '../../images/logoDesctop.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
-import productsOperations from '../../redux/products/productsOperations';
+import {useSelector } from 'react-redux';
+import { authSelectors } from "../../redux/auth/authselectors"
 
 import styles from './Header.module.css';
-import getDate from '../../redux/date/dateSelector';
+
 
 const Logo = () => {
   const { isMobileDevice, isDesctopDevice, isTabletDevice } = useDevice();
-  const isLogged = false;
-
-  //!
-const dispatch = useDispatch()
-  const date = useSelector(getDate)
-  useEffect(()=>{dispatch(productsOperations.prouctsDayInfo(date))}, [dispatch, date])
-  //!
+  const isLogged = useSelector(authSelectors.isAuthenticated);
 
   return (
     <Link to='/'>

@@ -17,7 +17,7 @@ const {
 } = actions;
 
 axios.defaults.baseURL = 'https://slim-mom.herokuapp.com/';
-const token = {
+export const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },

@@ -15,9 +15,8 @@ const PublicRoute = ({
   const redirectTo = !!completedCalcForm ? '/diary' : '/calculator';
 
   // const isAuthentificated = false; //! Для проверки
-  
+
   const shouldRedirect = !isAuthentificated && restricted;
-  console.log(shouldRedirect, "public");
 
   return (
     <>
