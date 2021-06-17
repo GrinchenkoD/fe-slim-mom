@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import LogoMobile from '../../images/logoMobile.png';
 import LogoTablet from '../../images/logoTablet.png';
 import LogoDesctop from '../../images/logoDesctop.png';
+import {useSelector } from 'react-redux';
+import { authSelectors } from "../../redux/auth/authselectors"
 
 import styles from './Header.module.css';
 
+
 const Logo = () => {
   const { isMobileDevice, isDesctopDevice, isTabletDevice } = useDevice();
-  const isLogged = false;
+  const isLogged = useSelector(authSelectors.isAuthenticated);
 
   return (
     <Link to='/'>

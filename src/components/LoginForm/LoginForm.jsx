@@ -7,15 +7,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import {getLogin} from "../../redux/auth/authOperations"
 import Button from "../../shared/button/Button"
 import { Link } from 'react-router-dom';
-import { isLoading } from '../../redux/loading/loadingSelector';
+import isLoading  from '../../redux/loading/loadingSelector';
 
 
 const LoginForm = () => {
     const dispatch = useDispatch();
     const loading = useSelector(isLoading);
-      const login = useCallback(
-          values => {
-      dispatch(getLogin(values));
+    const login = useCallback(
+        (values, {resetForm}) => {
+            dispatch(getLogin(values));
+            resetForm()
     },
     [dispatch],
   );

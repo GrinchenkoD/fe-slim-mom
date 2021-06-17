@@ -3,74 +3,108 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import Background from '../Background/Background';
 
-import styles from './Calculator.module.css';
 
-const Calculator = () => {
+
+import styles from './Calculator.module.css';
+import calculatorSchema from './CalculatorSchema';
+import FormControl from '../FormControl/FormControl';
+
+const Calculator = ({title, onSubmit}) => {
   return (
     <>
       <Background />
       <Container>
         <h1 className={styles.title}>
-          Просчитай свою суточную норму калорий прямо сейчас
+          {title}
         </h1>
         <Formik
           initialValues={{
             height: '',
             age: '',
-            weightNow: '',
-            weightWant: '',
-            picked: '',
+            currentWeight: '',
+            desiredWeight: '',
+            bloodType: '',
           }}
-          validationSchema={console.log('object')}
-          onSubmit={(values, { resetForm }) => {
-            console.log(values);
-            resetForm();
-          }}
+          validationSchema={calculatorSchema}
+          onSubmit={onSubmit}
+        // onSubmit={(values, { resetForm }) => {
+        //   console.log(values);
+        //   resetForm();
+        // }}
         >
           <Form className={styles.form}>
-            <Field
+            {/* <Field
               className={styles.inputName}
               name="height"
               type="number"
               placeholder="Рост *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
               name="height"
             />
+            
             <Field
               className={styles.inputName}
               name="age"
               type="number"
               placeholder="Возраст *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
               name="age"
             />
             <Field
               className={styles.inputName}
-              name="weightNow"
+              name="currentWeight"
               type="number"
               placeholder="Текущий вес *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
-              name="weightNow"
+              name="currentWeight"
             />
             <Field
               className={styles.inputName}
-              name="weightWant"
-              type="text"
+              name="desiredWeight"
+              type="number"
               placeholder="Желаемый вес *"
-            />
-            <ErrorMessage
+              />
+              <ErrorMessage
               className={styles.errorName}
               component="span"
-              name="weightWant"
+              name="desiredWeight"
+            /> */}
+            <FormControl
+              label="Рост"
+              name="height"
+              type="number"
+              id="height"
+              placeholder="Рост"
+            />
+            <FormControl
+              label="Возраст"
+              name="age"
+              type="number"
+              id="age"
+              placeholder="Возраст"
+            />
+            <FormControl
+              label="Текущий вес"
+              name="currentWeight"
+              type="number"
+              id="currentWeight"
+              placeholder="Текущий вес"
+            />
+            <FormControl
+              label="Желаемый вес"
+              name="desiredWeight"
+              type="number"
+              id="desiredWeight"
+              placeholder="Желаемый вес"
             />
             <div className={styles.radioTitle} id="my-radio-group">
               Группа крови *
@@ -84,7 +118,7 @@ const Calculator = () => {
                 id="1"
                 className={styles.radioButton}
                 type="radio"
-                name="picked"
+                name="bloodType"
                 value="1"
               />
               <label htmlFor="1" className={styles.radioButtonLabel}>
@@ -94,7 +128,7 @@ const Calculator = () => {
                 id="2"
                 className={styles.radioButton}
                 type="radio"
-                name="picked"
+                name="bloodType"
                 value="2"
               />
 
@@ -105,7 +139,7 @@ const Calculator = () => {
                 id="3"
                 className={styles.radioButton}
                 type="radio"
-                name="picked"
+                name="bloodType"
                 value="3"
               />
               <label htmlFor="3" className={styles.radioButtonLabel}>
@@ -115,14 +149,14 @@ const Calculator = () => {
                 id="4"
                 className={styles.radioButton}
                 type="radio"
-                name="picked"
+                name="bloodType"
                 value="4"
               />
               <label htmlFor="4" className={styles.radioButtonLabel}>
                 4
               </label>
             </div>
-            <button className={styles.button}>Похудеть</button>
+            <button className={styles.button} type="submit">Похудеть</button>
           </Form>
         </Formik>
       </Container>

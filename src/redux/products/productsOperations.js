@@ -22,14 +22,14 @@ const {
   dayInfoError,
 } = actions;
 
-// const token = {
-//   set(token) {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   },
-//   unset() {
-//     axios.defaults.headers.common.Authorization = '';
-//   },
-// };
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
 const searchProducts = searchQuerry => dispatch => {
   dispatch(searchPoductRequest());
@@ -53,21 +53,21 @@ const addUserProduct = productData => dispatch => {
 
 const deleteUserProduct = productData => async (dispatch, getState) => {
   const { id } = productData;
-  // const {
-  //   auth: { token: accessToken },
-  // } = getState();
-  // token.set(accessToken);
   dispatch(deleteProductRequest());
   try {
-    await axios.patch('/products/delete', productData);
-    dispatch(deleteProductSuccess(id));
+    const { data } = await axios.patch('/products/delete', productData);
+    dispatch(deleteProductSuccess({ id, data }));
   } catch (error) {
     dispatch(deleteProductError(error.message));
   }
 };
 
-const dailyRatePrivate = values => async dispatch => {
+const dailyRatePrivate = values => async (dispatch, getState) => {
   dispatch(dailyRatePrivateRequest());
+  const {
+    auth: { token: accessToken },
+  } = getState();
+  token.set(accessToken);
   try {
     const { data } = await axios.post('/products/private/daily', values);
     dispatch(dailyRatePrivateSuccess(data));
@@ -75,22 +75,28 @@ const dailyRatePrivate = values => async dispatch => {
     dispatch(dailyRatePrivateError(error.message));
   }
 };
+
 const dailyRatePublic = values => async dispatch => {
   dispatch(dailyRatePublicRequest());
   try {
     const { data } = await axios.post('/products/public/daily', values);
-    // dispatch(dailyRatePublicSuccess(data)); //!хз чё делать при успешном
+    dispatch(dailyRatePublicSuccess()); //!хз чё делать при успешном
     return data;
   } catch (error) {
     dispatch(dailyRatePublicError(error.message));
   }
 };
 
-const prouctsDayInfo = date => async dispatch => {
+const prouctsDayInfo = date => async (dispatch, getState) => {
+  // const {
+  //   auth: { token: accessToken },
+  // } = getState();
+  // token.set(accessToken);
+  console.log('Запрос пошел');
   dispatch(dayInfoRequest());
   try {
     const { data } = await axios.get(`/products/day-info/${date}`);
-    dispatch(dayInfoSuccess(data)); //!!
+    dispatch(dayInfoSuccess(data));
   } catch (error) {
     dispatch(dayInfoError(error.message));
   }
