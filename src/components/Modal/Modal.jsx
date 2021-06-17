@@ -40,7 +40,6 @@ const Modal = ({ onClose, ...props }) => {
       <div className={styles.modal}>
         <DailyCalories {...props} onClose={ onClose}/>
         {/* <DailyCalories params={params} /> */}
-
         <button
           type="button"
           className={styles.closeBtn}

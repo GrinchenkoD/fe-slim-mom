@@ -1,3 +1,4 @@
+
 const customStyles = {
   option: (provided, state) => ({
     ...provided,
@@ -35,7 +36,7 @@ const customStyles = {
     padding: 0,
   }),
 
- placeholder: provided => ({
+  placeholder: provided => ({
     textAlign: 'left',
     fontWeight: 700,
     lineHeight: 1.2,

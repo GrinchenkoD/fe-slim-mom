@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 import productsOperations from '../../redux/products/productsOperations';
 import modalActions from '../../redux/modal/modalActions';
-import { isModalOpenSelector } from '../../redux/modal/modalSelector';
+import  isModalOpenSelector  from '../../redux/modal/modalSelector';
 import isLoading from '../../redux/loading/loadingSelector';
 
 
