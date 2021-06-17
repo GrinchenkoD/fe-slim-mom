@@ -42,7 +42,7 @@ function Summary() {
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>n% от нормы</span>
             <span className={styles.summaryInfo}>
-              {caloriesReceived / dailyCalories * 100} ккал
+              {parseInt((caloriesReceived / dailyCalories )* 100)}% 
             </span>
           </li>
         </ul>

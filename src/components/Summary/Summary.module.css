@@ -15,6 +15,9 @@ p.summaryInfo::first-letter {
   display: flex;
   justify-content: space-between;
 }
+p.summaryInfo {
+margin-top: 20px;
+}
 .summaryItem:not(:first-child) {
   margin-top: 25px;
 }
