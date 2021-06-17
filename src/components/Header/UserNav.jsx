@@ -6,14 +6,14 @@ const UserNav = () => {
   return (
     <>
       <NavLink
-        to='/:id2'
+        to='/diary'
         className={styles.burgerLink}
         activeClassName={styles.burgerLinkActive}
       >
         ДНЕВНИК
       </NavLink>
       <NavLink
-        to='/:id'
+        to='/calculator'
         className={styles.burgerLink}
         activeClassName={styles.burgerLinkActive}
       >

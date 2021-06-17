@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './DailyCalories.module.css';
 
-const DailyCalories = () => {
+
+const DailyCalories = ({dailyCalories, forbidenCategories, handleClickStartDiet}) => {
   // const DailyCalories = ({params}) => { // to be received from calculated back-end
   return (
     <div className={styles.container}>
@@ -11,8 +12,7 @@ const DailyCalories = () => {
       </p>
 
       <p className={styles.calories__number}>
-        2800
-        {/* {params} */}
+        {dailyCalories}
         <span className={styles.calories__text}> ккал</span>
       </p>
 
@@ -21,19 +21,17 @@ const DailyCalories = () => {
         не рекомендуется употреблять
       </p>
       <ol className={styles.calories__list}>
-        <li className={styles.calories__list_item}>Мучные продукты</li>
-        <li className={styles.calories__list_item}>Молоко</li>
-        <li className={styles.calories__list_item}>Красное мясо</li>
-        <li className={styles.calories__list_item}>Копчености</li>
+        {forbidenCategories.map(category=><li key={category} className={styles.calories__list_item}>{category}</li>) }
+       
       </ol>
 
       <button
         type="button"
         className={styles.startDietBtn}
-        // onClick={handleClickStartDiet}
+        onClick={handleClickStartDiet}
       >
         Начать худеть
-      </button>
+        </button>
     </div>
   );
 };

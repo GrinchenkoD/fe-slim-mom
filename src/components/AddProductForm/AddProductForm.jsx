@@ -110,7 +110,7 @@ const AddProductForm = () => {
           </button>
         </form>
       )}
-      {isMobileDevice && (
+      {/* {isMobileDevice && (
         <>
           {modalState && (
             <Modal onClose={onCloseModal}>
@@ -155,7 +155,7 @@ const AddProductForm = () => {
             </svg>
           </button>
         </>
-      )}
+      )} */}
     </div>
   );
 };

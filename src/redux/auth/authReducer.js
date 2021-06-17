@@ -41,7 +41,7 @@ const token = createReducer(tokenInitialState, {
 const isAuthenticated = createReducer(false, {
   [authActions.logInSuccess]: () => true,
   [authActions.logOutSuccess]: () => false,
-  [authActions.getCurrentUserSuccess]: () => true,
+  // [authActions.getCurrentUserSuccess]: () => true,
   [authActions.getCurrentUserError]: () => false,
   [authActions.logOutError]: () => false,
 });
