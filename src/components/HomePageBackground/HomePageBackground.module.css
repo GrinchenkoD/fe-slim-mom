@@ -12,3 +12,11 @@
       bottom right;
   }
 }
+@media screen and (min-width: 1280px) {
+  .thumb {
+    background-image: url(../../images/banana.png), url(../../images/leafs.png),
+      url(../../images/strawberry.png), url(../../images/vector.png);
+    background-position: top right, bottom 30px right 195px, bottom right,
+      bottom right;
+  }
+}
