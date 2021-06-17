@@ -12,7 +12,7 @@ import FormControl from '../FormControl/FormControl';
 const Calculator = ({title, onSubmit}) => {
   return (
     <>
-      <Background />
+      {/* <Background /> */}
       <Container>
         <h1 className={styles.title}>
           {title}

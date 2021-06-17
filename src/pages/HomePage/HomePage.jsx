@@ -8,7 +8,9 @@ import productsOperations from '../../redux/products/productsOperations';
 import modalActions from '../../redux/modal/modalActions';
 import  isModalOpenSelector  from '../../redux/modal/modalSelector';
 import isLoading from '../../redux/loading/loadingSelector';
+import Header from '../../components/Header/Header';
 
+import HomePageBackground from "../../components/HomePageBackground/HomePageBackground"
 
 
 
@@ -53,7 +55,8 @@ const HomePage = () => {
 
 
   return (
-    <>
+    <HomePageBackground>
+      <Header/>
     <Calculator title={homeCalcTitle} onSubmit={onSubmit} />
       {isModalOpen && !loading && <Modal
         onClose={onCloseModal}
@@ -61,7 +64,7 @@ const HomePage = () => {
         forbidenCategories={forbidenCategories}
 handleClickStartDiet={handleClickStartDiet}      
       />}
-    </>
+    </HomePageBackground>
   );
   
 };
