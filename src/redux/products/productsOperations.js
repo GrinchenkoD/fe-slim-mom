@@ -46,7 +46,6 @@ const addUserProduct = productData => dispatch => {
   axios
     .post('/products/add', productData)
     .then(({ data }) => {
-      console.log(data);
       dispatch(addPoductSuccess(data));
     })
     .catch(error => dispatch(addPoductError(error)));

@@ -6,6 +6,7 @@
     padding: 0 15px;
     width: 100%;
     margin: 0 auto;
+    background: linear-gradient(to bottom, hsla(0, 0%, 100%, 0) 60%, rgba(240, 241, 243, 1) 40%);
   }
 }
 
@@ -14,7 +15,9 @@
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding: 0 70px;
+    padding: 0 90px;
+    background: linear-gradient(to bottom, hsla(0, 0%, 100%, 0) 75%, rgba(240, 241, 243, 1) 25%);
+
   }
 }
 
@@ -22,7 +25,10 @@
 
 @media screen and (min-width: 1280px) {
   .container {
-    padding: 0 0 0 90px;
+    /* padding: 0 0 0 90px; */
+    padding: 0 115px;
     max-width: 1280px;
+    background: linear-gradient(to right, hsla(0, 0%, 100%, 0) 60%, rgba(240, 241, 243, 1) 40%);
+
   }
 }

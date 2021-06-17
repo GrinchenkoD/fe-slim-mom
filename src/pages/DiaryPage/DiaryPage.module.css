@@ -1,14 +1,14 @@
-.boxMain {
+.wrapper {
   position: relative;
-  padding-top: 40px;
-
-  outline: 1px solid orangered;
+  margin-top: 40px;
+  /* outline: 1px solid orangered; */
 }
-
 .boxCalendarInput {
-  margin-bottom: 31px;
+  margin-bottom: 30px;
 }
-
+.boxMain {
+  margin-bottom: 170px;
+}
 .boxAddProductForm {
   position: absolute;
   top: 300px;
@@ -16,24 +16,27 @@
 }
 
 @media screen and (min-width: 768px) {
-  .boxMain {
-    padding-top: 100px;
-  }
-  .boxAddProductForm {
-    position: static;
-    margin-top: 30px;
-    margin-bottom: 50px;
+  .wrapper {
+    margin-top: 100px;
   }
   .boxCalendarInput {
     margin-bottom: 0;
   }
+  .boxMain {
+    margin-bottom: 0;
+  }
+  .boxAddProductForm {
+    position: static;
+    margin-bottom: 50px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-  .boxMain {
-    padding-top: 140px;
-  }
   .wrapper {
     display: flex;
+    margin-top: 140px;
+  }
+  .boxMain {
+    margin-right: 120px;
   }
 }

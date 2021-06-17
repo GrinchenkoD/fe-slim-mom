@@ -43,7 +43,7 @@ const mainRoutes = [
     path: '/diary',
     exact: true,
     component: lazy(() =>
-      import('../pages/test/diary' /*webpackChunkName: "diary-page" */),
+      import('../pages/DiaryPage/DiaryPage' /*webpackChunkName: "diary-page" */),
     ),
     private: true,
     restricted: false,
@@ -54,7 +54,7 @@ const mainRoutes = [
     exact: true,
     component: lazy(() =>
       import(
-        '../pages/DiaryPage/DiaryPage' /*webpackChunkName: "calculator-page" */
+        '../pages/test/calc' /*webpackChunkName: "calculator-page" */
       ),
     ),
     private: true,

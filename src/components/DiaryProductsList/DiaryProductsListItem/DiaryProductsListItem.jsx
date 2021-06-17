@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './DiaryProductsListItem.module.css';
 import sprite from '../../../icons/symbol-defs.svg';
 import prouctsOperations from '../../../redux/products/productsOperations';
-import { getDate } from '../../../redux/products/productsSelectors';
+import getDate from '../../../redux/date/dateSelector';
 
 const DiaryProductsListItem = ({ product }) => {
   const dispatch = useDispatch();
