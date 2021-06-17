@@ -6,8 +6,6 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import { authSelectors } from '../../redux/auth/authselectors';
 
-import DiaryProductsList from '../DiaryProductsList/DiaryProductsList';
-
 const App = () => {
   const token = useSelector(authSelectors.token);
   if (token) {
@@ -19,7 +17,6 @@ const App = () => {
       <Header />
       <Main />
       {/* <Modal /> */}
-      <DiaryProductsList/>
     </div>
   );
 };

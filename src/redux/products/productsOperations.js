@@ -59,8 +59,8 @@ const deleteUserProduct = productData => async (dispatch, getState) => {
   // token.set(accessToken);
   dispatch(deleteProductRequest());
   try {
-    await axios.patch('/products/delete', productData);
-    dispatch(deleteProductSuccess(id));
+   const {data} = await axios.patch('/products/delete', productData);
+    dispatch(deleteProductSuccess({id, data}));
   } catch (error) {
     dispatch(deleteProductError(error.message));
   }
@@ -87,7 +87,7 @@ const dailyRatePublic = values => async dispatch => {
 };
 
 const prouctsDayInfo = date => async (dispatch, getState) => {
-  const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzVlODYyMjZjYWY2MDAxY2Q4MTI1ZCIsImxvZ2luIjoidGVzdDEyMyIsImlhdCI6MTYyMzc4MTE5NSwiZXhwIjoxNjIzNzg0Nzk1fQ.GCljPknYsTAtH3NO-ZVbPaPFYyvmGC7aLwfAYrizN74"
+  const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzVlODYyMjZjYWY2MDAxY2Q4MTI1ZCIsImxvZ2luIjoidGVzdDEyMyIsImlhdCI6MTYyMzk0MDA0OCwiZXhwIjoxNjIzOTUwODQ4fQ.eUFVzy2CKwjy0T2jycX20BFN6f2XIbifI9NLiyfHS5M"
 
   const {
     auth: { token: accessToken },

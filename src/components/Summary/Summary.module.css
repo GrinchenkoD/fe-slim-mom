@@ -13,5 +13,7 @@
   .summaryWrapper {
     display: flex;
     justify-content: space-between;
+
+    outline: 1px solid orangered;
   }
 }

@@ -5,7 +5,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  padding-left: 15px;
 }
 .prodName {
   display: block;
@@ -40,7 +39,6 @@
 
 @media screen and (min-width: 768px) {
     .item {
-        width: 550px;
         padding-left: 0;
     }
   .prodName {
@@ -53,7 +51,7 @@
     text-align: end;
   }
   .btn{
-    margin-right: 0;
+    margin-right: 35px;
   }
   .icon{
     width: 12px;

@@ -13,7 +13,7 @@ const DiaryProductsListItem = ({ product }) => {
   const { id, title, weight, calories } = product;
 
   const deleteProduct = () =>
-    dispatch(prouctsOperations.deleteUserProduct({ date, id }));
+    dispatch(prouctsOperations.deleteUserProduct({ id, date }));
 
   return (
     <li className={styles.item}>

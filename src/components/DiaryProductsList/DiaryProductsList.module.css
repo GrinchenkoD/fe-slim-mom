@@ -4,6 +4,9 @@
 .listProducts {
   max-height: 200px;
   overflow-y: scroll;
+  margin-bottom: 170px;
+
+  outline: 1px solid orangered;
 }
 .listProducts::-webkit-scrollbar {
   width: 6px;
@@ -16,12 +19,11 @@
 }
 @media screen and (min-width: 768px) {
     .listProducts{
-        width: 600px;
-        margin-left: 92px;
+        margin-bottom: 60px;
     }
 }
 @media screen and (min-width: 1280px) {
     .listProducts{
-        margin-left: 115px;
+      max-height: 290px;
     }
 }
