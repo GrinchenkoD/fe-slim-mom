@@ -1,10 +1,6 @@
 import Container from '../Container/Container';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import Background from '../Background/Background';
-
-
-
 import styles from './Calculator.module.css';
 import calculatorSchema from './CalculatorSchema';
 import FormControl from '../FormControl/FormControl';
@@ -12,7 +8,6 @@ import FormControl from '../FormControl/FormControl';
 const Calculator = ({title, onSubmit}) => {
   return (
     <>
-      <Background />
       <Container>
         <h1 className={styles.title}>
           {title}

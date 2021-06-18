@@ -54,7 +54,7 @@ const mainRoutes = [
     exact: true,
     component: lazy(() =>
       import(
-        '../pages/test/calc' /*webpackChunkName: "calculator-page" */
+        '../pages/CalculatorPage/CalculatorPage' /*webpackChunkName: "calculator-page" */
       ),
     ),
     private: true,
