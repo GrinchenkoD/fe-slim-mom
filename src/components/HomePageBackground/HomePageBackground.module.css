@@ -1,0 +1,22 @@
+.thumb {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+@media screen and (min-width: 768px) {
+  .thumb {
+    background-image: url(../../images/bananatab.png),
+      url(../../images/strawberrytab.png), url(../../images/leafstab.png),
+      url(../../images/vectortab.png);
+    background-repeat: no-repeat;
+    background-position: bottom right, bottom 165px right 25px, bottom left,
+      bottom right;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .thumb {
+    background-image: url(../../images/banana.png), url(../../images/leafs.png),
+      url(../../images/strawberry.png), url(../../images/vector.png);
+    background-position: top right, bottom 30px right 195px, bottom right,
+      bottom right;
+  }
+}
