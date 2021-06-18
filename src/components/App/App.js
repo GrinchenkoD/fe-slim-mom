@@ -20,7 +20,6 @@ const App = () => {
     <div>
       <Header />
       <Main />
-
       {/* <Modal /> */}
     </div>
   );
