@@ -21,8 +21,6 @@ const App = () => {
 
   return (
     <>
-      {/* <Header />
-      <Main /> */}
       <Suspense fallback={<h3>Loading...</h3>}>
         <Switch>
           {mainRoutes.map(route =>

@@ -1,8 +1,6 @@
 .thumb {
-  /* padding-top: 40px; */
   min-height: 100vh;
   min-width: 100vw;
-  position: relative;
 }
 
 @media screen and (min-width: 768px) {
@@ -18,46 +16,11 @@
 }
 @media screen and (min-width: 1280px) {
   .thumb {
-    /* top: 0; */
-    /* position: absolute; */
     min-height: 100vh;
     min-width: 100vw;
 
     background-image: url(../../images/auth/fruits-desktop.png),
       url(../../images/auth/vector-desktop.png);
     background-position: bottom right, bottom right;
-    /* background-size: contain; */
-    /* padding-top: 244px; */
   }
 }
-/* .thumb {
-  position: absolute;
-  min-width: 100vw;
-  min-height: calc(100vh - 200px);
-}
-.vector {
-  position: absolute;
-  right: 0;
-}
-.banana {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.strawberry {
-  position: absolute;
-}
-.leafs {
-  position: absolute;
-}
-.fruits {
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  top: 0;
-}
-.vectorDesctop {
-  position: absolute;
-  z-index: 0;
-  right: 0;
-} */

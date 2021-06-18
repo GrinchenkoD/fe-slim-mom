@@ -5,11 +5,10 @@ import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import Header from '../../components/Header/Header';
 
 
-
 const RegisterPage = () => {
     return (
         <AuthThumb>
-            <Header/>
+             <Header/>
             <Container>
                 <RegisterForm />
             </Container>
