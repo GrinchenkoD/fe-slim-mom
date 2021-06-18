@@ -45,17 +45,15 @@ const AddProductForm = () => {
 
   const postNewProduct = e => {
     e.preventDefault();
-    // console.log(selectedOption);
     const newProduct = {
       title: selectedOption.value,
       weight,
       date,
     };
     dispatch(operations.addUserProduct(newProduct));
-  };
-
-  const onOpenModal = () => {
-    dispatch(modalActions.modalOpen());
+    setSearchQuerry('');
+    setWeight('');
+    setSelectedOption('');
   };
 
   const onCloseModal = () => {
@@ -110,7 +108,7 @@ const AddProductForm = () => {
           </button>
         </form>
       )}
-      {/* {isMobileDevice && (
+      {isMobileDevice && (
         <>
           {modalState && (
             <Modal onClose={onCloseModal}>
@@ -149,13 +147,8 @@ const AddProductForm = () => {
               </form>
             </Modal>
           )}
-          <button onClick={onOpenModal} className={styles.button} type="submit">
-            <svg className={styles.svg}>
-              <use href={sprite + '#icon-plus'}></use>
-            </svg>
-          </button>
         </>
-      )} */}
+      )}
     </div>
   );
 };

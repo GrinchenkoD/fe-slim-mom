@@ -23,6 +23,7 @@
   margin-right: 20px;
   margin-left: 30px;
   color: #9b9faa;
+  width: 100px;
 }
 
 .wrapper {
@@ -113,7 +114,6 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-
 .modalAddButton {
   margin: 0 auto;
   margin-top: 40px;
@@ -131,6 +131,6 @@ select:-webkit-autofill:focus {
   line-height: 17px;
   letter-spacing: 0.04em;
   color: #ffffff;
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
