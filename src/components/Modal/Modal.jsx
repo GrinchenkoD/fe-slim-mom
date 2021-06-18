@@ -1,11 +1,16 @@
 import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 // import { useParams } from 'react-router';
-import DailyCalories from '../ModalDailyCalories/ModalDailyCalories';
 import styles from './Modal.module.css';
+import { useDispatch } from 'react-redux';
+import modalActions from '../../redux/modal/modalActions';
 
-const Modal = ({ onClose, ...props }) => {
-  //   const params = useParams();
+const Modal = ({ children, ...props }) => {
+  const dispatch = useDispatch();
+
+  const onClose = useCallback(() => {
+    dispatch(modalActions.modalClose());
+  }, [dispatch]);
 
   const handleKeyDown = useCallback(
     e => {
@@ -20,8 +25,10 @@ const Modal = ({ onClose, ...props }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
     };
   }, [handleKeyDown]);
 
@@ -38,13 +45,12 @@ const Modal = ({ onClose, ...props }) => {
   return createPortal(
     <div className={styles.overlay} onClick={handleBackDrop}>
       <div className={styles.modal}>
-        <DailyCalories {...props} onClose={ onClose}/>
-        {/* <DailyCalories params={params} /> */}
         <button
           type="button"
           className={styles.closeBtn}
           onClick={handleClickOnCloseBtn}
         ></button>
+        {children}
       </div>
     </div>,
     document.getElementById('modal-root'),

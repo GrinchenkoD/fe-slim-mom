@@ -12,9 +12,8 @@ const userDailyProducts = createReducer([], {
     ...state,
     payload,
   ],
-  [productsActions.deleteProductSuccess]: (state, { payload }) => [
-    ...state.filter(product => product.id !== payload.id),
-  ],
+  [productsActions.deleteProductSuccess]: (state, { payload }) =>
+    state.filter(product => product.id !== payload.id),
   [productsActions.dayInfoSuccess]: (_, { payload }) => [...payload.products],
 });
 

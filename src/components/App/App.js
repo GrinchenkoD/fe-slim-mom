@@ -4,13 +4,21 @@ import { useSelector } from 'react-redux';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import { authSelectors } from '../../redux/auth/authselectors';
-import { token } from '../../redux/auth/authOperations';
 import mainRoutes from '../../routes/mainroutes';
 import PublicRoute from '../../routes/PublicRoute';
 import PrivateRoute from '../../routes/PrivateRoute';
+import { token } from '../../redux/auth/authOperations'
+import isModalOpenSelector from '../../redux/modal/modalSelector';
 
 const App = () => {
   const currentToken = useSelector(authSelectors.token);
+
+// import Calculator from '../Calculator/Calculator';
+
+const App = () => {
+
+  const isModalOpen = useSelector(isModalOpenSelector);
+
   useEffect(() => {
     currentToken && token.set(currentToken);
 

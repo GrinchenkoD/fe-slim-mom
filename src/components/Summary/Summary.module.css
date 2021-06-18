@@ -25,6 +25,8 @@ margin-top: 20px;
   .summaryWrapper {
     display: flex;
     justify-content: space-between;
+
+    outline: 1px solid orangered;
   }
 }
 
@@ -38,3 +40,6 @@ margin-top: 20px;
       margin-top: 60px;
     }
   }
+.summaryData {
+  margin-top: 20px;
+}
