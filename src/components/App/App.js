@@ -3,11 +3,15 @@ import { useSelector } from 'react-redux';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import { authSelectors } from '../../redux/auth/authselectors';
-import { token } from '../../redux/auth/authOperations';
+import { token } from '../../redux/auth/authOperations'
+import isModalOpenSelector from '../../redux/modal/modalSelector';
+
 // import Calculator from '../Calculator/Calculator';
 
 const App = () => {
   const myToken = useSelector(authSelectors.token);
+  const isModalOpen = useSelector(isModalOpenSelector);
+
   useEffect(() => {
     myToken && token.set(myToken);
 
