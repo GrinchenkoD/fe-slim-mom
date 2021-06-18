@@ -1,36 +1,33 @@
 .thumb {
-  padding-top: 40px;
-  height: 100vh;
+  /* padding-top: 40px; */
+  min-height: 100vh;
+  min-width: 100vw;
   position: relative;
 }
 
 @media screen and (min-width: 768px) {
   .thumb {
-    height: calc(100vh - 82px);
-    /* top: -82px; */
-
     background-image: url(../../images/auth/banana-tablet.png),
       url(../../images/auth/strawberry-tablet.png),
       url(../../images/auth/leaves-tablet.png),
       url(../../images/auth/vector-tablet.png);
     background-repeat: no-repeat;
-    background-position: bottom 0px right 0px, bottom 200px right 0px,
+    background-position: bottom right, bottom 200px right,
       bottom 279px right 12px, bottom right;
-    padding-top: 157px;
   }
 }
 @media screen and (min-width: 1280px) {
   .thumb {
-    top: 0;
-    position: absolute;
+    /* top: 0; */
+    /* position: absolute; */
     min-height: 100vh;
     min-width: 100vw;
 
     background-image: url(../../images/auth/fruits-desktop.png),
       url(../../images/auth/vector-desktop.png);
     background-position: bottom right, bottom right;
-    background-size: contain;
-    padding-top: 244px;
+    /* background-size: contain; */
+    /* padding-top: 244px; */
   }
 }
 /* .thumb {
