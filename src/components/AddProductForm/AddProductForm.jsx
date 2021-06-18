@@ -110,7 +110,7 @@ const AddProductForm = () => {
           </button>
         </form>
       )}
-      {/* {isMobileDevice && (
+      {isMobileDevice && (
         <>
           {modalState && (
             <Modal onClose={onCloseModal}>
@@ -149,13 +149,13 @@ const AddProductForm = () => {
               </form>
             </Modal>
           )}
-          <button onClick={onOpenModal} className={styles.button} type="submit">
+          {/* <button onClick={onOpenModal} className={styles.button} type="submit">
             <svg className={styles.svg}>
               <use href={sprite + '#icon-plus'}></use>
             </svg>
-          </button>
+          </button> */}
         </>
-      )} */}
+      )}
     </div>
   );
 };

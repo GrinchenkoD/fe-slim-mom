@@ -8,7 +8,7 @@ function Summary() {
   const dailyCalories = useSelector(authSelectors.dailyCaloriesRate);
   const forbidenCategories = useSelector(authSelectors.forbidenCategories);
   const caloriesReceived = useSelector(getCaloriesReceived);
-  const date = useSelector(getDate).split("-").join(".");
+  const date = useSelector(getDate).split('-').join('.');
   const categoriesString = forbidenCategories.reduce(
     (acc, item, index, arr) => {
       if (index !== arr.length - 1) {
@@ -20,6 +20,7 @@ function Summary() {
     },
     '',
   );
+  const dailyKCalories = parseInt(caloriesReceived / 1000);
   return (
     <div className={styles.summaryWrapper}>
       <div>
@@ -28,12 +29,12 @@ function Summary() {
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>Осталось</span>
             <span className={styles.summaryInfo}>
-              {dailyCalories - caloriesReceived} ккал
+              {dailyCalories - dailyKCalories} ккал
             </span>
           </li>
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>Употребленно</span>
-            <span className={styles.summaryInfo}>{caloriesReceived} ккал</span>
+            <span className={styles.summaryInfo}>{dailyKCalories} ккал</span>
           </li>
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>Дневная норма</span>
@@ -42,7 +43,7 @@ function Summary() {
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>n% от нормы</span>
             <span className={styles.summaryInfo}>
-              {parseInt((caloriesReceived / dailyCalories )* 100)}% 
+              {parseInt((dailyKCalories / dailyCalories) * 100)}%
             </span>
           </li>
         </ul>
