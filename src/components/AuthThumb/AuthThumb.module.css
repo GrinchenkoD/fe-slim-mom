@@ -5,9 +5,6 @@
 
 @media screen and (min-width: 768px) {
   .thumb {
-    height: calc(100vh - 82px);
-    /* top: -82px; */
-
     background-image: url(../../images/auth/banana-tablet.png),
       url(../../images/auth/strawberry-tablet.png),
       url(../../images/auth/leaves-tablet.png),

@@ -12,7 +12,10 @@ import isLoading from '../../redux/loading/loadingSelector';
 import Header from '../../components/Header/Header';
 import HomePageBackground from "../../components/HomePageBackground/HomePageBackground"
 
-const homeCalcTitle = 'Просчитай свою суточную норму калорий прямо сейчас';
+
+
+const homeCalcTitle = "Просчитай свою суточную норму калорий прямо сейчас"
+
 
 const HomePage = () => {
   const [dailyCalories, setDailyCalories] = useState(0);
