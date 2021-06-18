@@ -24,7 +24,7 @@ function Summary() {
     <div className={styles.summaryWrapper}>
       <div>
         <h3 className={styles.summaryHeader}>Сводка за {date}</h3>
-        <ul>
+        <ul className={styles.summaryData}>
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>Осталось</span>
             <span className={styles.summaryInfo}>
