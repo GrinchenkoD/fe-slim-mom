@@ -8,20 +8,22 @@ import CalendarInput from '../../components/CalendarInput/CalendarInput';
 
 const DiaryPage = () => {
   return (
-    <Container>
-      <div className={styles.wrapper}>
-        <div className={styles.boxMain}>
-          <div className={styles.boxCalendarInput}>
-            <CalendarInput />
+    <div className={styles.bg}>
+      <Container>
+        <div className={styles.wrapper}>
+          <div className={styles.boxMain}>
+            <div className={styles.boxCalendarInput}>
+              <CalendarInput />
+            </div>
+            <div className={styles.boxAddProductForm}>
+              <AddProductForm />
+            </div>
+            <DiaryProductsList />
           </div>
-          <div className={styles.boxAddProductForm}>
-            <AddProductForm />
-          </div>
-          <DiaryProductsList />
+          <Summary />
         </div>
-        <Summary />
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

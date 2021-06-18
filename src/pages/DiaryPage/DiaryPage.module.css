@@ -1,7 +1,6 @@
 .wrapper {
   position: relative;
-  margin-top: 40px;
-  /* outline: 1px solid orangered; */
+  padding-top: 40px;
 }
 .boxCalendarInput {
   margin-bottom: 30px;
@@ -17,7 +16,7 @@
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    margin-top: 100px;
+    padding-top: 100px;
   }
   .boxCalendarInput {
     margin-bottom: 0;
@@ -32,9 +31,16 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .bg {
+    background: linear-gradient(
+      to right,
+      hsla(0, 0%, 100%, 0) 60%,
+      rgba(240, 241, 243, 1) 40%
+    );
+  }
   .wrapper {
     display: flex;
-    margin-top: 140px;
+    padding-top: 140px;
   }
   .boxMain {
     margin-right: 120px;
