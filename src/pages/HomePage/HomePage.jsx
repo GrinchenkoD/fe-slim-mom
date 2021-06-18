@@ -11,16 +11,12 @@ import isModalOpenSelector from '../../redux/modal/modalSelector';
 import isLoading from '../../redux/loading/loadingSelector';
 import Header from '../../components/Header/Header';
 
-<<<<<<< HEAD
 import HomePageBackground from "../../components/HomePageBackground/HomePageBackground"
 
 
 
 const homeCalcTitle = "Просчитай свою суточную норму калорий прямо сейчас"
 
-=======
-const homeCalcTitle = 'Просчитай свою суточную норму калорий прямо сейчас';
->>>>>>> c220564b47b7e58f658dff40cab21c4a8ae25e62
 
 const HomePage = () => {
   const [dailyCalories, setDailyCalories] = useState(0);
