@@ -8,7 +8,7 @@ import FormControl from '../FormControl/FormControl';
 const Calculator = ({title, onSubmit}) => {
   return (
     <>
-      <Container>
+      {/* <Container> */}
         <h1 className={styles.title}>
           {title}
         </h1>
@@ -154,7 +154,7 @@ const Calculator = ({title, onSubmit}) => {
             <button className={styles.button} type="submit">Похудеть</button>
           </Form>
         </Formik>
-      </Container>
+      {/* </Container> */}
     </>
   );
 };

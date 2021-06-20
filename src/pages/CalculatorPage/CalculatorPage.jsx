@@ -11,6 +11,9 @@ import modalActions from '../../redux/modal/modalActions';
 import isModalOpenSelector from '../../redux/modal/modalSelector';
 import Modal from '../../components/Modal/Modal';
 import isLoading from '../../redux/loading/loadingSelector';
+import Header from '../../components/Header/Header';
+
+import { useDevice } from '../../hooks/useDevice';
 
 const calcTitle = 'Узнай свою суточную норму калорий';
 
@@ -22,6 +25,8 @@ const CalculatorPage = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const { isMobileDevice, isTabletDevice, isDesctopDevice } = useDevice();
 
   const onOpenModal = () => {
     dispatch(modalActions.modalOpen());
@@ -43,18 +48,51 @@ const CalculatorPage = () => {
 
   return (
     <>
-      <Container>
-        <Calculator title={calcTitle} onSubmit={onSubmit} />
-        {isModalOpen && !loading && (
-          <Modal
-            onClose={onCloseModal}
-            dailyCalories={dailyCalories}
-            forbidenCategories={forbidenCategories}
-            handleClickStartDiet={handleClickStartDiet}
-          />
-        )}
-        <Summary />
-      </Container>
+      {isMobileDevice || isTabletDevice ? (
+        <div className={styles.bg}>
+          <Header />
+          <Container>
+            <div className={styles.wrapper}>
+              <div className={styles.boxCalculator}>
+                <Calculator title={calcTitle} onSubmit={onSubmit} />
+              </div>
+              {isModalOpen && !loading && (
+                <Modal
+                  onClose={onCloseModal}
+                  dailyCalories={dailyCalories}
+                  forbidenCategories={forbidenCategories}
+                  handleClickStartDiet={handleClickStartDiet}
+                />
+              )}
+            </div>
+          </Container>
+          <div className={styles.boxSummary}>
+            <Summary />
+          </div>
+        </div>
+      ) : (
+        <div className={styles.bg}>
+          <Header />
+          <Container>
+            <div className={styles.wrapper}>
+              <div className={styles.boxCalculator}>
+                <Calculator title={calcTitle} onSubmit={onSubmit} />
+              </div>
+              {isModalOpen && !loading && (
+                <Modal
+                  onClose={onCloseModal}
+                  dailyCalories={dailyCalories}
+                  forbidenCategories={forbidenCategories}
+                  handleClickStartDiet={handleClickStartDiet}
+                />
+              )}
+              <div className={styles.boxSummary}>
+                <Summary />
+              </div>
+            </div>
+          </Container>
+        </div>
+      )}
     </>
   );
 };

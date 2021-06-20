@@ -8,6 +8,11 @@
 .boxMain {
   margin-bottom: 60px;
 }
+.boxSummary {
+  padding: 40px 15px 24px 15px;
+  background-color: #f0f1f3;
+}
+
 /* .boxAddProductForm {
   position: absolute;
   top: 300px;
@@ -28,6 +33,9 @@
     position: static;
     margin-bottom: 50px;
   }
+  .boxSummary {
+    padding: 91px 87px 91px 87px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -40,10 +48,13 @@
   }
   .wrapper {
     display: flex;
-    padding-top: 140px;
+    padding-top: 137px;
   }
   .boxMain {
     margin-right: 120px;
     width: 60%;
+  }
+  .boxSummary {
+    padding: 0 0 91px 0;
   }
 }
