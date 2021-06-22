@@ -54,22 +54,22 @@ const HomePage = () => {
 
   return (
     <>
-    <HomePageBackground>
-      <Header />
-      <Container>
-        <Calculator title={homeCalcTitle} onSubmit={onSubmit} />
-      </Container>
-      {isModalOpen && !loading && (
-        <Modal>
-          <DailyCalories
-            dailyCalories={dailyCalories}
-            forbidenCategories={forbidenCategories}
-            handleClickStartDiet={handleClickStartDiet}
-          />
-        </Modal>
-      )}
+      <HomePageBackground>
+        <Header />
+        <Container>
+          <Calculator title={homeCalcTitle} onSubmit={onSubmit} />
+        </Container>
+        {isModalOpen && !loading && (
+          <Modal>
+            <DailyCalories
+              dailyCalories={dailyCalories}
+              forbidenCategories={forbidenCategories}
+              handleClickStartDiet={handleClickStartDiet}
+            />
+          </Modal>
+        )}
       </HomePageBackground>
-          { loading&&<Spinner/>}
+      {loading && <Spinner />}
       
     </>
   );
