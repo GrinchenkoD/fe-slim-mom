@@ -54,7 +54,8 @@ const Header = () => {
               </button>
             )}
            
-            {isLogged && isDesctopDevice && <div className={styles.navPanelThumb}>     <UserNav />
+            {isLogged && isDesctopDevice && <div className={styles.navPanelThumb}>
+              <UserNav />
               {isDesctopDevice && isLogged && <UserPanel />}
             </div>}
           </div>
