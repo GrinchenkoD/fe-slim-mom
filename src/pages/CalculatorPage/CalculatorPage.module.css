@@ -41,4 +41,9 @@
     padding: 0;
     padding-top: 137px;
   }
+  .leafDesk{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }

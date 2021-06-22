@@ -54,15 +54,15 @@
     padding-top: 137px;
   }
   .boxMain {
-    margin-right: 120px;
-    width: 60%;
+    margin-right: 115px;
+    width: 605px;
   }
   .boxSummary{
     min-height: 505px;
   }
   .leafDesk{
     position: absolute;
-    top: o;
+    top: 0;
     right: 0;
   }
 }

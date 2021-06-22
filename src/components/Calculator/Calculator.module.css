@@ -95,7 +95,7 @@
 
 @media screen and (min-width: 768px) {
   .title {
-    padding-left: 17px;
+    /* padding-left: 17px; */
     margin-top: 100px;
     font-size: 30px;
     line-height: 36px;
@@ -107,7 +107,7 @@
     height: 230px;
     flex-wrap: wrap;
     gap: 30px;
-    padding-left: 17px;
+    /* padding-left: 17px; */
     margin-top: 50px;
   }
   .button {
@@ -120,13 +120,13 @@
 @media screen and (min-width: 1280px) {
   .title {
     width: 605px;
-    padding-left: 25px;
+    /* padding-left: 25px; */
     margin-top: 137px;
     font-size: 34px;
     line-height: 41px;
   }
   .form {
-    padding-left: 25px;
+    /* padding-left: 25px; */
     margin-top: 58px;
   }
   .button {
