@@ -5,10 +5,12 @@ import Container from '../../components/Container/Container';
 import Summary from '../../components/Summary/Summary';
 import AddProductForm from '../../components/AddProductForm/AddProductForm';
 import CalendarInput from '../../components/CalendarInput/CalendarInput';
+import Header from '../../components/Header/Header';
 
 const DiaryPage = () => {
   return (
     <div className={styles.bg}>
+      <Header/>
       <Container>
         <div className={styles.wrapper}>
           <div className={styles.boxMain}>
