@@ -8,6 +8,8 @@ function Summary() {
   const dailyCalories = useSelector(authSelectors.dailyCaloriesRate);
   const forbidenCategories = useSelector(authSelectors.forbidenCategories);
   const caloriesReceived = useSelector(getCaloriesReceived);
+  console.log(dailyCalories);
+
   const date = useSelector(getDate).split('-').join('.');
   const categoriesString = forbidenCategories.reduce(
     (acc, item, index, arr) => {
@@ -20,7 +22,12 @@ function Summary() {
     },
     '',
   );
-  const dailyKCalories = parseInt(caloriesReceived / 1000);
+
+  const caloriesPercent = isNaN(
+    parseInt((caloriesReceived / dailyCalories) * 100),
+  )
+    ? 0
+    : (caloriesReceived / dailyCalories) * 100;
   return (
     <div className={styles.summaryWrapper}>
       <div>
@@ -29,22 +36,20 @@ function Summary() {
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>Осталось</span>
             <span className={styles.summaryInfo}>
-              {dailyCalories - dailyKCalories} ккал
+              {dailyCalories - caloriesReceived} кал
             </span>
           </li>
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>Употребленно</span>
-            <span className={styles.summaryInfo}>{dailyKCalories} ккал</span>
+            <span className={styles.summaryInfo}>{caloriesReceived} кал</span>
           </li>
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>Дневная норма</span>
-            <span className={styles.summaryInfo}>{dailyCalories} ккал</span>
+            <span className={styles.summaryInfo}>{dailyCalories} кал</span>
           </li>
           <li className={styles.summaryItem}>
             <span className={styles.summaryInfo}>n% от нормы</span>
-            <span className={styles.summaryInfo}>
-              {parseInt((dailyKCalories / dailyCalories) * 100)}%
-            </span>
+            <span className={styles.summaryInfo}>{caloriesPercent}%</span>
           </li>
         </ul>
       </div>
