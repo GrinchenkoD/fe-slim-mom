@@ -13,6 +13,9 @@ import Modal from '../../components/Modal/Modal';
 import isLoading from '../../redux/loading/loadingSelector';
 import Header from '../../components/Header/Header';
 
+import leafTab from '../../images/product/leafTab.png'
+import leafDesk from '../../images/product/leafDesk.png'
+
 import { useDevice } from '../../hooks/useDevice';
 
 const calcTitle = 'Узнай свою суточную норму калорий';
@@ -50,6 +53,7 @@ const CalculatorPage = () => {
     <>
       {isMobileDevice || isTabletDevice ? (
         <div className={styles.bg}>
+            <img className={styles.leafTab} src={leafTab} alt='' />
           <Header />
           <Container>
             <div className={styles.wrapper}>
@@ -67,11 +71,14 @@ const CalculatorPage = () => {
             </div>
           </Container>
           <div className={styles.boxSummary}>
-            <Summary />
+            <Container>
+              <Summary />
+            </Container>
           </div>
         </div>
       ) : (
         <div className={styles.bg}>
+            <img className={styles.leafTab} src={leafDesk} alt='' />
           <Header />
           <Container>
             <div className={styles.wrapper}>

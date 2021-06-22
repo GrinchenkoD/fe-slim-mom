@@ -9,15 +9,11 @@
   margin-bottom: 60px;
 }
 .boxSummary {
-  padding: 40px 15px 24px 15px;
   background-color: #f0f1f3;
 }
-
-/* .boxAddProductForm {
-  position: absolute;
-  top: 300px;
-  left: 125px;
-} */
+.leafTab{
+  display: none;
+}
 
 @media screen and (min-width: 768px) {
   .wrapper {
@@ -33,9 +29,16 @@
     position: static;
     margin-bottom: 50px;
   }
-  .boxSummary {
-    padding: 91px 87px 91px 87px;
+  .bg{
+    position: relative;
   }
+  .leafTab{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+ 
 }
 
 @media screen and (min-width: 1280px) {
@@ -54,7 +57,12 @@
     margin-right: 120px;
     width: 60%;
   }
-  .boxSummary {
-    padding: 0 0 91px 0;
+  .boxSummary{
+    min-height: 505px;
+  }
+  .leafDesk{
+    position: absolute;
+    top: o;
+    right: 0;
   }
 }
