@@ -1,5 +1,7 @@
 .calendarContainer{
     font-weight: 700;
+    display: flex;
+    align-items: baseline;
 }
 .calendarInput {
   font-weight: 700;
