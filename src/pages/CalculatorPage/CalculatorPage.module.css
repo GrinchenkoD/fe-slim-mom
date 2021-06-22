@@ -1,44 +1,26 @@
-.wrapper {
-  position: relative;
-  padding-top: 40px;
-}
-.boxCalendarInput {
-  margin-bottom: 30px;
-}
-.boxMain {
+.boxCalculator {
   margin-bottom: 60px;
 }
 .boxSummary {
   background-color: #f0f1f3;
 }
-.leafTab{
+.leafTab {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .wrapper {
-    padding-top: 100px;
-  }
-  .boxCalendarInput {
-    margin-bottom: 0;
-  }
-  .boxMain {
-    margin-bottom: 0;
-  }
-  .boxAddProductForm {
-    position: static;
-    margin-bottom: 50px;
-  }
-  .bg{
+  .bg {
     position: relative;
   }
-  .leafTab{
+  .leafTab {
     display: block;
     position: absolute;
     bottom: 0;
     right: 0;
   }
- 
+  .boxCalculator {
+    margin-bottom: 177px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -51,14 +33,13 @@
   }
   .wrapper {
     display: flex;
-    padding-top: 137px;
   }
-  .boxMain {
+  .boxCalculator {
     margin-right: 115px;
-    width: 605px;
   }
-  .boxSummary{
-    min-height: 505px;
+  .boxSummary {
+    padding: 0;
+    padding-top: 137px;
   }
   .leafDesk{
     position: absolute;
