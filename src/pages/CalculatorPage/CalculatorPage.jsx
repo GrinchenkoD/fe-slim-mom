@@ -53,7 +53,6 @@ const CalculatorPage = () => {
     <>
       {isMobileDevice || isTabletDevice ? (
         <div className={styles.bg}>
-            {/* <img className={styles.leafTab} src={leafTab} alt='' /> */}
           <Header />
           <Container>
             <div className={styles.wrapper}>
@@ -63,10 +62,13 @@ const CalculatorPage = () => {
               {isModalOpen && !loading && (
                 <Modal
                   onClose={onCloseModal}
-                  dailyCalories={dailyCalories}
-                  forbidenCategories={forbidenCategories}
-                  handleClickStartDiet={handleClickStartDiet}
-                />
+                >
+                   <DailyCalories
+                    dailyCalories={dailyCalories}
+                    forbidenCategories={forbidenCategories}
+                    handleClickStartDiet={handleClickStartDiet}
+                  />
+                </Modal>
               )}
             </div>
           </Container>
@@ -78,7 +80,6 @@ const CalculatorPage = () => {
         </div>
       ) : (
         <div className={styles.bg}>
-            {/* <img className={styles.leafDesk} src={leafDesk} alt='' /> */}
           <Header />
           <Container>
             <div className={styles.wrapper}>
@@ -88,12 +89,12 @@ const CalculatorPage = () => {
               {isModalOpen && !loading && (
                 <Modal
                   onClose={onCloseModal}
-                  >
-                    <DailyCalories
-            dailyCalories={dailyCalories}
-            forbidenCategories={forbidenCategories}
-            handleClickStartDiet={handleClickStartDiet}
-          />
+                >
+                  <DailyCalories
+                    dailyCalories={dailyCalories}
+                    forbidenCategories={forbidenCategories}
+                    handleClickStartDiet={handleClickStartDiet}
+                  />
                 </Modal>
               )}
               <div className={styles.boxSummary}>
@@ -103,7 +104,7 @@ const CalculatorPage = () => {
           </Container>
         </div>
       )}
-      { loading&&<Spinner/>}
+      {loading && <Spinner />}
     </>
   );
 };

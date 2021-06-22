@@ -30,7 +30,7 @@ const LoginForm = () => {
                 password: '',
             }}
             validationSchema={loginSchema}
-            onSubmit={login} //!подставить операцию
+            onSubmit={login}
         >
             <Form>
                 <FormControl
