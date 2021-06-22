@@ -11,8 +11,10 @@ import { authSelectors } from '../../redux/auth/authselectors';
 import sprite from "../../icons/symbol-defs.svg"
 import isModalOpenSelector from '../../redux/modal/modalSelector';
 
+
 import styles from './Header.module.css';
 import modalActions from '../../redux/modal/modalActions';
+import isLoading from '../../redux/loading/loadingSelector';
 
 
 
@@ -24,7 +26,8 @@ const Header = () => {
   const [burgerShown, setBurgerShown] = useState(false);
   const isLogged = useSelector(authSelectors.isAuthenticated);
   const isModalOpen = useSelector(isModalOpenSelector);
- const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const loading = useSelector(isLoading)
 
   const toggleBurgerMenu = () => {
     !burgerShown ? document.body.style.overflow = 'hidden': document.body.style.overflow = '';
@@ -62,7 +65,7 @@ const Header = () => {
         </Container>
       </header>
 
-      {isLogged&& isModalOpen && isMobileDevice && !burgerShown && (
+      {isLogged&& isModalOpen && isMobileDevice&&!loading && !burgerShown && (
         <div className={styles.userBox}>
           <Container>
             <div className={styles.userPanelThumb}>

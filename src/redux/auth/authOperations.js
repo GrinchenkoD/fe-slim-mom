@@ -86,4 +86,5 @@ const getLogout = () => async (dispatch, getState) => {
     });
 };
 
-export { getRegister, getLogin, getCurrentUser, getLogout };
+const authOperations = { getRegister, getLogin, getCurrentUser, getLogout };
+export default authOperations;

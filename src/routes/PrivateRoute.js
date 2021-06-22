@@ -7,9 +7,6 @@ const PrivateRoute = ({ redirectTo = '/login', ...routeProps }) => {
   const isAuthentificated = useSelector(authSelectors.isAuthenticated);
   const rehydrated = useSelector(authSelectors.persisted);
 
-  console.log('persist', isAuthentificated, 'private route');
-  // const isAuthentificated = true; //! Для проверки
-
   return (
     <>
       {rehydrated &&
