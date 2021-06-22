@@ -11,6 +11,7 @@ import isModalOpenSelector from '../../redux/modal/modalSelector';
 import isLoading from '../../redux/loading/loadingSelector';
 import Header from '../../components/Header/Header';
 import HomePageBackground from "../../components/HomePageBackground/HomePageBackground"
+import Container from '../../components/Container/Container';
 
 
 
@@ -51,9 +52,11 @@ const HomePage = () => {
 
   return (
     
-       <HomePageBackground>
-      <Header/>
-      <Calculator title={homeCalcTitle} onSubmit={onSubmit} />
+    <HomePageBackground>
+      <Header />
+      <Container>
+        <Calculator title={homeCalcTitle} onSubmit={onSubmit} />
+      </Container>
       {isModalOpen && !loading && (
         <Modal>
           <DailyCalories
