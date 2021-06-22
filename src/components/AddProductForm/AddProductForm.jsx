@@ -142,7 +142,7 @@ const AddProductForm = () => {
                   placeholder="Граммы"
                 />
                 <button className={styles.modalAddButton} type="submit">
-                  Отправить
+                  Добавить
                 </button>
               </form>
             </Modal>

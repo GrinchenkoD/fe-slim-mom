@@ -4,6 +4,8 @@ import { createPortal } from 'react-dom';
 import styles from './Modal.module.css';
 import { useDispatch } from 'react-redux';
 import modalActions from '../../redux/modal/modalActions';
+import Container from '../Container/Container';
+
 
 const Modal = ({ children, ...props }) => {
   const dispatch = useDispatch();
@@ -44,14 +46,17 @@ const Modal = ({ children, ...props }) => {
 
   return createPortal(
     <div className={styles.overlay} onClick={handleBackDrop}>
+      <Container>
+
       <div className={styles.modal}>
         <button
           type="button"
           className={styles.closeBtn}
           onClick={handleClickOnCloseBtn}
-        ></button>
+          ></button>
         {children}
       </div>
+          </Container>
     </div>,
     document.getElementById('modal-root'),
   );

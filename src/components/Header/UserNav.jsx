@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 
 const UserNav = () => {
   return (
-    <>
+    <div className={styles.userNav}>
       <NavLink
         to='/diary'
         className={styles.burgerLink}
@@ -19,7 +19,7 @@ const UserNav = () => {
       >
         КАЛЬКУЛЯТОР
       </NavLink>
-    </>
+    </div>
   );
 };
 
