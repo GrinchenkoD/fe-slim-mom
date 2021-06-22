@@ -11,7 +11,7 @@ import date from './date/dateReducer';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'isAuthenticated', 'user'],
+  whitelist: ['token'],
 };
 const reducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),

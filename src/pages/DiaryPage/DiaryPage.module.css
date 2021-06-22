@@ -11,7 +11,7 @@
 .boxSummary {
   background-color: #f0f1f3;
 }
-.leafTab{
+.leafTab {
   display: none;
 }
 
@@ -29,25 +29,29 @@
     position: static;
     margin-bottom: 50px;
   }
-  .bg{
+  .bg {
     position: relative;
   }
-  .leafTab{
+  .leafTab {
     display: block;
     position: absolute;
     bottom: 0;
     right: 0;
   }
- 
 }
 
 @media screen and (min-width: 1280px) {
   .bg {
-    background: linear-gradient(
-      to right,
-      hsla(0, 0%, 100%, 0) 60%,
-      rgba(240, 241, 243, 1) 40%
-    );
+    background: url(../../images/product/leafDesk.png),
+      linear-gradient(
+        to right,
+        hsla(0, 0%, 100%, 0) 60%,
+        rgba(240, 241, 243, 1) 40%
+      );
+    background-position: bottom right;
+
+    background-repeat: no-repeat;
+    min-height: 100vh;
   }
   .wrapper {
     display: flex;
@@ -57,10 +61,10 @@
     margin-right: 115px;
     width: 605px;
   }
-  .boxSummary{
+  .boxSummary {
     min-height: 505px;
   }
-  .leafDesk{
+  .leafDesk {
     position: absolute;
     top: 0;
     right: 0;

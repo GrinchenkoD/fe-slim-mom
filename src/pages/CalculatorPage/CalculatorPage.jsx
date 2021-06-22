@@ -53,7 +53,7 @@ const CalculatorPage = () => {
     <>
       {isMobileDevice || isTabletDevice ? (
         <div className={styles.bg}>
-            <img className={styles.leafTab} src={leafTab} alt='' />
+            {/* <img className={styles.leafTab} src={leafTab} alt='' /> */}
           <Header />
           <Container>
             <div className={styles.wrapper}>
@@ -78,7 +78,7 @@ const CalculatorPage = () => {
         </div>
       ) : (
         <div className={styles.bg}>
-            <img className={styles.leafDesk} src={leafDesk} alt='' />
+            {/* <img className={styles.leafDesk} src={leafDesk} alt='' /> */}
           <Header />
           <Container>
             <div className={styles.wrapper}>

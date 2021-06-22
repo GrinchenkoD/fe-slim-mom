@@ -31,6 +31,9 @@ p.summaryInfo {
     justify-content: space-between;
     padding-top: 91px;
     padding-bottom: 91px;
+    background-image: url(../../images/product/leafTab.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
   }
 }
 
