@@ -1,4 +1,5 @@
 import axios from 'axios';
+import unauthorizedTemplate from '../auth/unauthorizedTemplate';
 import actions from './productsActions';
 
 const {
@@ -38,7 +39,11 @@ const searchProducts = searchQuerry => dispatch => {
     .then(({ data }) => {
       dispatch(searchPoductSuccess(data));
     })
-    .catch(error => dispatch(searchPoductError(error)));
+    .catch(error => {
+      unauthorizedTemplate(error);
+
+      dispatch(searchPoductError(error));
+    });
 };
 
 const addUserProduct = productData => dispatch => {
@@ -48,7 +53,11 @@ const addUserProduct = productData => dispatch => {
     .then(({ data }) => {
       dispatch(addPoductSuccess(data));
     })
-    .catch(error => dispatch(addPoductError(error)));
+    .catch(error => {
+      unauthorizedTemplate(error);
+
+      dispatch(addPoductError(error));
+    });
 };
 
 const deleteUserProduct = productData => async (dispatch, getState) => {
@@ -58,6 +67,7 @@ const deleteUserProduct = productData => async (dispatch, getState) => {
     const { data } = await axios.patch('/products/delete', productData);
     dispatch(deleteProductSuccess({ id, data }));
   } catch (error) {
+    unauthorizedTemplate(error);
     dispatch(deleteProductError(error.message));
   }
 };
@@ -72,6 +82,7 @@ const dailyRatePrivate = values => async (dispatch, getState) => {
     const { data } = await axios.post('/products/private/daily', values);
     dispatch(dailyRatePrivateSuccess(data));
   } catch (error) {
+    unauthorizedTemplate(error);
     dispatch(dailyRatePrivateError(error.message));
   }
 };
@@ -92,12 +103,12 @@ const prouctsDayInfo = date => async (dispatch, getState) => {
   //   auth: { token: accessToken },
   // } = getState();
   // token.set(accessToken);
-  console.log('Запрос пошел');
   dispatch(dayInfoRequest());
   try {
     const { data } = await axios.get(`/products/day-info/${date}`);
     dispatch(dayInfoSuccess(data));
   } catch (error) {
+    unauthorizedTemplate(error);
     dispatch(dayInfoError(error.message));
   }
 };

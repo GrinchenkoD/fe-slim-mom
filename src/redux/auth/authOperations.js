@@ -1,5 +1,6 @@
 import axios from 'axios';
 import actions from './authActions';
+import unauthorizedTemplate from './unauthorizedTemplate';
 
 const {
   registerRequest,
@@ -51,25 +52,25 @@ const getRegister = user => dispatch => {
     .catch(error => dispatch(registerError(error.message)));
 };
 
-const getUserData = () => (dispatch, getState) => {
-  const persistedToken = getState().auth.token;
-  if (!persistedToken) {
-    return;
-  }
+const getCurrentUser = persistedToken => (dispatch, getState) => {
+  // const persistedToken = getState().auth.token;
+  // if (!persistedToken) {
+  //   return;
+  // }
   token.set(persistedToken);
   dispatch(getCurrentUserRequest());
   axios
-    .get('/current')
+    .get('/auth/get-current-user')
     .then(({ data }) => dispatch(getCurrentUserSuccess(data)))
     .catch(error => dispatch(getCurrentUserError(error.message)));
 };
 const getLogout = () => async (dispatch, getState) => {
   dispatch(logOutRequest());
-  const {
-    auth: { token: accessToken },
-  } = getState();
+  // const {
+  //   auth: { token: accessToken },
+  // } = getState();
 
-  token.set(accessToken);
+  // token.set(accessToken);
   axios
     .post('/auth/logout')
     .then(() => {
@@ -77,11 +78,12 @@ const getLogout = () => async (dispatch, getState) => {
       dispatch(logOutSuccess());
     })
     .catch(error => {
-      if (error.response?.status === 401 || error.response?.status === 404) {
-        token.unset();
-      }
+      unauthorizedTemplate(error);
+      // if (error.response?.status === 401 || error.response?.status === 404) {
+      //   token.unset();
+      // }
       dispatch(logOutError(error.message));
     });
 };
 
-export { getRegister, getLogin, getUserData, getLogout };
+export { getRegister, getLogin, getCurrentUser, getLogout };

@@ -8,7 +8,7 @@ const login = createReducer(userInitialState, {
   [authActions.logInSuccess]: (_, { payload }) => payload.login,
   [authActions.logOutSuccess]: () => userInitialState,
   [authActions.logOutError]: () => tokenInitialState,
-  [authActions.getCurrentUserSuccess]: (_, { payload }) => payload,
+  [authActions.getCurrentUserSuccess]: (_, { payload }) => payload.login,
 });
 
 const dailyCaloriesInitialState = 0;
@@ -18,6 +18,8 @@ const dailyCalories = createReducer(dailyCaloriesInitialState, {
   [authActions.logOutSuccess]: () => dailyCaloriesInitialState,
   [authActions.logOutError]: () => dailyCaloriesInitialState,
   [productsActions.dailyRatePrivateSuccess]: (_, { payload }) =>
+    payload.dailyCalories,
+  [authActions.getCurrentUserSuccess]: (_, { payload }) =>
     payload.dailyCalories,
 });
 
@@ -29,6 +31,8 @@ const forbidenCategories = createReducer(categoriesInitialState, {
   [authActions.logOutError]: () => categoriesInitialState,
   [productsActions.dailyRatePrivateSuccess]: (_, { payload }) =>
     payload.forbidenCategories,
+  [authActions.getCurrentUserSuccess]: (_, { payload }) =>
+    payload.forbidenCategories,
 });
 
 const tokenInitialState = null;
@@ -36,12 +40,13 @@ const token = createReducer(tokenInitialState, {
   [authActions.logInSuccess]: (_, { payload }) => payload.token,
   [authActions.logOutSuccess]: () => tokenInitialState,
   [authActions.logOutError]: () => tokenInitialState,
+  // [authActions.getCurrentUserSuccess]: (_, { payload }) => payload.token,
 });
 
 const isAuthenticated = createReducer(false, {
   [authActions.logInSuccess]: () => true,
   [authActions.logOutSuccess]: () => false,
-  // [authActions.getCurrentUserSuccess]: () => true,
+  [authActions.getCurrentUserSuccess]: () => true,
   [authActions.getCurrentUserError]: () => false,
   [authActions.logOutError]: () => false,
 });
