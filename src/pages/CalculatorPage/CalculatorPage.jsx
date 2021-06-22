@@ -12,11 +12,11 @@ import isModalOpenSelector from '../../redux/modal/modalSelector';
 import Modal from '../../components/Modal/Modal';
 import isLoading from '../../redux/loading/loadingSelector';
 import Header from '../../components/Header/Header';
-
-import leafTab from '../../images/product/leafTab.png'
-import leafDesk from '../../images/product/leafDesk.png'
-
+import DailyCalories from '../../components/ModalDailyCalories/ModalDailyCalories';
 import { useDevice } from '../../hooks/useDevice';
+import Spinner from '../../components/Spinner/Spinner';
+
+
 
 const calcTitle = 'Узнай свою суточную норму калорий';
 
@@ -29,7 +29,7 @@ const CalculatorPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { isMobileDevice, isTabletDevice, isDesctopDevice } = useDevice();
+  const { isMobileDevice, isTabletDevice } = useDevice();
 
   const onOpenModal = () => {
     dispatch(modalActions.modalOpen());
@@ -88,10 +88,13 @@ const CalculatorPage = () => {
               {isModalOpen && !loading && (
                 <Modal
                   onClose={onCloseModal}
-                  dailyCalories={dailyCalories}
-                  forbidenCategories={forbidenCategories}
-                  handleClickStartDiet={handleClickStartDiet}
-                />
+                  >
+                    <DailyCalories
+            dailyCalories={dailyCalories}
+            forbidenCategories={forbidenCategories}
+            handleClickStartDiet={handleClickStartDiet}
+          />
+                </Modal>
               )}
               <div className={styles.boxSummary}>
                 <Summary />
@@ -100,6 +103,7 @@ const CalculatorPage = () => {
           </Container>
         </div>
       )}
+      { loading&&<Spinner/>}
     </>
   );
 };

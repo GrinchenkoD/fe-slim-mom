@@ -27,7 +27,7 @@ const dayInfoRequest = createAction('product/dayInfoRequest');
 const dayInfoSuccess = createAction('product/dayInfoSuccess');
 const dayInfoError = createAction('product/dayInfoError');
 
-export default {
+const productsActions = {
   setPickedDate,
   removePickedDate,
   searchPoductRequest,
@@ -49,3 +49,5 @@ export default {
   dayInfoSuccess,
   dayInfoError,
 };
+
+export default productsActions;

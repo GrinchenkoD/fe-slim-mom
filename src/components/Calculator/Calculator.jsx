@@ -1,5 +1,4 @@
-import Container from '../Container/Container';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 
 import styles from './Calculator.module.css';
 import calculatorSchema from './CalculatorSchema';
@@ -8,7 +7,6 @@ import FormControl from '../FormControl/FormControl';
 const Calculator = ({title, onSubmit}) => {
   return (
     <>
-      {/* <Container> */}
         <h1 className={styles.title}>
           {title}
         </h1>
@@ -22,57 +20,8 @@ const Calculator = ({title, onSubmit}) => {
           }}
           validationSchema={calculatorSchema}
           onSubmit={onSubmit}
-        // onSubmit={(values, { resetForm }) => {
-        //   console.log(values);
-        //   resetForm();
-        // }}
         >
           <Form className={styles.form}>
-            {/* <Field
-              className={styles.inputName}
-              name="height"
-              type="number"
-              placeholder="Рост *"
-              />
-              <ErrorMessage
-              className={styles.errorName}
-              component="span"
-              name="height"
-            />
-            
-            <Field
-              className={styles.inputName}
-              name="age"
-              type="number"
-              placeholder="Возраст *"
-              />
-              <ErrorMessage
-              className={styles.errorName}
-              component="span"
-              name="age"
-            />
-            <Field
-              className={styles.inputName}
-              name="currentWeight"
-              type="number"
-              placeholder="Текущий вес *"
-              />
-              <ErrorMessage
-              className={styles.errorName}
-              component="span"
-              name="currentWeight"
-            />
-            <Field
-              className={styles.inputName}
-              name="desiredWeight"
-              type="number"
-              placeholder="Желаемый вес *"
-              />
-              <ErrorMessage
-              className={styles.errorName}
-              component="span"
-              name="desiredWeight"
-            /> */}
             <FormControl
               label="Рост"
               name="height"
@@ -154,7 +103,6 @@ const Calculator = ({title, onSubmit}) => {
             <button className={styles.button} type="submit">Похудеть</button>
           </Form>
         </Formik>
-      {/* </Container> */}
     </>
   );
 };

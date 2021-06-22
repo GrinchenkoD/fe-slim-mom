@@ -1,0 +1,23 @@
+.overlay {
+  position: fixed;
+  bottom: 0px;
+  /* top: 0; */
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* z-index: 9999; */
+  pointer-events: none;
+}
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

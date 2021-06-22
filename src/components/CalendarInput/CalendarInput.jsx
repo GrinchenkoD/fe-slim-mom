@@ -5,7 +5,7 @@ import sprite from '../../icons/symbol-defs.svg';
 import { useDispatch } from 'react-redux';
 import productActions from '../../redux/products/productsActions';
 import "react-datepicker/dist/react-datepicker.css";
-// icon-calendar
+
 const CalendarInput = () => {
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const CalendarInput = () => {
       month > 9 ? month : `0` + month
     }-${year}`;
     dispatch(productActions.setPickedDate(chosenDate));
-  }, [startDate]);
+  }, [dispatch, startDate]);
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
     <button className={styles.calendarInput} onClick={onClick} ref={ref}>
       {value}

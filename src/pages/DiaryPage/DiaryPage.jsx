@@ -6,14 +6,18 @@ import Summary from '../../components/Summary/Summary';
 import AddProductForm from '../../components/AddProductForm/AddProductForm';
 import CalendarInput from '../../components/CalendarInput/CalendarInput';
 import Header from '../../components/Header/Header';
+import { useSelector } from 'react-redux';
+import isLoading from '../../redux/loading/loadingSelector';
+import Spinner from '../../components/Spinner/Spinner';
 
-import leafTab from '../../images/product/leafTab.png';
-import leafDesk from '../../images/product/leafDesk.png';
+
+
 
 import { useDevice } from '../../hooks/useDevice';
 
 const DiaryPage = () => {
-  const { isMobileDevice, isTabletDevice, isDesctopDevice } = useDevice();
+  const { isMobileDevice, isTabletDevice } = useDevice();
+  const loading = useSelector(isLoading);
 
   return (
     <>
@@ -61,6 +65,7 @@ const DiaryPage = () => {
           </Container>
         </div>
       )}
+          { loading&&<Spinner/>}
     </>
   );
 };
