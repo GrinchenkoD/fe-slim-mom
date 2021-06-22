@@ -27,7 +27,7 @@ const Header = () => {
  const dispatch = useDispatch()
 
   const toggleBurgerMenu = () => {
-    // !burgerShown ? document.body.style.overflow = 'hidden': document.body.style.overflow = '';
+    !burgerShown ? document.body.style.overflow = 'hidden': document.body.style.overflow = '';
     setBurgerShown(!burgerShown);
 
   };
@@ -54,7 +54,8 @@ const Header = () => {
               </button>
             )}
            
-            {isLogged && isDesctopDevice && <div className={styles.navPanelThumb}>     <UserNav />
+            {isLogged && isDesctopDevice && <div className={styles.navPanelThumb}>
+              <UserNav />
               {isDesctopDevice && isLogged && <UserPanel />}
             </div>}
           </div>

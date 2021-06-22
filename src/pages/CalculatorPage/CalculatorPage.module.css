@@ -4,19 +4,10 @@
 .boxSummary {
   background-color: #f0f1f3;
 }
-.leafTab {
-  display: none;
-}
 
 @media screen and (min-width: 768px) {
   .bg {
     position: relative;
-  }
-  .leafTab {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
   .boxCalculator {
     margin-bottom: 177px;
@@ -25,11 +16,16 @@
 
 @media screen and (min-width: 1280px) {
   .bg {
-    background: linear-gradient(
-      to right,
-      hsla(0, 0%, 100%, 0) 60%,
-      rgba(240, 241, 243, 1) 40%
-    );
+    background: url(../../images/product/leafDesk.png),
+      linear-gradient(
+        to right,
+        hsla(0, 0%, 100%, 0) 60%,
+        rgba(240, 241, 243, 1) 40%
+      );
+    background-position: bottom right;
+
+    background-repeat: no-repeat;
+    min-height: 100vh;
   }
   .wrapper {
     display: flex;
@@ -41,7 +37,7 @@
     padding: 0;
     padding-top: 137px;
   }
-  .leafDesk{
+  .leafDesk {
     position: absolute;
     top: 0;
     right: 0;

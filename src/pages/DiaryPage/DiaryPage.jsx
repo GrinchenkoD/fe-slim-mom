@@ -19,7 +19,7 @@ const DiaryPage = () => {
     <>
       {isMobileDevice || isTabletDevice ? (
         <div className={styles.bg}>
-          <img className={styles.leafTab} src={leafTab} alt="" />
+
           <Header />
           <Container>
             <div className={styles.wrapper}>
@@ -42,7 +42,6 @@ const DiaryPage = () => {
         </div>
       ) : (
         <div className={styles.bg}>
-          <img className={styles.leafDesk} src={leafDesk} alt="" />
           <Header />
           <Container>
             <div className={styles.wrapper}>
