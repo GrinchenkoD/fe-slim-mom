@@ -8,13 +8,6 @@ import productsReducer from './products/productsReducer';
 import isModalOpen from './modal/modalReducer';
 import date from './date/dateReducer';
 
-// ! CONFIG PERSIST HERE
-// const authPersistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token', 'user', 'isAuthentificated', 'refreshToken', 'sid'],
-// };
-// const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
 const authPersistConfig = {
   key: 'auth',
   storage,

@@ -8,7 +8,6 @@ function Summary() {
   const dailyCalories = useSelector(authSelectors.dailyCaloriesRate);
   const forbidenCategories = useSelector(authSelectors.forbidenCategories);
   const caloriesReceived = useSelector(getCaloriesReceived);
-  console.log(dailyCalories);
 
   const date = useSelector(getDate).split('-').join('.');
   const categoriesString = forbidenCategories.reduce(

@@ -112,8 +112,7 @@ const prouctsDayInfo = date => async (dispatch, getState) => {
     dispatch(dayInfoError(error.message));
   }
 };
-
-export default {
+const productsOperations = {
   searchProducts,
   addUserProduct,
   deleteUserProduct,
@@ -121,3 +120,4 @@ export default {
   dailyRatePublic,
   prouctsDayInfo,
 };
+export default productsOperations;

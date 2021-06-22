@@ -18,9 +18,9 @@ const DiaryProductsList = () => {
     dispatch(modalActions.modalOpen());
   };
 
-  const onCloseModal = () => {
-    dispatch(modalActions.modalClose());
-  };
+  // const onCloseModal = () => {
+  //   dispatch(modalActions.modalClose());
+  // };
   useEffect(() => {
     dispatch(prouctsOperations.prouctsDayInfo(date));
   }, [dispatch, date]);

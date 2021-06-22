@@ -12,6 +12,8 @@ import isLoading from '../../redux/loading/loadingSelector';
 import Header from '../../components/Header/Header';
 import HomePageBackground from "../../components/HomePageBackground/HomePageBackground"
 import Container from '../../components/Container/Container';
+import Spinner from '../../components/Spinner/Spinner';
+
 
 
 
@@ -51,22 +53,25 @@ const HomePage = () => {
   };
 
   return (
-    
-    <HomePageBackground>
-      <Header />
-      <Container>
-        <Calculator title={homeCalcTitle} onSubmit={onSubmit} />
-      </Container>
-      {isModalOpen && !loading && (
-        <Modal>
-          <DailyCalories
-            dailyCalories={dailyCalories}
-            forbidenCategories={forbidenCategories}
-            handleClickStartDiet={handleClickStartDiet}
-          />
-        </Modal>
-      )}
-    </HomePageBackground>
+    <>
+      <HomePageBackground>
+        <Header />
+        <Container>
+          <Calculator title={homeCalcTitle} onSubmit={onSubmit} />
+        </Container>
+        {isModalOpen && !loading && (
+          <Modal>
+            <DailyCalories
+              dailyCalories={dailyCalories}
+              forbidenCategories={forbidenCategories}
+              handleClickStartDiet={handleClickStartDiet}
+            />
+          </Modal>
+        )}
+      </HomePageBackground>
+      {loading && <Spinner />}
+      
+    </>
   );
 };
 

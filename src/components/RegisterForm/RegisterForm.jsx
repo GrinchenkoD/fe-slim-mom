@@ -4,17 +4,18 @@ import FormControl from '../FormControl/FormControl'
 import styles from "./RegisterForm.module.css"
 import registerSchema from './RegisterSchema';
 import { useDispatch, useSelector } from 'react-redux';
-import {getRegister} from "../../redux/auth/authOperations"
+import authOperations from "../../redux/auth/authOperations"
 import Button from "../../shared/button/Button"
 import { Link } from 'react-router-dom';
 import isLoading  from '../../redux/loading/loadingSelector';
+
 
 const RegisterForm = () => {
       const dispatch = useDispatch();
     const loading = useSelector(isLoading);
       const register = useCallback(
           values => {
-      dispatch(getRegister(values));
+      dispatch(authOperations.getRegister(values));
     },
     [dispatch],
   );
