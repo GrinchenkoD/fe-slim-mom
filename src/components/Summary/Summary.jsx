@@ -27,7 +27,7 @@ function Summary() {
     parseInt((caloriesReceived / dailyCalories) * 100),
   )
     ? 0
-    : (caloriesReceived / dailyCalories) * 100;
+    : parseInt((caloriesReceived / dailyCalories) * 100);
   return (
     <div className={styles.summaryWrapper}>
       <div>
