@@ -14,6 +14,10 @@ const loadingReducer = createReducer(intialState, {
   [auth.logOutRequest]: (_, __) => true,
   [auth.logOutRequest]: (_, __) => false,
   [auth.logOutError]: (_, __) => false,
+  [auth.getCurrentUserRequest]: (_, __) => true,
+  [auth.getCurrentUserSuccess]: (_, __) => false,
+  [auth.getCurrentUserError]: (_, __) => false,
+
   [products.searchPoductRequest]: (_, __) => true,
   [products.addPoductRequest]: (_, __) => true,
   [products.deleteProductRequest]: (_, __) => true,

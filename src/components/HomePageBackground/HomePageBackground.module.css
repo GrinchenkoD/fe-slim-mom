@@ -16,7 +16,6 @@
   .thumb {
     background-image: url(../../images/banana.png), url(../../images/leafs.png),
       url(../../images/strawberry.png), url(../../images/vector.png);
-    background-position: top right, bottom 30px right 195px, bottom right,
-      bottom right;
+    background-position: top right, top right 195px, bottom right, bottom right;
   }
 }

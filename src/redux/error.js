@@ -15,6 +15,8 @@ const errorReducer = createReducer(initialState, {
   [products.dailyRatePublicError]: (_, { payload }) => payload,
   [products.dayInfoError]: (_, { payload }) => payload,
 
+  [auth.getCurrentUserRequest]: (_, __) => initialState,
+  [auth.getCurrentUserSuccess]: (_, __) => initialState,
   [auth.registerSuccess]: (_, __) => initialState,
   [auth.logInSuccess]: (_, __) => initialState,
   [auth.logOutSuccess]: (_, __) => initialState,

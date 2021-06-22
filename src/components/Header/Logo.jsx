@@ -1,9 +1,9 @@
 import { useDevice } from '../../hooks/useDevice';
 import { Link } from 'react-router-dom';
 
-import LogoMobile from '../../images/logoMobile.png';
-import LogoTablet from '../../images/logoTablet.png';
-import LogoDesctop from '../../images/logoDesctop.png';
+import LogoMobile from '../../icons/logo/logo-mobile.svg';
+import LogoTablet from '../../icons/logo/logo-tablet.svg';
+import LogoDesctop from '../../icons/logo/logo-desctop.svg';
 import {useSelector } from 'react-redux';
 import { authSelectors } from "../../redux/auth/authselectors"
 
@@ -19,7 +19,7 @@ const Logo = () => {
       {isMobileDevice && !isLogged && (
         <img className={styles.logoMob} src={LogoMobile} alt='logo' />
       )}
-      {isMobileDevice && isLogged && (
+      {isMobileDevice && isLogged && ( 
         <img className={styles.logoMob} src={LogoTablet} alt='logo' />
       )}
       {isTabletDevice && (
