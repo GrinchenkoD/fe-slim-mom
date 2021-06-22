@@ -27,7 +27,7 @@ const Header = () => {
  const dispatch = useDispatch()
 
   const toggleBurgerMenu = () => {
-    // !burgerShown ? document.body.style.overflow = 'hidden': document.body.style.overflow = '';
+    !burgerShown ? document.body.style.overflow = 'hidden': document.body.style.overflow = '';
     setBurgerShown(!burgerShown);
 
   };

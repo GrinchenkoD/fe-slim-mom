@@ -14,8 +14,11 @@ const Logo = () => {
   const { isMobileDevice, isDesctopDevice, isTabletDevice } = useDevice();
   const isLogged = useSelector(authSelectors.isAuthenticated);
 
+  const normalOverflow = () => {
+ document.body.style.overflow=""
+  }
   return (
-    <Link to='/'>
+    <Link to='/' onClick={normalOverflow}>
       {isMobileDevice && !isLogged && (
         <img className={styles.logoMob} src={LogoMobile} alt='logo' />
       )}
