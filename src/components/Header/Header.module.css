@@ -1,0 +1,265 @@
+.mainHeader {
+  display: block;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.wraper {
+  display: flex;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1280px) {
+  .mainHeader {
+    border: none;
+  }
+
+  .wraper {
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 82px 0 0;
+  }
+}
+
+/* 
+======================Auth Button========================== */
+.authNavContainer {
+  display: flex;
+  gap: 15px;
+  margin: auto 0;
+  height: 20px;
+}
+
+.authLink {
+  font-weight: 700;
+  font-size: 14px;
+  color: #9b9faa;
+}
+
+.authLinkActive {
+  color: #212121;
+}
+
+@media screen and (min-width: 1280px) {
+  .authNavContainer {
+    height: 32px;
+    padding-left: 22px;
+    margin: 0;
+    margin-left: 22px;
+    align-items: center;
+
+    border-left: 2px solid #e0e0e0;
+  }
+}
+/* ======================BURGER button========================== */
+.burgerButton {
+  border: none;
+  background-color: transparent;
+}
+.burgerIcon {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 1280px) {
+  .burgerButton {
+    display: none;
+  }
+}
+
+/* ======================BURGER========================== */
+
+.burgerMenu {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 60px;
+  gap: 30px;
+  text-align: center;
+  background-color: #264061;
+}
+
+@media screen and (min-width: 768px) {
+  .burgerMenu {
+    padding-top: 108px;
+    gap: 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .burgerMenu {
+    display: none;
+  }
+}
+/* ======================UserBox========================== */
+
+.userBox {
+  display: block;
+  height: 40px;
+  padding-top: 4px;
+  background-color: #eff1f3;
+}
+/* ======================UserPanel========================== */
+
+.userPanel {
+  font-family: Gotham Pro;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 30px;
+  letter-spacing: 0.04em;
+  color: #212121;
+  text-align: right;
+}
+
+.nic {
+  font-family: Gotham Pro;
+  font-weight: bold;
+  display: inline-block;
+  height: 30px;
+  font-weight: 700;
+  padding-right: 15px;
+  border-right: 2px solid #e0e0e0;
+}
+
+.logout {
+  font-family: Gotham Pro;
+  margin-left: 15px;
+  color: #9b9faa;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .userPanel {
+    /* padding-top: 6px; */
+    display: flex;
+    align-items: center;
+    margin-left: 270px;
+    margin-right: 50px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .userPanel {
+    /* background-color: #f0f1f3; */
+    margin-left: 225px;
+    /* flex-grow: 1; */
+    margin-right: 0;
+  }
+
+  .logout {
+    /* margin-right: 115px; */
+    color: #9b9faa;
+  }
+
+  /* .userPanel::before {
+    content: '';
+    display: block;
+    height: 200px;
+    margin-top: -200px;
+    background-color: #f0f1f3;
+  } */
+}
+
+/* =====================USER NAV======================= */
+
+.burgerLink {
+  font-family: Verdana;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+
+  color: #9b9faa;
+  margin-bottom: 30px;
+}
+
+.burgerLinkActive {
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .burgerLink {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .burgerLink {
+    font-family: Gotham Pro;
+    font-size: 14px;
+    line-height: 32px;
+    color: #9b9faa;
+  }
+
+  .burgerLinkActive {
+    color: #212121;
+  }
+
+  .burgerLink:nth-child(2n-1) {
+    padding-left: 22px;
+    margin: 0 22px;
+    border-left: 2px solid #e0e0e0;
+  }
+}
+
+/* ===================logo====================== */
+.logoDesc {
+  margin-bottom: -5px;
+  position: relative;
+  right: 18px;
+}
+.logoTab {
+  margin-top: 16px;
+  position: relative;
+  right: 18px;
+}
+
+.logoMob {
+  margin-top: 16px;
+}
+/* =====================navPanelThumb============================= */
+@media screen and (min-width: 1280px) {
+  .navPanelThumb {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: baseline;
+  }
+}
+
+/* =================userNav ====================== */
+.userNav {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 1280px) {
+  .userNav {
+    flex-direction: row;
+  }
+}
+
+/* ====================backButton================================= */
+.backBtn {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.backIcon {
+  width: 15px;
+  height: 9px;
+}
+.userPanelThumb {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}

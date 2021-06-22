@@ -1,0 +1,45 @@
+.boxCalculator {
+  margin-bottom: 60px;
+}
+.boxSummary {
+  background-color: #f0f1f3;
+}
+
+@media screen and (min-width: 768px) {
+  .bg {
+    position: relative;
+  }
+  .boxCalculator {
+    margin-bottom: 177px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bg {
+    background: url(../../images/product/leafDesk.png),
+      linear-gradient(
+        to right,
+        hsla(0, 0%, 100%, 0) 60%,
+        rgba(240, 241, 243, 1) 40%
+      );
+    background-position: bottom right;
+
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+  .wrapper {
+    display: flex;
+  }
+  .boxCalculator {
+    margin-right: 115px;
+  }
+  .boxSummary {
+    padding: 0;
+    padding-top: 137px;
+  }
+  .leafDesk {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

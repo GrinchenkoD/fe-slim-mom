@@ -1,0 +1,47 @@
+@value accentColor: #FC842D;
+@value greyColor: #9B9FAA;
+@value blackColor: #212121;
+@value blueColor: #264061;
+@value bgColor: #E5E5E5;
+@value bgGreyColor: #F0F1F3;
+
+/* @value greyColor from '../../index.module.css'; */
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  background-color: transparent;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  color: blackColor;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  color: blackColor;
+  /* background-color: bgColor; */
+}
+
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,72 @@
+.wrapper {
+  position: relative;
+  padding-top: 40px;
+}
+.boxCalendarInput {
+  margin-bottom: 30px;
+}
+.boxMain {
+  margin-bottom: 60px;
+}
+.boxSummary {
+  background-color: #f0f1f3;
+}
+.leafTab {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    padding-top: 100px;
+  }
+  .boxCalendarInput {
+    margin-bottom: 0;
+  }
+  .boxMain {
+    margin-bottom: 0;
+  }
+  .boxAddProductForm {
+    position: static;
+    margin-bottom: 50px;
+  }
+  .bg {
+    position: relative;
+  }
+  .leafTab {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bg {
+    background: url(../../images/product/leafDesk.png),
+      linear-gradient(
+        to right,
+        hsla(0, 0%, 100%, 0) 60%,
+        rgba(240, 241, 243, 1) 40%
+      );
+    background-position: bottom right;
+
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+  .wrapper {
+    display: flex;
+    padding-top: 137px;
+  }
+  .boxMain {
+    margin-right: 115px;
+    width: 605px;
+  }
+  .boxSummary {
+    min-height: 505px;
+  }
+  .leafDesk {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
