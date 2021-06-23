@@ -60,7 +60,7 @@ const addUserProduct = productData => dispatch => {
     });
 };
 
-const deleteUserProduct = productData => async (dispatch, getState) => {
+const deleteUserProduct = productData => async dispatch => {
   const { id } = productData;
   dispatch(deleteProductRequest());
   try {
@@ -91,18 +91,14 @@ const dailyRatePublic = values => async dispatch => {
   dispatch(dailyRatePublicRequest());
   try {
     const { data } = await axios.post('/products/public/daily', values);
-    dispatch(dailyRatePublicSuccess()); //!хз чё делать при успешном
+    dispatch(dailyRatePublicSuccess());
     return data;
   } catch (error) {
     dispatch(dailyRatePublicError(error.message));
   }
 };
 
-const prouctsDayInfo = date => async (dispatch, getState) => {
-  // const {
-  //   auth: { token: accessToken },
-  // } = getState();
-  // token.set(accessToken);
+const prouctsDayInfo = date => async dispatch => {
   dispatch(dayInfoRequest());
   try {
     const { data } = await axios.get(`/products/day-info/${date}`);

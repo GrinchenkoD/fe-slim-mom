@@ -3,7 +3,6 @@ import styles from './DailyCalories.module.css';
 
 
 const DailyCalories = ({dailyCalories, forbidenCategories, handleClickStartDiet}) => {
-  // const DailyCalories = ({params}) => { // to be received from calculated back-end
   return (
     <div className={styles.container}>
       <p className={styles.calories__title}>

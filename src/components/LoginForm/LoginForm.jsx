@@ -1,13 +1,15 @@
 import React, { useCallback } from 'react';
-import { Form, Formik } from 'formik';
-import FormControl from '../FormControl/FormControl'
-import styles from "./LoginForm.module.css"
-import loginSchema from './LoginSchema';
-import { useDispatch, useSelector } from 'react-redux';
-import Button from "../../shared/button/Button"
 import { Link } from 'react-router-dom';
-import isLoading  from '../../redux/loading/loadingSelector';
+import { useDispatch, useSelector } from 'react-redux';
+import { Form, Formik } from 'formik';
+
 import authOperations from '../../redux/auth/authOperations';
+import isLoading  from '../../redux/loading/loadingSelector';
+
+import FormControl from '../FormControl/FormControl'
+import Button from "../shared/button/Button"
+import loginSchema from '../../utils/schemas/LoginSchema';
+import styles from "./LoginForm.module.css"
 
 
 const LoginForm = () => {

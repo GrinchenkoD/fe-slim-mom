@@ -1,20 +1,21 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useDevice } from '../../hooks/useDevice';
+
+import modalActions from '../../redux/modal/modalActions';
+import { authSelectors } from '../../redux/auth/authselectors';
+import isModalOpenSelector from '../../redux/modal/modalSelector';
+import isLoading from '../../redux/loading/loadingSelector';
+
 import Container from '../Container/Container';
 import Logo from './Logo';
-import { useSelector, useDispatch } from 'react-redux';
 import AuthNav from './AuthNav';
 import BurgerMenu from './BurgerMenu';
 import UserNav from './UserNav';
 import UserPanel from './UserPanel';
-import { useDevice } from '../../hooks/useDevice';
-import { authSelectors } from '../../redux/auth/authselectors';
 import sprite from "../../icons/symbol-defs.svg"
-import isModalOpenSelector from '../../redux/modal/modalSelector';
-
-
 import styles from './Header.module.css';
-import modalActions from '../../redux/modal/modalActions';
-import isLoading from '../../redux/loading/loadingSelector';
+
 
 
 

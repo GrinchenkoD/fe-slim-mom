@@ -1,9 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-// import { useParams } from 'react-router';
-import styles from './Modal.module.css';
 import { useDispatch } from 'react-redux';
+
 import modalActions from '../../redux/modal/modalActions';
+
+import styles from './Modal.module.css';
 import Container from '../Container/Container';
 
 
@@ -17,8 +18,6 @@ const Modal = ({ children, ...props }) => {
   const handleKeyDown = useCallback(
     e => {
       if (e.key === 'Escape') {
-        // console.log(e.key);
-        // if (e.code === 'Escape') {
         return onClose && onClose();
       }
     },

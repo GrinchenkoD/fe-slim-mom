@@ -1,20 +1,22 @@
 import React from 'react';
-import styles from './CalculatorPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useDevice } from '../../hooks/useDevice';
+
+import productsOperations from '../../redux/products/productsOperations';
+import { authSelectors } from '../../redux/auth/authselectors';
+import isModalOpenSelector from '../../redux/modal/modalSelector';
+import isLoading from '../../redux/loading/loadingSelector';
+import modalActions from '../../redux/modal/modalActions';
+
 import Calculator from '../../components/Calculator/Calculator';
 import Container from '../../components/Container/Container';
 import Summary from '../../components/Summary/Summary';
-import { authSelectors } from '../../redux/auth/authselectors';
-import productsOperations from '../../redux/products/productsOperations';
-import modalActions from '../../redux/modal/modalActions';
-import isModalOpenSelector from '../../redux/modal/modalSelector';
 import Modal from '../../components/Modal/Modal';
-import isLoading from '../../redux/loading/loadingSelector';
 import Header from '../../components/Header/Header';
 import DailyCalories from '../../components/ModalDailyCalories/ModalDailyCalories';
-import { useDevice } from '../../hooks/useDevice';
 import Spinner from '../../components/Spinner/Spinner';
+import styles from './CalculatorPage.module.css';
 
 
 
@@ -29,7 +31,7 @@ const CalculatorPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { isMobileDevice, isTabletDevice } = useDevice();
+  const { isMobileDevice, isTabletDevice, isDesctopDevice } = useDevice();
 
   const onOpenModal = () => {
     dispatch(modalActions.modalOpen());
@@ -51,7 +53,6 @@ const CalculatorPage = () => {
 
   return (
     <>
-      {isMobileDevice || isTabletDevice ? (
         <div className={styles.bg}>
           <Header />
           <Container>
@@ -70,40 +71,17 @@ const CalculatorPage = () => {
                   />
                 </Modal>
               )}
+              {isDesctopDevice&&(<div className={styles.boxSummary}>
+                <Summary />
+              </div>) }
             </div>
           </Container>
-          <div className={styles.boxSummary}>
+         {(isMobileDevice || isTabletDevice)&&  ( <div className={styles.boxSummary}>
             <Container>
               <Summary />
             </Container>
-          </div>
+          </div>)}
         </div>
-      ) : (
-        <div className={styles.bg}>
-          <Header />
-          <Container>
-            <div className={styles.wrapper}>
-              <div className={styles.boxCalculator}>
-                <Calculator title={calcTitle} onSubmit={onSubmit} />
-              </div>
-              {isModalOpen && !loading && (
-                <Modal
-                  onClose={onCloseModal}
-                >
-                  <DailyCalories
-                    dailyCalories={dailyCalories}
-                    forbidenCategories={forbidenCategories}
-                    handleClickStartDiet={handleClickStartDiet}
-                  />
-                </Modal>
-              )}
-              <div className={styles.boxSummary}>
-                <Summary />
-              </div>
-            </div>
-          </Container>
-        </div>
-      )}
       {loading && <Spinner />}
     </>
   );
