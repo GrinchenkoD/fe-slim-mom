@@ -1,14 +1,15 @@
-import Calculator from '../../components/Calculator/Calculator';
-import Modal from '../../components/Modal/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import DailyCalories from '../../components/ModalDailyCalories/ModalDailyCalories';
 
 import productsOperations from '../../redux/products/productsOperations';
 import modalActions from '../../redux/modal/modalActions';
 import isModalOpenSelector from '../../redux/modal/modalSelector';
 import isLoading from '../../redux/loading/loadingSelector';
+
+import Modal from '../../components/Modal/Modal';
+import Calculator from '../../components/Calculator/Calculator';
+import DailyCalories from '../../components/ModalDailyCalories/ModalDailyCalories';
 import Header from '../../components/Header/Header';
 import HomePageBackground from "../../components/HomePageBackground/HomePageBackground"
 import Container from '../../components/Container/Container';

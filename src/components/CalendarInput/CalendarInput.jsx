@@ -1,9 +1,11 @@
 import React, { useState, forwardRef, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
+import { useDispatch } from 'react-redux';
+
+import productActions from '../../redux/products/productsActions';
+
 import styles from './CalendarInput.module.css';
 import sprite from '../../icons/symbol-defs.svg';
-import { useDispatch } from 'react-redux';
-import productActions from '../../redux/products/productsActions';
 import "react-datepicker/dist/react-datepicker.css";
 
 const CalendarInput = () => {

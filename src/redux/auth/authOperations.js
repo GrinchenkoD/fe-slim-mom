@@ -1,6 +1,7 @@
 import axios from 'axios';
 import actions from './authActions';
 import unauthorizedTemplate from './unauthorizedTemplate';
+import NotificationError from '../../components/Pnotify/Pnotify';
 
 const {
   registerRequest,
@@ -35,7 +36,12 @@ const getLogin = user => dispatch => {
       dispatch(logInSuccess(data));
       token.set(data.token);
     })
-    .catch(error => dispatch(logInError(error.message)));
+    .catch(error => {
+      if (error.response?.status === 403) {
+        NotificationError('Неверный логин или пароль');
+      }
+      dispatch(logInError(error.message));
+    });
 };
 
 const getRegister = user => dispatch => {
@@ -46,17 +52,18 @@ const getRegister = user => dispatch => {
     .post(`/auth/registration`, user)
     .then(({ data }) => {
       dispatch(registerSuccess(data));
-      // token.set(data.token);
+
       dispatch(getLogin({ login, password }));
     })
-    .catch(error => dispatch(registerError(error.message)));
+    .catch(error => {
+      if (error.response?.status === 409) {
+        NotificationError('Пользователь с таким логином уже зарегистрирован');
+      }
+      dispatch(registerError(error.message));
+    });
 };
 
-const getCurrentUser = persistedToken => (dispatch, getState) => {
-  // const persistedToken = getState().auth.token;
-  // if (!persistedToken) {
-  //   return;
-  // }
+const getCurrentUser = persistedToken => dispatch => {
   token.set(persistedToken);
   dispatch(getCurrentUserRequest());
   axios
@@ -64,13 +71,9 @@ const getCurrentUser = persistedToken => (dispatch, getState) => {
     .then(({ data }) => dispatch(getCurrentUserSuccess(data)))
     .catch(error => dispatch(getCurrentUserError(error.message)));
 };
-const getLogout = () => async (dispatch, getState) => {
+const getLogout = () => async dispatch => {
   dispatch(logOutRequest());
-  // const {
-  //   auth: { token: accessToken },
-  // } = getState();
 
-  // token.set(accessToken);
   axios
     .post('/auth/logout')
     .then(() => {
@@ -79,9 +82,6 @@ const getLogout = () => async (dispatch, getState) => {
     })
     .catch(error => {
       unauthorizedTemplate(error);
-      // if (error.response?.status === 401 || error.response?.status === 404) {
-      //   token.unset();
-      // }
       dispatch(logOutError(error.message));
     });
 };

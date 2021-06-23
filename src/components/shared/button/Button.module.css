@@ -1,4 +1,4 @@
-@value accentColor from '../../index.module.css';
+@value accentColor from '../../../index.module.css';
 
 .button {
   width: 176px;
