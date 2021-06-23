@@ -1,13 +1,15 @@
 import React, { useCallback } from 'react';
 import { Form, Formik } from 'formik';
-import FormControl from '../FormControl/FormControl'
-import styles from "./RegisterForm.module.css"
-import registerSchema from './RegisterSchema';
 import { useDispatch, useSelector } from 'react-redux';
-import authOperations from "../../redux/auth/authOperations"
-import Button from "../../shared/button/Button"
 import { Link } from 'react-router-dom';
+
+import authOperations from "../../redux/auth/authOperations"
 import isLoading  from '../../redux/loading/loadingSelector';
+
+import FormControl from '../FormControl/FormControl'
+import registerSchema from '../../utils/schemas/RegisterSchema';
+import Button from "../shared/button/Button"
+import styles from "./RegisterForm.module.css"
 
 
 const RegisterForm = () => {
@@ -15,7 +17,10 @@ const RegisterForm = () => {
     const loading = useSelector(isLoading);
       const register = useCallback(
           values => {
-      dispatch(authOperations.getRegister(values));
+              const { login, password, name } = values;
+            const normalizedLogin = login.toLowerCase()
+
+      dispatch(authOperations.getRegister({login:normalizedLogin, password, name}));
     },
     [dispatch],
   );
@@ -30,7 +35,7 @@ const RegisterForm = () => {
                     password: '',
                 }}
                 validationSchema={registerSchema}
-                onSubmit={register} //!подставить операцию
+                onSubmit={register}
             >
                 <Form>
                     <FormControl

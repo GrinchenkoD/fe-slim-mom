@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useDevice } from '../../hooks/useDevice';
 import axios from 'axios';
 import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
-import sprite from '../../icons/symbol-defs.svg';
-import styles from './AddProductForm.module.css';
 import useDebounce from '../../hooks/useDebounce';
+
 import operations from '../../redux/products/productsOperations';
-import getDate from '../../redux/date/dateSelector';
-import { useDevice } from '../../hooks/useDevice';
-import customStyles from './selectStyles';
 import isModalOpenSelector from '../../redux/modal/modalSelector';
 import modalActions from '../../redux/modal/modalActions';
+import getDate from '../../redux/date/dateSelector';
+
+import customStyles from './selectStyles';
 import Modal from '../Modal/Modal';
+import sprite from '../../icons/symbol-defs.svg';
+import styles from './AddProductForm.module.css';
 
 const AddProductForm = () => {
   const { isTabletAndDesktop, isMobileDevice } = useDevice();
@@ -25,11 +27,7 @@ const AddProductForm = () => {
   const handleChange = selectedOption => {
     setSelectedOption(selectedOption);
   };
-  const [options, setOptions] = useState([
-    // { value: 'chocolate', label: 'Chocolate' },
-    // { value: 'strawberry', label: 'Strawberry' },
-    // { value: 'vanilla', label: 'Vanilla' },
-  ]);
+  const [options, setOptions] = useState([]);
 
   const modalState = useSelector(isModalOpenSelector);
   useEffect(() => {

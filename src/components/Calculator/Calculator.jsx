@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 
 import styles from './Calculator.module.css';
-import calculatorSchema from './CalculatorSchema';
+import calculatorSchema from '../../utils/schemas/CalculatorSchema';
 import FormControl from '../FormControl/FormControl';
 
 const Calculator = ({title, onSubmit}) => {

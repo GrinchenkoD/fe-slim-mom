@@ -3,13 +3,20 @@ import { createReducer } from '@reduxjs/toolkit';
 import productsActions from './productsActions';
 import authActions from '../auth/authActions';
 
-const productList = createReducer([], {
+const initialState = {
+  productList: [],
+  userDailyProducts: [],
+  pickedDate: '',
+  caloriesReceived: 0,
+};
+
+const productList = createReducer(initialState.productList, {
   [productsActions.searchPoductSuccess]: (_, { payload }) => payload.products,
-  [productsActions.searchPoductError]: (_, __) => [],
-  [authActions.logOutSuccess]: (_, __) => [],
+  [productsActions.searchPoductError]: () => initialState.productList,
+  [authActions.logOutSuccess]: () => initialState.productList,
 });
 
-const userDailyProducts = createReducer([], {
+const userDailyProducts = createReducer(initialState.userDailyProducts, {
   [productsActions.addPoductSuccess]: (state, { payload }) => [
     ...state,
     payload,
@@ -17,21 +24,21 @@ const userDailyProducts = createReducer([], {
   [productsActions.deleteProductSuccess]: (state, { payload }) =>
     state.filter(product => product.id !== payload.id),
   [productsActions.dayInfoSuccess]: (_, { payload }) => [...payload.products],
-  [authActions.logOutSuccess]: (_, __) => [],
+  [authActions.logOutSuccess]: () => initialState.userDailyProducts,
 });
 
-const pickedDate = createReducer('', {
+const pickedDate = createReducer(initialState.pickedDate, {
   [productsActions.setPickedDate]: (_, { payload }) => payload,
-  [productsActions.removePickedDate]: (_, __) => '',
+  [productsActions.removePickedDate]: () => initialState.pickedDate,
 });
 
-const caloriesReceived = createReducer(0, {
+const caloriesReceived = createReducer(initialState.caloriesReceived, {
   [productsActions.dayInfoSuccess]: (_, { payload }) =>
     payload.caloriesReceived,
   [productsActions.addPoductSuccess]: (_, { payload }) => payload.newCalories,
   [productsActions.deleteProductSuccess]: (_, { payload }) =>
     payload.data.newCalories,
-  [authActions.logOutSuccess]: (_, __) => 0,
+  [authActions.logOutSuccess]: () => initialState.caloriesReceived,
 });
 
 export default combineReducers({
