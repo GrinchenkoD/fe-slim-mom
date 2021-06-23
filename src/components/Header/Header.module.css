@@ -197,6 +197,7 @@
     font-size: 14px;
     line-height: 32px;
     color: #9b9faa;
+    margin-bottom: 0px;
   }
 
   .burgerLinkActive {
@@ -207,6 +208,7 @@
     padding-left: 22px;
     margin: 0 22px;
     border-left: 2px solid #e0e0e0;
+    margin-bottom: 0px;
   }
 }
 
