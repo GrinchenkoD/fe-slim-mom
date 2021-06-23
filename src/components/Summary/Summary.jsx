@@ -1,9 +1,13 @@
 import React from 'react';
-import styles from './Summary.module.css';
-import { authSelectors } from '../../redux/auth/authselectors';
 import { useSelector } from 'react-redux';
-import { getCaloriesReceived } from '../../redux/products/productsSelectors';
+
 import getDate from '../../redux/date/dateSelector';
+import { getCaloriesReceived } from '../../redux/products/productsSelectors';
+import { authSelectors } from '../../redux/auth/authselectors';
+
+import styles from './Summary.module.css';
+
+
 function Summary() {
   const dailyCalories = useSelector(authSelectors.dailyCaloriesRate);
   const forbidenCategories = useSelector(authSelectors.forbidenCategories);

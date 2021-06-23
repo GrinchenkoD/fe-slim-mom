@@ -6,6 +6,8 @@ const loginSchema = Yup.object().shape({
     .max(20, 'Максимум 20 символов')
     .trim()
     .required('Обязательное поле'),
-  password: Yup.string().required('Обязательное поле'),
+  password: Yup.string()
+    .min(6, 'Минимум 6 символа')
+    .required('Обязательное поле'),
 });
 export default loginSchema;
