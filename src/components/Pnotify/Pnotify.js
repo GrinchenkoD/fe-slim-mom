@@ -1,4 +1,4 @@
-import { alert, defaultModules, defaults, error } from '@pnotify/core';
+import { defaultModules, defaults, error } from '@pnotify/core';
 import '@pnotify/core/dist/PNotify.css';
 import * as PNotifyMobile from '@pnotify/mobile';
 import '@pnotify/core/dist/BrightTheme.css';

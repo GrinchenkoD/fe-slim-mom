@@ -16,8 +16,10 @@ const LoginForm = () => {
     const dispatch = useDispatch();
     const loading = useSelector(isLoading);
     const login = useCallback(
-        (values, {resetForm}) => {
-            dispatch(authOperations.getLogin(values));
+        (values, { resetForm }) => {
+            const { login, password, } = values;
+            const normalizedLogin = login.toLowerCase()
+            dispatch(authOperations.getLogin({ login:normalizedLogin, password}));
             resetForm()
     },
     [dispatch],

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import actions from './authActions';
 import unauthorizedTemplate from './unauthorizedTemplate';
+import NotificationError from '../../components/Pnotify/Pnotify';
 
 const {
   registerRequest,
@@ -35,7 +36,12 @@ const getLogin = user => dispatch => {
       dispatch(logInSuccess(data));
       token.set(data.token);
     })
-    .catch(error => dispatch(logInError(error.message)));
+    .catch(error => {
+      if (error.response?.status === 403) {
+        NotificationError('Неверный логин или пароль');
+      }
+      dispatch(logInError(error.message));
+    });
 };
 
 const getRegister = user => dispatch => {
@@ -49,7 +55,12 @@ const getRegister = user => dispatch => {
 
       dispatch(getLogin({ login, password }));
     })
-    .catch(error => dispatch(registerError(error.message)));
+    .catch(error => {
+      if (error.response?.status === 409) {
+        NotificationError('Пользователь с таким логином уже зарегистрирован');
+      }
+      dispatch(registerError(error.message));
+    });
 };
 
 const getCurrentUser = persistedToken => dispatch => {

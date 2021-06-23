@@ -9,13 +9,10 @@ import mainRoutes from '../../routes/mainroutes';
 import PublicRoute from '../../routes/PublicRoute';
 import PrivateRoute from '../../routes/PrivateRoute';
 import Spinner from '../Spinner/Spinner';
-import NotificationError from '../Pnotify/Pnotify';
 
 const App = () => {
   const currentToken = useSelector(authSelectors.token);
   const dispatch = useDispatch();
-
-  NotificationError('test');
 
   useEffect(() => {
     if (currentToken) {

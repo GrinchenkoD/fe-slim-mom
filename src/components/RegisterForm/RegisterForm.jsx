@@ -17,7 +17,10 @@ const RegisterForm = () => {
     const loading = useSelector(isLoading);
       const register = useCallback(
           values => {
-      dispatch(authOperations.getRegister(values));
+              const { login, password, name } = values;
+            const normalizedLogin = login.toLowerCase()
+
+      dispatch(authOperations.getRegister({login:normalizedLogin, password, name}));
     },
     [dispatch],
   );
