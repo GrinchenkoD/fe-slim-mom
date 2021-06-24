@@ -45,8 +45,6 @@ const Modal = ({ children, ...props }) => {
 
   return createPortal(
     <div className={styles.overlay} onClick={handleBackDrop}>
-      <Container>
-
       <div className={styles.modal}>
         <button
           type="button"
@@ -55,7 +53,6 @@ const Modal = ({ children, ...props }) => {
           ></button>
         {children}
       </div>
-          </Container>
     </div>,
     document.getElementById('modal-root'),
   );

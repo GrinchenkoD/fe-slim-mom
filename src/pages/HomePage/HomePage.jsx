@@ -41,7 +41,6 @@ const HomePage = () => {
 
   const onSubmit = (values, { resetForm }) => {
     dispatch(productsOperations.dailyRatePublic(values)).then(data => {
-      console.log(data);
       setDailyCalories(data?.dailyCalories);
       setForbidenCategories(data?.forbidenCategories);
     });
